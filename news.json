@@ -1,7 +1,7 @@
 {
   "date": "2026-07-08",
-  "generated": "2026-07-08T11:56:08.396983+00:00",
-  "summary": "中国信访新规、台风洪水、立陶宛外交、美国空袭伊朗等",
+  "generated": "2026-07-08T17:22:45.145071+00:00",
+  "summary": "美伊交火停火告急，中国台风引发灾害",
   "total": 15,
   "items": [
     {
@@ -13,11 +13,27 @@
       "is_recent": true
     },
     {
+      "title": "美伊徹夜交火 特朗普稱停火協議「完了」",
+      "url": "https://www.bbc.com/zhongwen/articles/cvg5xypkl80o/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
+      "category": "国际",
+      "summary": "美伊交火，特朗普称停火协议破裂",
+      "is_recent": true
+    },
+    {
+      "title": "「洪水來得太快了」：颱風在中國引發水災及罕見龍捲風",
+      "url": "https://www.bbc.com/zhongwen/articles/ckg732x8l8yo/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
+      "category": "社会",
+      "summary": "台风致中国多地洪灾及龙卷风",
+      "is_recent": true
+    },
+    {
       "title": "德國華人性侵案：Telegram「老司機」群組上的跨國犯罪網絡",
       "url": "https://www.bbc.com/zhongwen/articles/cwyd8y1gy60o/trad?at_medium=RSS&at_campaign=rss",
       "source": "BBC中文",
       "category": "国际",
-      "summary": "德国华人Telegram群组涉性侵案",
+      "summary": "德国华人性侵案涉及Telegram群组",
       "is_recent": true
     },
     {
@@ -29,19 +45,35 @@
       "is_recent": true
     },
     {
-      "title": "「洪水來得太快了」：颱風在中國引發水災及罕見龍捲風",
-      "url": "https://www.bbc.com/zhongwen/articles/ckg732x8l8yo/trad?at_medium=RSS&at_campaign=rss",
-      "source": "BBC中文",
-      "category": "社会",
-      "summary": "台风致中国洪水及罕见龙卷风",
+      "title": "柏林地方法院判处德国华人性侵案成员5年监禁",
+      "url": "https://www.dw.com/zh/柏林地方法院判处德国华人性侵案成员5年监禁/a-77879721?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
+      "category": "国际",
+      "summary": "德国法院判处华人性侵案成员5年",
       "is_recent": true
     },
     {
-      "title": "未開始先被抵制的補選：英國改革黨法拉奇的豪賭",
-      "url": "https://www.bbc.com/zhongwen/articles/cql1xpd3lnyo/trad?at_medium=RSS&at_campaign=rss",
-      "source": "BBC中文",
+      "title": "德语媒体：欧盟需要一个西藏问题特使",
+      "url": "https://www.dw.com/zh/德语媒体：欧盟需要一个西藏问题特使/a-77879520?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
       "category": "国际",
-      "summary": "英国改革党补选遭抵制",
+      "summary": "德媒建议欧盟设西藏问题特使",
+      "is_recent": true
+    },
+    {
+      "title": "研究：美国若对中国造船舶征收港口费 德国可能受益",
+      "url": "https://www.dw.com/zh/研究：美国若对中国造船舶征收港口费-德国可能受益/a-77878816?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
+      "category": "财经",
+      "summary": "研究称美征中国船舶费或利好德国",
+      "is_recent": true
+    },
+    {
+      "title": "曼哈顿危楼：倒塌风险源于扩建引发的结构问题",
+      "url": "https://www.dw.com/zh/曼哈顿危楼：倒塌风险源于扩建引发的结构问题/a-77876629?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
+      "category": "国际",
+      "summary": "曼哈顿危楼因扩建存倒塌风险",
       "is_recent": true
     },
     {
@@ -53,75 +85,43 @@
       "is_recent": true
     },
     {
-      "title": "美國空襲伊朗、撤售油許可 川普：諒解備忘錄「已終結」",
-      "url": "https://www.dw.com/zh/美國空襲伊朗、撤售油許可-川普：諒解備忘錄「已終結」/a-77869987?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
-      "category": "国际",
-      "summary": "美国空袭伊朗并撤销售油许可",
+      "title": "‘The Pitt’, leads Emmy nominations, with ‘Hacks’ not far behind",
+      "url": "https://www.scmp.com/news/world/united-states-canada/article/3359896/pitt-leads-emmy-nominations-hacks-not-far-behind?utm_source=rss_feed",
+      "source": "SCMP",
+      "category": "娱乐",
+      "summary": "《The Pitt》领跑艾美奖提名",
       "is_recent": true
     },
     {
-      "title": "更多债务：联邦内阁制定2027财政预算",
-      "url": "https://www.dw.com/zh/更多债务：联邦内阁制定2027财政预算/a-77866675?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
-      "category": "财经",
-      "summary": "德国联邦内阁制定2027年预算",
-      "is_recent": true
-    },
-    {
-      "title": "德语媒体：中国的竞争优势来自国家补贴？",
-      "url": "https://www.dw.com/zh/德语媒体：中国的竞争优势来自国家补贴？/a-77866446?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
-      "category": "财经",
-      "summary": "德媒质疑中国竞争优势源于补贴",
-      "is_recent": true
-    },
-    {
-      "title": "“七七卢沟桥事变”纪念日 日中两国公务船在主权争议岛屿附近发生对峙",
-      "url": "https://www.dw.com/zh/七七卢沟桥事变-纪念日-日中两国公务船在主权争议岛屿附近发生对峙/a-77865539?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
-      "category": "国际",
-      "summary": "七七纪念日中日公务船对峙",
-      "is_recent": true
-    },
-    {
-      "title": "Changes underway in Singapore’s smaller opposition parties as leaders quit",
-      "url": "https://www.scmp.com/week-asia/politics/article/3359874/changes-underway-singapores-smaller-opposition-parties-leaders-quit?utm_source=rss_feed",
+      "title": "Spain plays down Trump’s trade embargo threat, saying there is ‘no tension’",
+      "url": "https://www.scmp.com/economy/global-economy/article/3359895/spain-plays-down-trumps-trade-embargo-threat-saying-there-no-tension?utm_source=rss_feed",
       "source": "SCMP",
       "category": "国际",
-      "summary": "新加坡小反对党领导人辞职",
+      "summary": "西班牙淡化特朗普贸易禁运威胁",
       "is_recent": true
     },
     {
-      "title": "Norway police says 28 arrested in international child porn operation",
-      "url": "https://www.scmp.com/news/world/europe/article/3359871/norway-police-says-28-arrested-international-child-porn-operation?utm_source=rss_feed",
-      "source": "SCMP",
-      "category": "国际",
-      "summary": "挪威警方逮捕28名儿童色情嫌犯",
-      "is_recent": true
-    },
-    {
-      "title": "Clips of flooded Hong Kong rivers, streets go viral online after heavy rain",
-      "url": "https://www.scmp.com/news/hong-kong/society/article/3359867/clips-flooded-hong-kong-rivers-streets-go-viral-online-after-heavy-rain?utm_source=rss_feed",
+      "title": "Hong Kong rail operator taps star power to promote safer escalator use",
+      "url": "https://www.scmp.com/news/article/3359892/hong-kong-rail-operator-taps-star-power-promote-safer-escalator-use?utm_source=rss_feed",
       "source": "SCMP",
       "category": "社会",
-      "summary": "香港暴雨致河流街道泛滥视频热传",
+      "summary": "港铁邀明星宣传安全乘扶梯",
       "is_recent": true
     },
     {
-      "title": "Tourist arrivals in Hong Kong jump by 13% to 26.7 million in first half of year",
-      "url": "https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3359866/tourist-arrivals-hong-kong-jump-13-267-million-first-half-year?utm_source=rss_feed",
+      "title": "Search for crew goes on as plane wreckage found off Pakistan’s coast",
+      "url": "https://www.scmp.com/news/asia/south-asia/article/3359891/search-crew-goes-plane-wreckage-found-pakistans-coast?utm_source=rss_feed",
       "source": "SCMP",
-      "category": "财经",
-      "summary": "香港上半年游客增13%达2670万",
+      "category": "国际",
+      "summary": "巴基斯坦海岸发现飞机残骸搜救中",
       "is_recent": true
     },
     {
-      "title": "Hong Kong records surge in disciplinary cases among intern and resident doctors",
-      "url": "https://www.scmp.com/news/hong-kong/health-environment/article/3359865/hong-kong-records-surge-disciplinary-cases-among-intern-and-resident-doctors?utm_source=rss_feed",
+      "title": "China’s Xi Jinping calls for innovation system overhaul to beat global tech rivals",
+      "url": "https://www.scmp.com/news/china/politics/article/3359886/chinas-xi-jinping-calls-innovation-system-overhaul-beat-global-tech-rivals?utm_source=rss_feed",
       "source": "SCMP",
-      "category": "社会",
-      "summary": "香港实习医生纪律案件激增",
+      "category": "科技",
+      "summary": "习近平呼吁改革创新体系以赢科技竞争",
       "is_recent": true
     }
   ]
