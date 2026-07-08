@@ -1,0 +1,13 @@
+{
+  "rss": [
+    { "name": "BBC News", "url": "https://feeds.bbci.co.uk/news/rss.xml", "lang": "en" },
+    { "name": "Reuters", "url": "https://www.reutersagency.com/feed/", "lang": "en" },
+    { "name": "CNN", "url": "http://rss.cnn.com/rss/edition.rss", "lang": "en" },
+    { "name": "The Guardian", "url": "https://www.theguardian.com/world/rss", "lang": "en" },
+    { "name": "新华网", "url": "http://www.xinhuanet.com/politics/xhll.xml", "lang": "zh" },
+    { "name": "环球时报", "url": "https://world.huanqiu.com/rss/headline.xml", "lang": "zh" },
+    { "name": "36氪", "url": "https://36kr.com/feed", "lang": "zh" },
+    { "name": "新浪新闻", "url": "https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid=2509&k=&num=10&page=1", "lang": "zh" }
+  ],
+  "web": []
+}
