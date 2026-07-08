@@ -1,127 +1,127 @@
 {
   "date": "2026-07-08",
-  "generated": "2026-07-08T11:52:00.456283+00:00",
-  "summary": "AI、国际局势、财经动态成今日焦点",
+  "generated": "2026-07-08T11:56:08.396983+00:00",
+  "summary": "中国信访新规、台风洪水、立陶宛外交、美国空袭伊朗等",
   "total": 15,
   "items": [
     {
-      "title": "eVTOL 走向商业化，难点不只在“飞起来”",
-      "url": "https://36kr.com/p/3886750049808389?f=rss",
-      "source": "36氪",
-      "category": "科技",
-      "summary": "eVTOL商业化面临多重挑战",
-      "is_recent": true
-    },
-    {
-      "title": "从跨境电商到AI大模型：一个旅欧10年90后女生的两次出海",
-      "url": "https://36kr.com/p/3886574096265481?f=rss",
-      "source": "36氪",
-      "category": "科技",
-      "summary": "90后女生两次出海创业经历",
-      "is_recent": true
-    },
-    {
-      "title": "地产AI进入落地战，深度智联又甩出一张牌",
-      "url": "https://36kr.com/p/3886709249241349?f=rss",
-      "source": "36氪",
-      "category": "科技",
-      "summary": "地产AI落地竞争加剧",
-      "is_recent": true
-    },
-    {
-      "title": "氪星晚报｜德国：人工智能推动德国初创企业创纪录增长；雷军回应SkyNomad上市时间；SpaceX AI将于明日向公众开放Grok4.5",
-      "url": "https://36kr.com/p/3886678879727880?f=rss",
-      "source": "36氪",
-      "category": "科技",
-      "summary": "AI推动德国初创企业创纪录增长",
-      "is_recent": true
-    },
-    {
-      "title": "AI 视频全面成熟：Seedance 2.0 领衔，6 款主流工具深度横评",
-      "url": "https://36kr.com/p/3886403765596418?f=rss",
-      "source": "36氪",
-      "category": "科技",
-      "summary": "AI视频工具全面成熟横评",
-      "is_recent": true
-    },
-    {
-      "title": "平安银行杭州分行被罚380.53万元：违反清算管理规定等",
-      "url": "https://finance.sina.com.cn/jryx/fd/2026-07-08/doc-inihaxzy4862204.shtml",
-      "source": "新浪新闻",
-      "category": "财经",
-      "summary": "平安银行杭州分行被罚380万",
-      "is_recent": true
-    },
-    {
-      "title": "OpenAI将于周四公开发布GPT-5.6系列大模型",
-      "url": "https://finance.sina.com.cn/stock/usstock/c/2026-07-08/doc-inihaxzt1539271.shtml",
-      "source": "新浪新闻",
-      "category": "科技",
-      "summary": "OpenAI将发布GPT-5.6大模型",
-      "is_recent": true
-    },
-    {
-      "title": "美伊局势恶化引发全球资本市场剧烈波动 美股期货全线下跌",
-      "url": "https://finance.sina.com.cn/stock/usstock/c/2026-07-08/doc-inihaxzw8083332.shtml",
-      "source": "新浪新闻",
-      "category": "财经",
-      "summary": "美伊局势恶化致美股期货下跌",
-      "is_recent": true
-    },
-    {
-      "title": "买笔记本电脑前瞄一眼怎么避开那些消费陷阱",
-      "url": "https://finance.sina.com.cn/consume/xiaofei/2026-07-08/doc-inihapna8105430.shtml",
-      "source": "新浪新闻",
+      "title": "中國實施信訪新規：有學者指「最終目的是減少進北京上訪者」",
+      "url": "https://www.bbc.com/zhongwen/articles/cly85p711zno/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
       "category": "社会",
-      "summary": "买笔记本电脑避坑指南",
+      "summary": "中国信访新规旨在减少进京上访",
       "is_recent": true
     },
     {
-      "title": "宁波银行：将于7月16日实施2025年年度权益分派",
-      "url": "https://finance.sina.com.cn/jryx/bank/2026-07-08/doc-inihaxzu8307642.shtml",
-      "source": "新浪新闻",
+      "title": "德國華人性侵案：Telegram「老司機」群組上的跨國犯罪網絡",
+      "url": "https://www.bbc.com/zhongwen/articles/cwyd8y1gy60o/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
+      "category": "国际",
+      "summary": "德国华人Telegram群组涉性侵案",
+      "is_recent": true
+    },
+    {
+      "title": "性侵案受害者：我要讓他們為這些事情感到羞恥",
+      "url": "https://www.bbc.com/zhongwen/articles/c5yz21e5jy5o/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
+      "category": "社会",
+      "summary": "性侵受害者发声要求施害者羞耻",
+      "is_recent": true
+    },
+    {
+      "title": "「洪水來得太快了」：颱風在中國引發水災及罕見龍捲風",
+      "url": "https://www.bbc.com/zhongwen/articles/ckg732x8l8yo/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
+      "category": "社会",
+      "summary": "台风致中国洪水及罕见龙卷风",
+      "is_recent": true
+    },
+    {
+      "title": "未開始先被抵制的補選：英國改革黨法拉奇的豪賭",
+      "url": "https://www.bbc.com/zhongwen/articles/cql1xpd3lnyo/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
+      "category": "国际",
+      "summary": "英国改革党补选遭抵制",
+      "is_recent": true
+    },
+    {
+      "title": "立陶宛新任总理：将与中国外交关系正常化",
+      "url": "https://www.dw.com/zh/立陶宛新任总理：将与中国外交关系正常化/a-77875933?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
+      "category": "国际",
+      "summary": "立陶宛新总理寻求对华关系正常化",
+      "is_recent": true
+    },
+    {
+      "title": "美國空襲伊朗、撤售油許可 川普：諒解備忘錄「已終結」",
+      "url": "https://www.dw.com/zh/美國空襲伊朗、撤售油許可-川普：諒解備忘錄「已終結」/a-77869987?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
+      "category": "国际",
+      "summary": "美国空袭伊朗并撤销售油许可",
+      "is_recent": true
+    },
+    {
+      "title": "更多债务：联邦内阁制定2027财政预算",
+      "url": "https://www.dw.com/zh/更多债务：联邦内阁制定2027财政预算/a-77866675?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
       "category": "财经",
-      "summary": "宁波银行7月16日权益分派",
+      "summary": "德国联邦内阁制定2027年预算",
       "is_recent": true
     },
     {
-      "title": "Farage's rivals rule out standing in Clacton by-election",
-      "url": "https://www.bbc.co.uk/news/articles/cjdg4y3g0z7o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
+      "title": "德语媒体：中国的竞争优势来自国家补贴？",
+      "url": "https://www.dw.com/zh/德语媒体：中国的竞争优势来自国家补贴？/a-77866446?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
+      "category": "财经",
+      "summary": "德媒质疑中国竞争优势源于补贴",
+      "is_recent": true
+    },
+    {
+      "title": "“七七卢沟桥事变”纪念日 日中两国公务船在主权争议岛屿附近发生对峙",
+      "url": "https://www.dw.com/zh/七七卢沟桥事变-纪念日-日中两国公务船在主权争议岛屿附近发生对峙/a-77865539?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
       "category": "国际",
-      "summary": "法拉奇对手退出补选",
+      "summary": "七七纪念日中日公务船对峙",
       "is_recent": true
     },
     {
-      "title": "Amber heat health alerts in effect as UK set for one of longest-lasting heatwaves since 1976",
-      "url": "https://www.bbc.co.uk/weather/articles/cwy0jpez1nqo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
+      "title": "Changes underway in Singapore’s smaller opposition parties as leaders quit",
+      "url": "https://www.scmp.com/week-asia/politics/article/3359874/changes-underway-singapores-smaller-opposition-parties-leaders-quit?utm_source=rss_feed",
+      "source": "SCMP",
       "category": "国际",
-      "summary": "英国发布高温健康警报",
+      "summary": "新加坡小反对党领导人辞职",
       "is_recent": true
     },
     {
-      "title": "Virgin Media fined after hanging up on customers trying to cancel contracts",
-      "url": "https://www.bbc.co.uk/news/articles/c982vm2jzl1o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
+      "title": "Norway police says 28 arrested in international child porn operation",
+      "url": "https://www.scmp.com/news/world/europe/article/3359871/norway-police-says-28-arrested-international-child-porn-operation?utm_source=rss_feed",
+      "source": "SCMP",
       "category": "国际",
-      "summary": "Virgin Media因挂断客户电话被罚",
+      "summary": "挪威警方逮捕28名儿童色情嫌犯",
       "is_recent": true
     },
     {
-      "title": "Multiple cakes and stolen keepsakes: Greg James spills the tea on Taylor Swift's wedding",
-      "url": "https://www.bbc.co.uk/news/articles/cx2kd1de8l5o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
-      "category": "娱乐",
-      "summary": "泰勒·斯威夫特婚礼细节曝光",
+      "title": "Clips of flooded Hong Kong rivers, streets go viral online after heavy rain",
+      "url": "https://www.scmp.com/news/hong-kong/society/article/3359867/clips-flooded-hong-kong-rivers-streets-go-viral-online-after-heavy-rain?utm_source=rss_feed",
+      "source": "SCMP",
+      "category": "社会",
+      "summary": "香港暴雨致河流街道泛滥视频热传",
       "is_recent": true
     },
     {
-      "title": "The tactics British wildcard Fery needs to use to become Wimbledon semi-finalist",
-      "url": "https://www.bbc.co.uk/sport/tennis/articles/c20y4x4y714o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
-      "category": "体育",
-      "summary": "英国外卡选手温网晋级策略",
+      "title": "Tourist arrivals in Hong Kong jump by 13% to 26.7 million in first half of year",
+      "url": "https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3359866/tourist-arrivals-hong-kong-jump-13-267-million-first-half-year?utm_source=rss_feed",
+      "source": "SCMP",
+      "category": "财经",
+      "summary": "香港上半年游客增13%达2670万",
+      "is_recent": true
+    },
+    {
+      "title": "Hong Kong records surge in disciplinary cases among intern and resident doctors",
+      "url": "https://www.scmp.com/news/hong-kong/health-environment/article/3359865/hong-kong-records-surge-disciplinary-cases-among-intern-and-resident-doctors?utm_source=rss_feed",
+      "source": "SCMP",
+      "category": "社会",
+      "summary": "香港实习医生纪律案件激增",
       "is_recent": true
     }
   ]
