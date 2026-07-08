@@ -1,14 +1,94 @@
 {
   "date": "2026-07-08",
-  "generated": "2026-07-08T09:41:49.760951+00:00",
-  "summary": "英国热浪警报、北约导弹项目、巴基斯坦客机失联等",
+  "generated": "2026-07-08T11:52:00.456283+00:00",
+  "summary": "AI、国际局势、财经动态成今日焦点",
   "total": 15,
   "items": [
+    {
+      "title": "eVTOL 走向商业化，难点不只在“飞起来”",
+      "url": "https://36kr.com/p/3886750049808389?f=rss",
+      "source": "36氪",
+      "category": "科技",
+      "summary": "eVTOL商业化面临多重挑战",
+      "is_recent": true
+    },
+    {
+      "title": "从跨境电商到AI大模型：一个旅欧10年90后女生的两次出海",
+      "url": "https://36kr.com/p/3886574096265481?f=rss",
+      "source": "36氪",
+      "category": "科技",
+      "summary": "90后女生两次出海创业经历",
+      "is_recent": true
+    },
+    {
+      "title": "地产AI进入落地战，深度智联又甩出一张牌",
+      "url": "https://36kr.com/p/3886709249241349?f=rss",
+      "source": "36氪",
+      "category": "科技",
+      "summary": "地产AI落地竞争加剧",
+      "is_recent": true
+    },
+    {
+      "title": "氪星晚报｜德国：人工智能推动德国初创企业创纪录增长；雷军回应SkyNomad上市时间；SpaceX AI将于明日向公众开放Grok4.5",
+      "url": "https://36kr.com/p/3886678879727880?f=rss",
+      "source": "36氪",
+      "category": "科技",
+      "summary": "AI推动德国初创企业创纪录增长",
+      "is_recent": true
+    },
+    {
+      "title": "AI 视频全面成熟：Seedance 2.0 领衔，6 款主流工具深度横评",
+      "url": "https://36kr.com/p/3886403765596418?f=rss",
+      "source": "36氪",
+      "category": "科技",
+      "summary": "AI视频工具全面成熟横评",
+      "is_recent": true
+    },
+    {
+      "title": "平安银行杭州分行被罚380.53万元：违反清算管理规定等",
+      "url": "https://finance.sina.com.cn/jryx/fd/2026-07-08/doc-inihaxzy4862204.shtml",
+      "source": "新浪新闻",
+      "category": "财经",
+      "summary": "平安银行杭州分行被罚380万",
+      "is_recent": true
+    },
+    {
+      "title": "OpenAI将于周四公开发布GPT-5.6系列大模型",
+      "url": "https://finance.sina.com.cn/stock/usstock/c/2026-07-08/doc-inihaxzt1539271.shtml",
+      "source": "新浪新闻",
+      "category": "科技",
+      "summary": "OpenAI将发布GPT-5.6大模型",
+      "is_recent": true
+    },
+    {
+      "title": "美伊局势恶化引发全球资本市场剧烈波动 美股期货全线下跌",
+      "url": "https://finance.sina.com.cn/stock/usstock/c/2026-07-08/doc-inihaxzw8083332.shtml",
+      "source": "新浪新闻",
+      "category": "财经",
+      "summary": "美伊局势恶化致美股期货下跌",
+      "is_recent": true
+    },
+    {
+      "title": "买笔记本电脑前瞄一眼怎么避开那些消费陷阱",
+      "url": "https://finance.sina.com.cn/consume/xiaofei/2026-07-08/doc-inihapna8105430.shtml",
+      "source": "新浪新闻",
+      "category": "社会",
+      "summary": "买笔记本电脑避坑指南",
+      "is_recent": true
+    },
+    {
+      "title": "宁波银行：将于7月16日实施2025年年度权益分派",
+      "url": "https://finance.sina.com.cn/jryx/bank/2026-07-08/doc-inihaxzu8307642.shtml",
+      "source": "新浪新闻",
+      "category": "财经",
+      "summary": "宁波银行7月16日权益分派",
+      "is_recent": true
+    },
     {
       "title": "Farage's rivals rule out standing in Clacton by-election",
       "url": "https://www.bbc.co.uk/news/articles/cjdg4y3g0z7o?at_medium=RSS&at_campaign=rss",
       "source": "BBC News",
-      "category": "政治",
+      "category": "国际",
       "summary": "法拉奇对手退出补选",
       "is_recent": true
     },
@@ -16,112 +96,32 @@
       "title": "Amber heat health alerts in effect as UK set for one of longest-lasting heatwaves since 1976",
       "url": "https://www.bbc.co.uk/weather/articles/cwy0jpez1nqo?at_medium=RSS&at_campaign=rss",
       "source": "BBC News",
-      "category": "社会",
-      "summary": "英国发布琥珀色高温健康警报",
+      "category": "国际",
+      "summary": "英国发布高温健康警报",
       "is_recent": true
     },
     {
       "title": "Virgin Media fined after hanging up on customers trying to cancel contracts",
       "url": "https://www.bbc.co.uk/news/articles/c982vm2jzl1o?at_medium=RSS&at_campaign=rss",
       "source": "BBC News",
-      "category": "财经",
+      "category": "国际",
       "summary": "Virgin Media因挂断客户电话被罚",
       "is_recent": true
     },
     {
-      "title": "Tom Holland on how getting Odyssey role was 'a real pinch-me moment'",
-      "url": "https://www.bbc.co.uk/news/articles/c0ky1gxgxjro?at_medium=RSS&at_campaign=rss",
+      "title": "Multiple cakes and stolen keepsakes: Greg James spills the tea on Taylor Swift's wedding",
+      "url": "https://www.bbc.co.uk/news/articles/cx2kd1de8l5o?at_medium=RSS&at_campaign=rss",
       "source": "BBC News",
       "category": "娱乐",
-      "summary": "汤姆·霍兰德谈获《奥德赛》角色",
+      "summary": "泰勒·斯威夫特婚礼细节曝光",
       "is_recent": true
     },
     {
-      "title": "Has Harry's war with the press finally run out of road?",
-      "url": "https://www.bbc.co.uk/news/articles/clyrq1kr6q5o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
-      "category": "娱乐",
-      "summary": "哈里王子与媒体战争是否终结",
-      "is_recent": true
-    },
-    {
-      "title": "The housing revolution that may create new problems",
-      "url": "https://www.bbc.co.uk/news/articles/cp8llpp67l1o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
-      "category": "社会",
-      "summary": "住房革命可能带来新问题",
-      "is_recent": true
-    },
-    {
-      "title": "International manhunt after mother and two children found dead at home",
-      "url": "https://www.bbc.co.uk/news/articles/c8e2njxnn7jo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
-      "category": "国际",
-      "summary": "母亲与两孩家中遇害引发国际追捕",
-      "is_recent": true
-    },
-    {
-      "title": "Nato allies announce £37bn for new missile project",
-      "url": "https://www.bbc.co.uk/news/articles/ckg4e3lwzqzo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
-      "category": "国际",
-      "summary": "北约宣布370亿英镑新导弹项目",
-      "is_recent": true
-    },
-    {
-      "title": "Extreme marine heatwave expected for parts of UK with risk to sea life, Met Office warns",
-      "url": "https://www.bbc.co.uk/news/articles/ckg888vpz4do?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
-      "category": "社会",
-      "summary": "英国部分海域极端热浪威胁海洋生物",
-      "is_recent": true
-    },
-    {
-      "title": "'It is not normal' - but extraordinary Djokovic defies odds once again",
-      "url": "https://www.bbc.co.uk/sport/tennis/articles/cy8wev0p0wno?at_medium=RSS&at_campaign=rss",
+      "title": "The tactics British wildcard Fery needs to use to become Wimbledon semi-finalist",
+      "url": "https://www.bbc.co.uk/sport/tennis/articles/c20y4x4y714o?at_medium=RSS&at_campaign=rss",
       "source": "BBC News",
       "category": "体育",
-      "summary": "德约科维奇再次逆势获胜",
-      "is_recent": true
-    },
-    {
-      "title": "More protein or less? The foods to get you through a heatwave",
-      "url": "https://www.bbc.co.uk/news/articles/clyw89g3443o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
-      "category": "社会",
-      "summary": "热浪期间饮食建议：蛋白质多或少",
-      "is_recent": true
-    },
-    {
-      "title": "Your tips from the last heatwave on how to cope in extreme temperatures",
-      "url": "https://www.bbc.co.uk/news/articles/cze9w9xnprno?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
-      "category": "社会",
-      "summary": "上次热浪应对技巧分享",
-      "is_recent": true
-    },
-    {
-      "title": "From mouthwash to hair dye: How weight-loss jabs are changing shopping habits",
-      "url": "https://www.bbc.co.uk/news/articles/cy49w2knlrdo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
-      "category": "财经",
-      "summary": "减肥针改变购物习惯",
-      "is_recent": true
-    },
-    {
-      "title": "Will Le Pen rise again? French nationalist leader defiant after court's ruling",
-      "url": "https://www.bbc.co.uk/news/articles/cvgdlprp1r3o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
-      "category": "国际",
-      "summary": "勒庞在法院裁决后仍不服",
-      "is_recent": true
-    },
-    {
-      "title": "Fears of a massacre in this city on the front line of Sudan's war",
-      "url": "https://www.bbc.co.uk/news/articles/c20yyjdzw7po?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
-      "category": "国际",
-      "summary": "苏丹前线城市面临屠杀恐惧",
+      "summary": "英国外卡选手温网晋级策略",
       "is_recent": true
     }
   ]
