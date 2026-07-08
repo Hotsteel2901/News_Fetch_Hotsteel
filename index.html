@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日新闻速览</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --color-primary: #DC2626;
+  --color-bg: #FEF2F2;
+  --color-fg: #450A0A;
+  --color-card: #FFFFFF;
+  --color-border: #FECACA;
+  --color-muted: #991B1B;
+  --font-heading: 'Newsreader', Georgia, serif;
+  --font-body: 'Roboto', -apple-system, sans-serif;
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-fg);
+  line-height: 1.6;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+/* Header */
+.header { text-align: center; padding: 3rem 0 2rem; }
+
+.header-date {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+  line-height: 1.15;
+}
+
+.header-weekday {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--color-muted);
+  opacity: 0.7;
+  margin-top: 0.25rem;
+}
+
+/* Summary */
+.summary-box {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  font-size: 1rem;
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
+/* News List */
+.news-list { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.news-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  transition: background 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+  cursor: pointer;
+}
+
+.news-card:hover {
+  background: #FFF5F5;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 12px rgba(220, 38, 38, 0.08);
+}
+
+.news-card:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.news-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.news-card-source {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+  background: var(--color-bg);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+.news-card-category {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  opacity: 0.6;
+}
+
+.news-card-title {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.45;
+  margin-bottom: 0.35rem;
+}
+
+.news-card-summary {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  opacity: 0.75;
+  line-height: 1.5;
+}
+
+/* States */
+.skeleton { animation: pulse 1.5s ease-in-out infinite; }
+.skeleton .news-card { pointer-events: none; }
+.skeleton .news-card-title,
+.skeleton .news-card-summary,
+.skeleton .news-card-source { background: #FEE2E2; border-radius: 4px; color: transparent; }
+.skeleton .news-card-title { height: 1.1rem; width: 80%; }
+.skeleton .news-card-summary { height: 0.85rem; width: 95%; margin-top: 0.4rem; }
+.skeleton .news-card-source { height: 0.7rem; width: 60px; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.state-message {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--color-muted);
+  opacity: 0.7;
+  font-size: 1rem;
+}
+
+.state-message a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  opacity: 0.5;
+}
+
+/* Fade in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.news-card { animation: fadeIn 0.4s ease both; }
+.news-card:nth-child(1) { animation-delay: 0.05s; }
+.news-card:nth-child(2) { animation-delay: 0.1s; }
+.news-card:nth-child(3) { animation-delay: 0.15s; }
+.news-card:nth-child(4) { animation-delay: 0.2s; }
+.news-card:nth-child(5) { animation-delay: 0.25s; }
+.news-card:nth-child(6) { animation-delay: 0.3s; }
+.news-card:nth-child(7) { animation-delay: 0.35s; }
+.news-card:nth-child(8) { animation-delay: 0.4s; }
+.news-card:nth-child(9) { animation-delay: 0.45s; }
+.news-card:nth-child(10) { animation-delay: 0.5s; }
+.news-card:nth-child(11) { animation-delay: 0.55s; }
+.news-card:nth-child(12) { animation-delay: 0.6s; }
+.news-card:nth-child(13) { animation-delay: 0.65s; }
+.news-card:nth-child(14) { animation-delay: 0.7s; }
+.news-card:nth-child(15) { animation-delay: 0.75s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .news-card { animation: none; }
+  .skeleton .news-card { animation: none; opacity: 0.8; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 1rem 0.75rem 3rem; }
+  .header { padding: 2rem 0 1.25rem; }
+  .news-card { padding: 1rem 1.15rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="header" id="header"></header>
+  <div class="summary-box" id="summary"></div>
+  <div class="news-list" id="news-list"></div>
+  <footer class="footer">自动生成 &middot; 每日 UTC+8 零点更新 &middot; Powered by DeepSeek</footer>
+</div>
+
+<script>
+const EL = {
+  header: document.getElementById('header'),
+  summary: document.getElementById('summary'),
+  list: document.getElementById('news-list'),
+};
+
+const WEEKDAYS = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+
+function fmtDate(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00');
+  if (isNaN(d.getTime())) return dateStr;
+  const y = d.getFullYear();
+  const m = d.getMonth() + 1;
+  const day = d.getDate();
+  const wd = WEEKDAYS[d.getDay()];
+  return `${y}年${m}月${day}日 ${wd}`;
+}
+
+function renderSkeleton() {
+  EL.summary.innerHTML = '<div class="state-message" style="height:2rem;background:#FEE2E2;border-radius:8px;opacity:0.3"></div>';
+  let html = '';
+  for (let i = 0; i < 6; i++) {
+    html += `<div class="news-card"><div class="news-card-source" style="background:#FEE2E2;color:transparent;width:60px">&nbsp;</div><div class="news-card-title" style="background:#FEE2E2;color:transparent;width:80%">&nbsp;</div><div class="news-card-summary" style="background:#FEE2E2;color:transparent;width:95%;margin-top:0.4rem">&nbsp;</div></div>`;
+  }
+  EL.list.innerHTML = html;
+  EL.list.classList.add('skeleton');
+}
+
+function render(data) {
+  EL.list.classList.remove('skeleton');
+
+  const date = data.date || '';
+  EL.header.innerHTML = `<div class="header-date">${fmtDate(date)}</div>`;
+
+  let summary = data.summary || '';
+  if (data.total > 0) {
+    summary = summary || `今日精选 ${data.total} 条要闻`;
+  }
+  EL.summary.innerHTML = `<p>${escapeHtml(summary)}</p>`;
+
+  const items = data.items || [];
+  if (items.length === 0) {
+    EL.list.innerHTML = '<div class="state-message">今日暂无新闻更新，请稍后再来</div>';
+    return;
+  }
+
+  EL.list.innerHTML = items.map(item => `
+    <a class="news-card" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">
+      <div class="news-card-meta">
+        <span class="news-card-source">${escapeHtml(item.source)}</span>
+        <span class="news-card-category">${escapeHtml(item.category || '')}</span>
+      </div>
+      <div class="news-card-title">${escapeHtml(item.title)}</div>
+      <div class="news-card-summary">${escapeHtml(item.summary || '')}</div>
+    </a>
+  `).join('');
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+function showError(msg) {
+  EL.list.classList.remove('skeleton');
+  EL.summary.innerHTML = '';
+  EL.list.innerHTML = `<div class="state-message">${escapeHtml(msg)}<br><br><a href="javascript:location.reload()">点击重试</a></div>`;
+}
+
+async function load() {
+  renderSkeleton();
+  try {
+    const resp = await fetch('news.json');
+    if (!resp.ok) throw new Error(`加载失败 (${resp.status})`);
+    const data = await resp.json();
+    render(data);
+  } catch (e) {
+    showError('新闻加载失败，请检查网络后重试');
+    console.error(e);
+  }
+}
+
+load();
+</script>
+</body>
+</html>
