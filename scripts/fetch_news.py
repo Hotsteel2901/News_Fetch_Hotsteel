@@ -1,6 +1,6 @@
 import json
 import sys
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 import feedparser
@@ -11,6 +11,10 @@ TIMEOUT = 15
 MAX_ITEMS = 30
 PER_SOURCE_LIMIT = 5
 ZH_RATIO = 0.7
+
+
+def log(msg):
+    print(msg, file=sys.stderr)
 
 
 def load_sources():
@@ -32,42 +36,50 @@ def parse_rss(item, source_name, source_lang):
 
 
 def fetch_rss(source):
+    name = source["name"]
     items = []
     try:
         feed = feedparser.parse(source["url"])
-        for entry in feed.entries[:PER_SOURCE_LIMIT]:
-            item = parse_rss(entry, source["name"], source["lang"])
+        if feed.bozo and not feed.entries:
+            log(f"  [SKIP] {name}: {feed.bozo_exception}")
+            return items
+        count = 0
+        for entry in feed.entries:
+            if count >= PER_SOURCE_LIMIT:
+                break
+            item = parse_rss(entry, name, source["lang"])
             if item["title"] and item["url"]:
                 items.append(item)
-    except Exception:
-        pass
+                count += 1
+        log(f"  [OK] {name}: {count} items")
+    except Exception as e:
+        log(f"  [FAIL] {name}: {e}")
     return items
 
 
-def fetch_sina():
+def fetch_google_news():
     items = []
     try:
-        with httpx.Client(timeout=TIMEOUT) as client:
-            resp = client.get(
-                "https://feed.mix.sina.com.cn/api/roll/get",
-                params={"pageid": 153, "lid": 2509, "k": "", "num": PER_SOURCE_LIMIT, "page": 1},
-                headers={"User-Agent": "Mozilla/5.0 (compatible; NewsBot/1.0)"},
-            )
-            resp.raise_for_status()
-            data = resp.json()
-            for entry in data.get("result", {}).get("data", []):
-                title = entry.get("title", "").strip()
-                url = entry.get("url", "").strip()
-                if title and url:
-                    items.append({
-                        "title": title,
-                        "url": url,
-                        "source": "新浪新闻",
-                        "lang": "zh",
-                        "date_raw": entry.get("ctime"),
-                    })
-    except Exception:
-        pass
+        url = "https://news.google.com/rss/search?q=news&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
+        feed = feedparser.parse(url)
+        count = 0
+        for entry in feed.entries:
+            if count >= PER_SOURCE_LIMIT:
+                break
+            title = entry.get("title", "").strip()
+            link = entry.get("link", "").strip()
+            if title and link:
+                items.append({
+                    "title": title,
+                    "url": link,
+                    "source": "Google News",
+                    "lang": "zh",
+                    "date_raw": None,
+                })
+                count += 1
+        log(f"  [OK] Google News (zh): {count} items")
+    except Exception as e:
+        log(f"  [FAIL] Google News: {e}")
     return items
 
 
@@ -99,18 +111,28 @@ def main():
     sources = load_sources()
     all_items = []
 
+    log("Fetching RSS sources...")
     for src in sources.get("rss", []):
-        if src["name"] == "新浪新闻":
-            all_items += fetch_sina()
-        else:
-            all_items += fetch_rss(src)
+        all_items += fetch_rss(src)
+
+    log("Fetching Google News zh...")
+    all_items += fetch_google_news()
+
+    log(f"Total before dedup: {len(all_items)}")
 
     all_items = deduplicate(all_items)
+    log(f"After dedup: {len(all_items)}")
+
+    zh_before = sum(1 for i in all_items if i["lang"] == "zh")
+    en_before = sum(1 for i in all_items if i["lang"] == "en")
+    log(f"Before balance: zh={zh_before} en={en_before}")
+
     all_items = balance_language(all_items)
     all_items = all_items[:MAX_ITEMS]
 
     zh_count = sum(1 for i in all_items if i["lang"] == "zh")
     en_count = sum(1 for i in all_items if i["lang"] == "en")
+    log(f"Final: zh={zh_count} en={en_count} total={len(all_items)}")
 
     output = {
         "fetched_at": datetime.now(timezone.utc).isoformat(),

@@ -1,16 +1,10 @@
 {
   "rss": [
+    { "name": "BBC中文", "url": "https://feeds.bbci.co.uk/zhongwen/simp/rss.xml", "lang": "zh" },
+    { "name": "DW中文", "url": "https://rss.dw.com/rdf/rss-chi-all", "lang": "zh" },
+    { "name": "SCMP", "url": "https://www.scmp.com/rss/91/feed", "lang": "zh" },
     { "name": "BBC News", "url": "https://feeds.bbci.co.uk/news/rss.xml", "lang": "en" },
-    { "name": "CNN", "url": "http://rss.cnn.com/rss/edition.rss", "lang": "en" },
-    { "name": "新华网", "url": "http://www.xinhuanet.com/politics/xhll.xml", "lang": "zh" },
-    { "name": "人民网", "url": "http://www.people.com.cn/rss/politics.xml", "lang": "zh" },
-    { "name": "环球网", "url": "https://world.huanqiu.com/rss/headline.xml", "lang": "zh" },
-    { "name": "央视网", "url": "http://news.cctv.com/rss/01.xml", "lang": "zh" },
-    { "name": "网易新闻", "url": "http://news.163.com/special/00011K6L/rss_newstop.xml", "lang": "zh" },
-    { "name": "凤凰网", "url": "http://news.ifeng.com/rss/index.xml", "lang": "zh" },
-    { "name": "36氪", "url": "https://36kr.com/feed", "lang": "zh" },
-    { "name": "澎湃新闻", "url": "https://www.thepaper.cn/rss_www.xml", "lang": "zh" },
-    { "name": "新浪新闻", "url": "https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid=2509&k=&num=50&page=1", "lang": "zh" }
+    { "name": "CNN", "url": "http://rss.cnn.com/rss/edition.rss", "lang": "en" }
   ],
   "web": []
 }
