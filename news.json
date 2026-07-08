@@ -1,1 +1,128 @@
-{"date":"2026-07-08","generated":"2026-07-08T00:05:00+08:00","summary":"今日国际局势持续升温，科技行业迎来多项重大发布，经济数据超预期","total":3,"items":[{"title":"Global Markets Rally on Economic Data","url":"https://example.com/1","source":"BBC News","category":"财经","summary":"全球经济数据超预期，股市全面上涨"},{"title":"AI Breakthrough Announced at Tech Summit","url":"https://example.com/2","source":"Reuters","category":"科技","summary":"科技峰会发布新一代AI模型"},{"title":"联合国发布气候变化最新报告","url":"https://example.com/3","source":"新华网","category":"国际","summary":"报告指出全球减排进展不及预期"}]}
+{
+  "date": "2026-07-08",
+  "generated": "2026-07-08T09:41:49.760951+00:00",
+  "summary": "英国热浪警报、北约导弹项目、巴基斯坦客机失联等",
+  "total": 15,
+  "items": [
+    {
+      "title": "Farage's rivals rule out standing in Clacton by-election",
+      "url": "https://www.bbc.co.uk/news/articles/cjdg4y3g0z7o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "政治",
+      "summary": "法拉奇对手退出补选",
+      "is_recent": true
+    },
+    {
+      "title": "Amber heat health alerts in effect as UK set for one of longest-lasting heatwaves since 1976",
+      "url": "https://www.bbc.co.uk/weather/articles/cwy0jpez1nqo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "社会",
+      "summary": "英国发布琥珀色高温健康警报",
+      "is_recent": true
+    },
+    {
+      "title": "Virgin Media fined after hanging up on customers trying to cancel contracts",
+      "url": "https://www.bbc.co.uk/news/articles/c982vm2jzl1o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "财经",
+      "summary": "Virgin Media因挂断客户电话被罚",
+      "is_recent": true
+    },
+    {
+      "title": "Tom Holland on how getting Odyssey role was 'a real pinch-me moment'",
+      "url": "https://www.bbc.co.uk/news/articles/c0ky1gxgxjro?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "娱乐",
+      "summary": "汤姆·霍兰德谈获《奥德赛》角色",
+      "is_recent": true
+    },
+    {
+      "title": "Has Harry's war with the press finally run out of road?",
+      "url": "https://www.bbc.co.uk/news/articles/clyrq1kr6q5o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "娱乐",
+      "summary": "哈里王子与媒体战争是否终结",
+      "is_recent": true
+    },
+    {
+      "title": "The housing revolution that may create new problems",
+      "url": "https://www.bbc.co.uk/news/articles/cp8llpp67l1o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "社会",
+      "summary": "住房革命可能带来新问题",
+      "is_recent": true
+    },
+    {
+      "title": "International manhunt after mother and two children found dead at home",
+      "url": "https://www.bbc.co.uk/news/articles/c8e2njxnn7jo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "国际",
+      "summary": "母亲与两孩家中遇害引发国际追捕",
+      "is_recent": true
+    },
+    {
+      "title": "Nato allies announce £37bn for new missile project",
+      "url": "https://www.bbc.co.uk/news/articles/ckg4e3lwzqzo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "国际",
+      "summary": "北约宣布370亿英镑新导弹项目",
+      "is_recent": true
+    },
+    {
+      "title": "Extreme marine heatwave expected for parts of UK with risk to sea life, Met Office warns",
+      "url": "https://www.bbc.co.uk/news/articles/ckg888vpz4do?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "社会",
+      "summary": "英国部分海域极端热浪威胁海洋生物",
+      "is_recent": true
+    },
+    {
+      "title": "'It is not normal' - but extraordinary Djokovic defies odds once again",
+      "url": "https://www.bbc.co.uk/sport/tennis/articles/cy8wev0p0wno?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "体育",
+      "summary": "德约科维奇再次逆势获胜",
+      "is_recent": true
+    },
+    {
+      "title": "More protein or less? The foods to get you through a heatwave",
+      "url": "https://www.bbc.co.uk/news/articles/clyw89g3443o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "社会",
+      "summary": "热浪期间饮食建议：蛋白质多或少",
+      "is_recent": true
+    },
+    {
+      "title": "Your tips from the last heatwave on how to cope in extreme temperatures",
+      "url": "https://www.bbc.co.uk/news/articles/cze9w9xnprno?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "社会",
+      "summary": "上次热浪应对技巧分享",
+      "is_recent": true
+    },
+    {
+      "title": "From mouthwash to hair dye: How weight-loss jabs are changing shopping habits",
+      "url": "https://www.bbc.co.uk/news/articles/cy49w2knlrdo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "财经",
+      "summary": "减肥针改变购物习惯",
+      "is_recent": true
+    },
+    {
+      "title": "Will Le Pen rise again? French nationalist leader defiant after court's ruling",
+      "url": "https://www.bbc.co.uk/news/articles/cvgdlprp1r3o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "国际",
+      "summary": "勒庞在法院裁决后仍不服",
+      "is_recent": true
+    },
+    {
+      "title": "Fears of a massacre in this city on the front line of Sudan's war",
+      "url": "https://www.bbc.co.uk/news/articles/c20yyjdzw7po?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "国际",
+      "summary": "苏丹前线城市面临屠杀恐惧",
+      "is_recent": true
+    }
+  ]
+}
