@@ -1,127 +1,127 @@
 {
-  "date": "2026-07-08",
-  "generated": "2026-07-08T17:22:45.145071+00:00",
-  "summary": "美伊交火停火告急，中国台风引发灾害",
+  "date": "2026-07-09",
+  "generated": "2026-07-09T17:50:28.989586+00:00",
+  "summary": "广西洪灾、台湾毒油、埃博拉疫情等热点",
   "total": 15,
   "items": [
     {
-      "title": "中國實施信訪新規：有學者指「最終目的是減少進北京上訪者」",
-      "url": "https://www.bbc.com/zhongwen/articles/cly85p711zno/trad?at_medium=RSS&at_campaign=rss",
+      "title": "廣西洪災：多次預警之後，洪水為何仍令人措手不及？",
+      "url": "https://www.bbc.com/zhongwen/articles/c33yk63215yo/trad?at_medium=RSS&at_campaign=rss",
       "source": "BBC中文",
       "category": "社会",
-      "summary": "中国信访新规旨在减少进京上访",
+      "summary": "广西洪灾预警后仍措手不及",
       "is_recent": true
     },
     {
-      "title": "美伊徹夜交火 特朗普稱停火協議「完了」",
-      "url": "https://www.bbc.com/zhongwen/articles/cvg5xypkl80o/trad?at_medium=RSS&at_campaign=rss",
-      "source": "BBC中文",
-      "category": "国际",
-      "summary": "美伊交火，特朗普称停火协议破裂",
-      "is_recent": true
-    },
-    {
-      "title": "「洪水來得太快了」：颱風在中國引發水災及罕見龍捲風",
-      "url": "https://www.bbc.com/zhongwen/articles/ckg732x8l8yo/trad?at_medium=RSS&at_campaign=rss",
+      "title": "台灣毒油：致癌沙拉油流入各大超商，食安制度為何失效？",
+      "url": "https://www.bbc.com/zhongwen/articles/c3dy71dgg5po/trad?at_medium=RSS&at_campaign=rss",
       "source": "BBC中文",
       "category": "社会",
-      "summary": "台风致中国多地洪灾及龙卷风",
+      "summary": "台湾毒油流入超商食安失效",
       "is_recent": true
     },
     {
-      "title": "德國華人性侵案：Telegram「老司機」群組上的跨國犯罪網絡",
-      "url": "https://www.bbc.com/zhongwen/articles/cwyd8y1gy60o/trad?at_medium=RSS&at_campaign=rss",
+      "title": "中國搞笑網紅「陳土豆」台灣爆紅，為何引「統戰」爭議？",
+      "url": "https://www.bbc.com/zhongwen/articles/c982vpj7zv1o/trad?at_medium=RSS&at_campaign=rss",
       "source": "BBC中文",
-      "category": "国际",
-      "summary": "德国华人性侵案涉及Telegram群组",
-      "is_recent": true
-    },
-    {
-      "title": "性侵案受害者：我要讓他們為這些事情感到羞恥",
-      "url": "https://www.bbc.com/zhongwen/articles/c5yz21e5jy5o/trad?at_medium=RSS&at_campaign=rss",
-      "source": "BBC中文",
-      "category": "社会",
-      "summary": "性侵受害者发声要求施害者羞耻",
-      "is_recent": true
-    },
-    {
-      "title": "柏林地方法院判处德国华人性侵案成员5年监禁",
-      "url": "https://www.dw.com/zh/柏林地方法院判处德国华人性侵案成员5年监禁/a-77879721?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
-      "category": "国际",
-      "summary": "德国法院判处华人性侵案成员5年",
-      "is_recent": true
-    },
-    {
-      "title": "德语媒体：欧盟需要一个西藏问题特使",
-      "url": "https://www.dw.com/zh/德语媒体：欧盟需要一个西藏问题特使/a-77879520?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
-      "category": "国际",
-      "summary": "德媒建议欧盟设西藏问题特使",
-      "is_recent": true
-    },
-    {
-      "title": "研究：美国若对中国造船舶征收港口费 德国可能受益",
-      "url": "https://www.dw.com/zh/研究：美国若对中国造船舶征收港口费-德国可能受益/a-77878816?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
-      "category": "财经",
-      "summary": "研究称美征中国船舶费或利好德国",
-      "is_recent": true
-    },
-    {
-      "title": "曼哈顿危楼：倒塌风险源于扩建引发的结构问题",
-      "url": "https://www.dw.com/zh/曼哈顿危楼：倒塌风险源于扩建引发的结构问题/a-77876629?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
-      "category": "国际",
-      "summary": "曼哈顿危楼因扩建存倒塌风险",
-      "is_recent": true
-    },
-    {
-      "title": "立陶宛新任总理：将与中国外交关系正常化",
-      "url": "https://www.dw.com/zh/立陶宛新任总理：将与中国外交关系正常化/a-77875933?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
-      "category": "国际",
-      "summary": "立陶宛新总理寻求对华关系正常化",
-      "is_recent": true
-    },
-    {
-      "title": "‘The Pitt’, leads Emmy nominations, with ‘Hacks’ not far behind",
-      "url": "https://www.scmp.com/news/world/united-states-canada/article/3359896/pitt-leads-emmy-nominations-hacks-not-far-behind?utm_source=rss_feed",
-      "source": "SCMP",
       "category": "娱乐",
-      "summary": "《The Pitt》领跑艾美奖提名",
+      "summary": "网红陈土豆在台爆红引统战争议",
       "is_recent": true
     },
     {
-      "title": "Spain plays down Trump’s trade embargo threat, saying there is ‘no tension’",
-      "url": "https://www.scmp.com/economy/global-economy/article/3359895/spain-plays-down-trumps-trade-embargo-threat-saying-there-no-tension?utm_source=rss_feed",
-      "source": "SCMP",
-      "category": "国际",
-      "summary": "西班牙淡化特朗普贸易禁运威胁",
-      "is_recent": true
-    },
-    {
-      "title": "Hong Kong rail operator taps star power to promote safer escalator use",
-      "url": "https://www.scmp.com/news/article/3359892/hong-kong-rail-operator-taps-star-power-promote-safer-escalator-use?utm_source=rss_feed",
-      "source": "SCMP",
+      "title": "澳門國安法首案起訴 歐錦新顛覆罪面臨25年徒刑",
+      "url": "https://www.bbc.com/zhongwen/articles/cp8l0jk3ygmo/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
       "category": "社会",
-      "summary": "港铁邀明星宣传安全乘扶梯",
+      "summary": "澳门国安法首案起诉颠覆罪",
       "is_recent": true
     },
     {
-      "title": "Search for crew goes on as plane wreckage found off Pakistan’s coast",
-      "url": "https://www.scmp.com/news/asia/south-asia/article/3359891/search-crew-goes-plane-wreckage-found-pakistans-coast?utm_source=rss_feed",
+      "title": "「沒戴保險套就不要做」？台灣擬管制事後避孕藥引發女性焦慮",
+      "url": "https://www.bbc.com/zhongwen/articles/cx2xlj2ew6lo/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
+      "category": "社会",
+      "summary": "台湾拟管制事后避孕药引焦虑",
+      "is_recent": true
+    },
+    {
+      "title": "Ebola outbreak is ‘fastest growing ever’ as 600 die in DR Congo",
+      "url": "https://www.scmp.com/news/world/africa/article/3360036/ebola-outbreak-fastest-growing-ever-600-die-dr-congo?utm_source=rss_feed",
       "source": "SCMP",
       "category": "国际",
-      "summary": "巴基斯坦海岸发现飞机残骸搜救中",
+      "summary": "刚果埃博拉疫情600人死亡",
       "is_recent": true
     },
     {
-      "title": "China’s Xi Jinping calls for innovation system overhaul to beat global tech rivals",
-      "url": "https://www.scmp.com/news/china/politics/article/3359886/chinas-xi-jinping-calls-innovation-system-overhaul-beat-global-tech-rivals?utm_source=rss_feed",
+      "title": "Turkish president’s ‘unusual’ gift to Nato leaders: 1 revolver, 6 bullets",
+      "url": "https://www.scmp.com/news/world/europe/article/3360035/turkish-presidents-unusual-gift-nato-leaders-1-revolver-6-bullets?utm_source=rss_feed",
       "source": "SCMP",
-      "category": "科技",
-      "summary": "习近平呼吁改革创新体系以赢科技竞争",
+      "category": "国际",
+      "summary": "土耳其总统赠北约领导人左轮手枪",
+      "is_recent": true
+    },
+    {
+      "title": "Florida airport renamed ‘Trump’ in latest push to expand his brand",
+      "url": "https://www.scmp.com/news/world/united-states-canada/article/3360034/florida-airport-renamed-trump-latest-push-expand-his-brand?utm_source=rss_feed",
+      "source": "SCMP",
+      "category": "国际",
+      "summary": "佛罗里达机场更名为特朗普",
+      "is_recent": true
+    },
+    {
+      "title": "Irish man gets 14 years’ jail for killing US tourist in Hungary in ‘intimate encounter’",
+      "url": "https://www.scmp.com/news/world/europe/article/3360031/irish-man-gets-14-years-jail-killing-us-tourist-hungary?utm_source=rss_feed",
+      "source": "SCMP",
+      "category": "国际",
+      "summary": "爱尔兰男子在匈牙利杀害美游客获刑14年",
+      "is_recent": true
+    },
+    {
+      "title": "福建晋江鞋厂火灾事故已造成28人遇难",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9PMGc5Rmx5UVluZzBjc2dBb2FmOFZQOGdFV2tIQUItdjF1YTJDRFpQUmVRU0ZmU0tpc0F1SEp6M0M4TzI1NlZVUDFvQnhvWW94SzNacGI2THk1YWMxbkhjU3BkcGpIYk9SajJKck5PX3ZiVl9TWjE1SlJxaHlObXc?oc=5",
+      "source": "新华网",
+      "category": "社会",
+      "summary": "福建晋江鞋厂火灾28人遇难",
+      "is_recent": true
+    },
+    {
+      "title": "国家防总针对北京天津启动防汛四级应急响应",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1EMmFTTTEtRHo0R0c2YzRQRWNXNUM3aVRXMy04a01SMVJZbmFnc1p6M3R2TkRGNXlqMnY5cE5LSE9QbTNlN21ldHZuclVkc3p2b0JzQUJUNFd6RmdpREI4WENqX205Zkk3OEVTX0E1N0tuSW8?oc=5",
+      "source": "mem.gov.cn",
+      "category": "社会",
+      "summary": "国家防总启动京津防汛四级响应",
+      "is_recent": true
+    },
+    {
+      "title": "Heat health alerts extended as record for most 34C days in a year broken",
+      "url": "https://www.bbc.co.uk/news/articles/cyv0znm6y2eo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "国际",
+      "summary": "英国高温警报延长创34度天数纪录",
+      "is_recent": true
+    },
+    {
+      "title": "Burnham on path to No 10 with Labour nominations under way",
+      "url": "https://www.bbc.co.uk/news/articles/c77y0n7k801o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "国际",
+      "summary": "伯纳姆有望成为工党领袖入主唐宁街",
+      "is_recent": true
+    },
+    {
+      "title": "Greek F-16 fighter jet crash-lands at busy Zakynthos airport",
+      "url": "https://www.bbc.co.uk/news/articles/czrxz18720eo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "国际",
+      "summary": "希腊F-16战机在扎金索斯机场迫降",
+      "is_recent": true
+    },
+    {
+      "title": "Restore Britain leader describes Dunblane school shooting as 'one murder'",
+      "url": "https://www.bbc.co.uk/news/articles/cj3gdj300lyo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "国际",
+      "summary": "英政党领袖称邓布兰枪击案为一起谋杀",
       "is_recent": true
     }
   ]
