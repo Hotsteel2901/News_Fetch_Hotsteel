@@ -1,127 +1,127 @@
 {
-  "date": "2026-07-09",
-  "generated": "2026-07-09T17:50:28.989586+00:00",
-  "summary": "广西洪灾、台湾毒油、埃博拉疫情等热点",
+  "date": "2026-07-10",
+  "generated": "2026-07-10T17:43:05.223931+00:00",
+  "summary": "台风巴威逼近台湾，多地停班停课",
   "total": 15,
   "items": [
     {
-      "title": "廣西洪災：多次預警之後，洪水為何仍令人措手不及？",
-      "url": "https://www.bbc.com/zhongwen/articles/c33yk63215yo/trad?at_medium=RSS&at_campaign=rss",
+      "title": "颱風巴威逼近台灣本島 絕大多數縣市停班停課",
+      "url": "https://bbc.in/4ww4np5?at_medium=RSS&at_campaign=rss",
       "source": "BBC中文",
       "category": "社会",
-      "summary": "广西洪灾预警后仍措手不及",
+      "summary": "台风巴威逼近台湾，多地停班停课",
       "is_recent": true
     },
     {
-      "title": "台灣毒油：致癌沙拉油流入各大超商，食安制度為何失效？",
-      "url": "https://www.bbc.com/zhongwen/articles/c3dy71dgg5po/trad?at_medium=RSS&at_campaign=rss",
+      "title": "廣西水災：「大躍進」時期建的水庫為何擋不了極端洪水？",
+      "url": "https://www.bbc.com/zhongwen/articles/ce8kxgwjer4o/trad?at_medium=RSS&at_campaign=rss",
       "source": "BBC中文",
       "category": "社会",
-      "summary": "台湾毒油流入超商食安失效",
+      "summary": "广西水灾，水库难挡极端洪水",
       "is_recent": true
     },
     {
-      "title": "中國搞笑網紅「陳土豆」台灣爆紅，為何引「統戰」爭議？",
-      "url": "https://www.bbc.com/zhongwen/articles/c982vpj7zv1o/trad?at_medium=RSS&at_campaign=rss",
+      "title": "新加坡夫婦收養了印尼男嬰，卻發現孩子疑遭人口販運",
+      "url": "https://www.bbc.com/zhongwen/articles/c892jgqnke3o/trad?at_medium=RSS&at_campaign=rss",
       "source": "BBC中文",
-      "category": "娱乐",
-      "summary": "网红陈土豆在台爆红引统战争议",
+      "category": "国际",
+      "summary": "新加坡夫妇收养男婴疑涉人口贩运",
       "is_recent": true
     },
     {
-      "title": "澳門國安法首案起訴 歐錦新顛覆罪面臨25年徒刑",
-      "url": "https://www.bbc.com/zhongwen/articles/cp8l0jk3ygmo/trad?at_medium=RSS&at_campaign=rss",
-      "source": "BBC中文",
-      "category": "社会",
-      "summary": "澳门国安法首案起诉颠覆罪",
-      "is_recent": true
-    },
-    {
-      "title": "「沒戴保險套就不要做」？台灣擬管制事後避孕藥引發女性焦慮",
-      "url": "https://www.bbc.com/zhongwen/articles/cx2xlj2ew6lo/trad?at_medium=RSS&at_campaign=rss",
+      "title": "福建泉州晉江鞋廠大火致28人遇難，習近平指「嚴肅追責」",
+      "url": "https://www.bbc.com/zhongwen/articles/cdr47vzk81no/trad?at_medium=RSS&at_campaign=rss",
       "source": "BBC中文",
       "category": "社会",
-      "summary": "台湾拟管制事后避孕药引焦虑",
+      "summary": "福建鞋厂大火致28死，习近平要求追责",
       "is_recent": true
     },
     {
-      "title": "Ebola outbreak is ‘fastest growing ever’ as 600 die in DR Congo",
-      "url": "https://www.scmp.com/news/world/africa/article/3360036/ebola-outbreak-fastest-growing-ever-600-die-dr-congo?utm_source=rss_feed",
+      "title": "「我掌管英國最大銀行」：推薦五種理財方法",
+      "url": "https://www.bbc.com/zhongwen/articles/c4gyq35n0d2o/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
+      "category": "财经",
+      "summary": "英国最大银行高管推荐理财方法",
+      "is_recent": true
+    },
+    {
+      "title": "德国议会批准医保节约方案",
+      "url": "https://www.dw.com/zh/德国议会批准医保节约方案/a-77909972?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
+      "category": "国际",
+      "summary": "德国议会批准医保节约方案",
+      "is_recent": true
+    },
+    {
+      "title": "德语媒体：中国才是结束俄乌战争的关键",
+      "url": "https://www.dw.com/zh/德语媒体：中国才是结束俄乌战争的关键/a-77909103?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
+      "category": "国际",
+      "summary": "德媒称中国是结束俄乌战争关键",
+      "is_recent": true
+    },
+    {
+      "title": "中国首次实现运载火箭一子级可控回收",
+      "url": "https://www.dw.com/zh/中国首次实现运载火箭一子级可控回收/a-77909061?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
+      "category": "科技",
+      "summary": "中国首次实现火箭一子级可控回收",
+      "is_recent": true
+    },
+    {
+      "title": "印度籍工人工伤惨死 意大利雇主被判16年",
+      "url": "https://www.dw.com/zh/印度籍工人工伤惨死-意大利雇主被判16年/a-77907984?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
+      "category": "国际",
+      "summary": "印度工人工伤死，意大利雇主判16年",
+      "is_recent": true
+    },
+    {
+      "title": "长平观察：习近平还能攻打台湾吗？",
+      "url": "https://www.dw.com/zh/长平观察：习近平还能攻打台湾吗？/a-77906406?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
+      "category": "国际",
+      "summary": "长平观察：习近平还能攻打台湾吗",
+      "is_recent": true
+    },
+    {
+      "title": "Mojtaba Khamenei’s absence signals shifting role for Iran leader",
+      "url": "https://www.scmp.com/news/world/middle-east/article/3360190/mojtaba-khameneis-absence-signals-shifting-role-iran-leader?utm_source=rss_feed",
       "source": "SCMP",
       "category": "国际",
-      "summary": "刚果埃博拉疫情600人死亡",
+      "summary": "伊朗领袖缺席信号角色转变",
       "is_recent": true
     },
     {
-      "title": "Turkish president’s ‘unusual’ gift to Nato leaders: 1 revolver, 6 bullets",
-      "url": "https://www.scmp.com/news/world/europe/article/3360035/turkish-presidents-unusual-gift-nato-leaders-1-revolver-6-bullets?utm_source=rss_feed",
+      "title": "The loudest voices in US-China trade talks? Christmas tree growers",
+      "url": "https://www.scmp.com/news/us/article/3360189/loudest-voices-us-china-trade-talks-christmas-tree-growers?utm_source=rss_feed",
+      "source": "SCMP",
+      "category": "财经",
+      "summary": "圣诞树种植者成中美贸易谈判声音",
+      "is_recent": true
+    },
+    {
+      "title": "Trump claims Iran wants to resume talks with US despite ceasefire breaches",
+      "url": "https://www.scmp.com/news/us/diplomacy/article/3360184/trump-says-iran-wants-resume-talks-us-despite-ceasefire-breaches?utm_source=rss_feed",
       "source": "SCMP",
       "category": "国际",
-      "summary": "土耳其总统赠北约领导人左轮手枪",
+      "summary": "特朗普称伊朗希望恢复与美国谈判",
       "is_recent": true
     },
     {
-      "title": "Florida airport renamed ‘Trump’ in latest push to expand his brand",
-      "url": "https://www.scmp.com/news/world/united-states-canada/article/3360034/florida-airport-renamed-trump-latest-push-expand-his-brand?utm_source=rss_feed",
+      "title": "Hong Kong’s 3-year deal to host LEAP East ‘affirms’ global I&T role",
+      "url": "https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3360183/hong-kongs-3-year-deal-host-leap-east-affirms-global-it-role?utm_source=rss_feed",
       "source": "SCMP",
-      "category": "国际",
-      "summary": "佛罗里达机场更名为特朗普",
+      "category": "财经",
+      "summary": "香港获三年合约主办LEAP East",
       "is_recent": true
     },
     {
-      "title": "Irish man gets 14 years’ jail for killing US tourist in Hungary in ‘intimate encounter’",
-      "url": "https://www.scmp.com/news/world/europe/article/3360031/irish-man-gets-14-years-jail-killing-us-tourist-hungary?utm_source=rss_feed",
+      "title": "Nurses baffled by closed medicine tube to premature baby, inquest hears",
+      "url": "https://www.scmp.com/news/hong-kong/law-and-crime/article/3360182/nurses-baffled-closed-medicine-tube-premature-baby-inquest-hears?utm_source=rss_feed",
       "source": "SCMP",
-      "category": "国际",
-      "summary": "爱尔兰男子在匈牙利杀害美游客获刑14年",
-      "is_recent": true
-    },
-    {
-      "title": "福建晋江鞋厂火灾事故已造成28人遇难",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9PMGc5Rmx5UVluZzBjc2dBb2FmOFZQOGdFV2tIQUItdjF1YTJDRFpQUmVRU0ZmU0tpc0F1SEp6M0M4TzI1NlZVUDFvQnhvWW94SzNacGI2THk1YWMxbkhjU3BkcGpIYk9SajJKck5PX3ZiVl9TWjE1SlJxaHlObXc?oc=5",
-      "source": "新华网",
       "category": "社会",
-      "summary": "福建晋江鞋厂火灾28人遇难",
-      "is_recent": true
-    },
-    {
-      "title": "国家防总针对北京天津启动防汛四级应急响应",
-      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1EMmFTTTEtRHo0R0c2YzRQRWNXNUM3aVRXMy04a01SMVJZbmFnc1p6M3R2TkRGNXlqMnY5cE5LSE9QbTNlN21ldHZuclVkc3p2b0JzQUJUNFd6RmdpREI4WENqX205Zkk3OEVTX0E1N0tuSW8?oc=5",
-      "source": "mem.gov.cn",
-      "category": "社会",
-      "summary": "国家防总启动京津防汛四级响应",
-      "is_recent": true
-    },
-    {
-      "title": "Heat health alerts extended as record for most 34C days in a year broken",
-      "url": "https://www.bbc.co.uk/news/articles/cyv0znm6y2eo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
-      "category": "国际",
-      "summary": "英国高温警报延长创34度天数纪录",
-      "is_recent": true
-    },
-    {
-      "title": "Burnham on path to No 10 with Labour nominations under way",
-      "url": "https://www.bbc.co.uk/news/articles/c77y0n7k801o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
-      "category": "国际",
-      "summary": "伯纳姆有望成为工党领袖入主唐宁街",
-      "is_recent": true
-    },
-    {
-      "title": "Greek F-16 fighter jet crash-lands at busy Zakynthos airport",
-      "url": "https://www.bbc.co.uk/news/articles/czrxz18720eo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
-      "category": "国际",
-      "summary": "希腊F-16战机在扎金索斯机场迫降",
-      "is_recent": true
-    },
-    {
-      "title": "Restore Britain leader describes Dunblane school shooting as 'one murder'",
-      "url": "https://www.bbc.co.uk/news/articles/cj3gdj300lyo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
-      "category": "国际",
-      "summary": "英政党领袖称邓布兰枪击案为一起谋杀",
+      "summary": "早产儿药管关闭，护士困惑",
       "is_recent": true
     }
   ]
