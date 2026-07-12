@@ -1,15 +1,39 @@
 {
-  "date": "2026-07-11",
-  "generated": "2026-07-11T16:47:01.938921+00:00",
-  "summary": "台风巴威登陆，多国政经动态更新",
+  "date": "2026-07-12",
+  "generated": "2026-07-12T16:51:26.055169+00:00",
+  "summary": "台风巴威登陆浙江，伊朗关闭霍尔木兹海峡",
   "total": 15,
   "items": [
     {
-      "title": "巴威逼近登陸：中國嚴陣以待一週內第二個颱風",
+      "title": "颱風巴威兩度登陸浙江，當地人如何把防災做得「密不透風」？",
+      "url": "https://www.bbc.com/zhongwen/articles/c1myd9pyrv4o/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
+      "category": "社会",
+      "summary": "台风巴威两度登陆浙江",
+      "is_recent": true
+    },
+    {
+      "title": "中國一週內第二個颱風登陸，近200萬人疏散",
       "url": "https://www.bbc.com/zhongwen/articles/c4gy1xleelgo/trad?at_medium=RSS&at_campaign=rss",
       "source": "BBC中文",
       "category": "社会",
-      "summary": "台风巴威登陆，中国严阵以待",
+      "summary": "一周内第二个台风登陆",
+      "is_recent": true
+    },
+    {
+      "title": "十二男十二女走進一座佛寺，僧人能幫他們找到愛情嗎？",
+      "url": "https://www.bbc.com/zhongwen/articles/c77ypm8re6vo/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
+      "category": "社会",
+      "summary": "佛寺相亲节目引关注",
+      "is_recent": true
+    },
+    {
+      "title": "颱風巴威登陸浙江 　台灣113傷、中國大陸疏散185萬人",
+      "url": "https://www.bbc.com/zhongwen/live/czj8zrvmy4lt/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
+      "category": "社会",
+      "summary": "台风巴威致台湾113伤",
       "is_recent": true
     },
     {
@@ -17,111 +41,87 @@
       "url": "https://www.bbc.com/zhongwen/articles/ce8kxgwjer4o/trad?at_medium=RSS&at_campaign=rss",
       "source": "BBC中文",
       "category": "社会",
-      "summary": "广西水灾，水库难挡极端洪水",
+      "summary": "广西水库难挡极端洪水",
       "is_recent": true
     },
     {
-      "title": "新加坡夫婦收養了印尼男嬰，卻發現孩子疑遭人口販運",
-      "url": "https://www.bbc.com/zhongwen/articles/c892jgqnke3o/trad?at_medium=RSS&at_campaign=rss",
-      "source": "BBC中文",
-      "category": "国际",
-      "summary": "新加坡夫妇收养印尼男婴疑涉贩运",
-      "is_recent": true
-    },
-    {
-      "title": "福建泉州晉江鞋廠大火致28人遇難，習近平指「嚴肅追責」",
-      "url": "https://www.bbc.com/zhongwen/articles/cdr47vzk81no/trad?at_medium=RSS&at_campaign=rss",
-      "source": "BBC中文",
-      "category": "社会",
-      "summary": "福建鞋厂大火28死，习近平要求追责",
-      "is_recent": true
-    },
-    {
-      "title": "哈梅內伊死後的伊朗：悄然形成的新秩序",
-      "url": "https://www.dw.com/zh/哈梅內伊死後的伊朗：悄然形成的新秩序/a-77916236?maca=chi-rss-chi-all-1127-rdf",
+      "title": "消息人士：德国出资为乌克兰采购5万架攻击型无人机",
+      "url": "https://www.dw.com/zh/消息人士：德国出资为乌克兰采购5万架攻击型无人机/a-77923763?maca=chi-rss-chi-all-1127-rdf",
       "source": "DW中文",
       "category": "国际",
-      "summary": "哈梅内伊死后伊朗新秩序悄然形成",
+      "summary": "德国为乌采购5万架无人机",
       "is_recent": true
     },
     {
-      "title": "升空十米 日本成功测试可回收火箭",
-      "url": "https://www.dw.com/zh/升空十米-日本成功测试可回收火箭/a-77915680?maca=chi-rss-chi-all-1127-rdf",
+      "title": "遭美空襲 伊朗再關霍爾木茲海峽並襲擊海灣多國",
+      "url": "https://www.dw.com/zh/遭美空袭-伊朗再关霍尔木兹海峡并袭击海湾多国/a-77923510?maca=chi-rss-chi-all-1127-rdf",
       "source": "DW中文",
+      "category": "国际",
+      "summary": "伊朗关闭霍尔木兹海峡",
+      "is_recent": true
+    },
+    {
+      "title": "汽车行业危机冲击德国年轻工程师就业前景",
+      "url": "https://www.dw.com/zh/汽车行业危机冲击德国年轻工程师就业前景/a-77923319?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
+      "category": "财经",
+      "summary": "汽车危机冲击德国工程师",
+      "is_recent": true
+    },
+    {
+      "title": "德国政经界呼吁将实现气候中和的目标推迟至2050年",
+      "url": "https://www.dw.com/zh/德国政经界呼吁将实现气候中和的目标推迟至2050年/a-77923039?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
+      "category": "国际",
+      "summary": "德国呼吁气候目标推迟",
+      "is_recent": true
+    },
+    {
+      "title": "Ukraine’s prime minister steps down as Zelensky announces government reshuffle",
+      "url": "https://www.scmp.com/news/world/russia-central-asia/article/3360297/ukraines-prime-minister-steps-down-zelensky-announces-government-reshuffle?utm_source=rss_feed",
+      "source": "SCMP",
+      "category": "国际",
+      "summary": "乌克兰总理辞职政府改组",
+      "is_recent": true
+    },
+    {
+      "title": "Israel to hold parliamentary elections on October 27 as Netanyahu seeks another term",
+      "url": "https://www.scmp.com/news/world/middle-east/article/3360296/israel-hold-parliamentary-elections-october-27-netanyahu-seeks-another-term?utm_source=rss_feed",
+      "source": "SCMP",
+      "category": "国际",
+      "summary": "以色列10月27日议会选举",
+      "is_recent": true
+    },
+    {
+      "title": "Israeli gunfire in Gaza refugee camp kills 6, including 9-year-old girl",
+      "url": "https://www.scmp.com/news/world/middle-east/article/3360294/israeli-gunfire-gaza-refugee-camp-kills-6-including-9-year-old-girl?utm_source=rss_feed",
+      "source": "SCMP",
+      "category": "国际",
+      "summary": "以军枪击加沙难民营6死",
+      "is_recent": true
+    },
+    {
+      "title": "What does China’s J-16 fighter jet in ‘beast mode’ mean for PLA Air Force patrols?",
+      "url": "https://www.scmp.com/news/china/military/article/3360170/what-does-chinas-j-16-fighter-jet-beast-mode-mean-pla-air-force-patrols?utm_source=rss_feed",
+      "source": "SCMP",
       "category": "科技",
-      "summary": "日本成功测试可回收火箭升空十米",
+      "summary": "中国歼16“野兽模式”解析",
       "is_recent": true
     },
     {
-      "title": "特朗普威胁若遭暗杀将“摧毁伊朗” 称千枚导弹已待发",
-      "url": "https://www.dw.com/zh/特朗普威胁若遭暗杀将-摧毁伊朗-称千枚导弹已待发/a-77915557?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
-      "category": "国际",
-      "summary": "特朗普威胁若遭暗杀将摧毁伊朗",
-      "is_recent": true
-    },
-    {
-      "title": "颱風巴威直撲浙江 中國疏散逾60萬人",
-      "url": "https://www.dw.com/zh/颱風巴威直撲浙江-中國疏散逾60萬人/a-77915464?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
-      "category": "社会",
-      "summary": "台风巴威直扑浙江，疏散逾60万人",
-      "is_recent": true
-    },
-    {
-      "title": "US Democrat Ro Khanna ‘detained’ by Israeli settlers during West Bank visit",
-      "url": "https://www.scmp.com/news/world/united-states-canada/article/3360247/us-democrat-ro-khanna-detained-israeli-settlers-during-west-bank-visit?utm_source=rss_feed",
+      "title": "First session of Syria’s parliament convenes after Assad’s ousting",
+      "url": "https://www.scmp.com/news/world/middle-east/article/3360289/first-session-syrias-parliament-convenes-after-assads-ousting?utm_source=rss_feed",
       "source": "SCMP",
       "category": "国际",
-      "summary": "美国民主党议员在西岸被以色列定居者扣留",
+      "summary": "叙利亚议会首次开会",
       "is_recent": true
     },
     {
-      "title": "Formal China-US G2 framework key to ‘guarantee’ world peace: top Beijing adviser",
-      "url": "https://www.scmp.com/news/china/diplomacy/article/3360235/formal-china-us-g2-framework-key-guarantee-world-peace-top-beijing-adviser?utm_source=rss_feed",
-      "source": "SCMP",
-      "category": "国际",
-      "summary": "北京顾问称中美G2框架可保障世界和平",
-      "is_recent": true
-    },
-    {
-      "title": "Vietnam tourist speedboat capsizes, killing 15 Indian tourists",
-      "url": "https://www.scmp.com/news/asia/southeast-asia/article/3360241/vietnam-tourist-speedboat-capsizes-killing-15-indian-tourists?utm_source=rss_feed",
-      "source": "SCMP",
-      "category": "国际",
-      "summary": "越南快艇倾覆致15名印度游客死亡",
-      "is_recent": true
-    },
-    {
-      "title": "TV presenter Dermot Murnaghan dies aged 68",
-      "url": "https://www.bbc.co.uk/news/articles/c20yvg13nqpo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
-      "category": "娱乐",
-      "summary": "英国电视主持人德莫特·穆尔纳汉去世",
-      "is_recent": true
-    },
-    {
-      "title": "Prince Harry talks grief, stress and loss in final event of UK trip",
-      "url": "https://www.bbc.co.uk/news/articles/c5yzn9xqz0po?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
-      "category": "娱乐",
-      "summary": "哈里王子在英行程最后谈悲伤与压力",
-      "is_recent": true
-    },
-    {
-      "title": "Watch: 'We escaped Spanish wildfire, but our friends lost their lives'",
-      "url": "https://www.bbc.co.uk/news/videos/c07y357zvl1o?at_medium=RSS&at_campaign=rss",
+      "title": "Badly burned British couple rescued from ravine during Spain wildfires, reports say",
+      "url": "https://www.bbc.co.uk/news/articles/cx2x7441762o?at_medium=RSS&at_campaign=rss",
       "source": "BBC News",
       "category": "国际",
-      "summary": "西班牙野火幸存者讲述朋友遇难经历",
-      "is_recent": true
-    },
-    {
-      "title": "Pubs can stay open for full Norway game - even if kick-off delayed",
-      "url": "https://www.bbc.co.uk/news/articles/cm204lgrv10o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
-      "category": "体育",
-      "summary": "英国酒吧可全程营业观看挪威比赛",
+      "summary": "西班牙山火中英夫妇获救",
       "is_recent": true
     }
   ]
