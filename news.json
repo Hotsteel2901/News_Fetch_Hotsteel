@@ -1,9 +1,41 @@
 {
-  "date": "2026-07-12",
-  "generated": "2026-07-12T16:51:26.055169+00:00",
-  "summary": "台风巴威登陆浙江，伊朗关闭霍尔木兹海峡",
+  "date": "2026-07-13",
+  "generated": "2026-07-13T17:50:21.243130+00:00",
+  "summary": "国际局势与自然灾害成今日焦点",
   "total": 15,
   "items": [
+    {
+      "title": "那位被指為墨西哥「芬太尼王」的中國留學生",
+      "url": "https://www.bbc.com/zhongwen/articles/cq61eqrdj74o/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
+      "category": "国际",
+      "summary": "中国留学生被指墨西哥芬太尼王",
+      "is_recent": true
+    },
+    {
+      "title": "美參議員葛蘭姆突辭世：主張友台、強硬對華的特朗普盟友",
+      "url": "https://www.bbc.com/zhongwen/articles/cy9r72jej2wo/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
+      "category": "国际",
+      "summary": "美参议员葛兰姆辞世，对华强硬",
+      "is_recent": true
+    },
+    {
+      "title": "所有人「擠成一團」：目擊者描述致命大火如何席捲曼谷酒吧",
+      "url": "https://www.bbc.com/zhongwen/articles/c4gyn4yr9rlo/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
+      "category": "社会",
+      "summary": "曼谷酒吧大火致多人死亡",
+      "is_recent": true
+    },
+    {
+      "title": "貝安德拜相幾成定局：BBC記者評估中美俄等國怎樣看他",
+      "url": "https://www.bbc.com/zhongwen/articles/cp36v209ynlo/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
+      "category": "国际",
+      "summary": "贝安德拜相几成定局",
+      "is_recent": true
+    },
     {
       "title": "颱風巴威兩度登陸浙江，當地人如何把防災做得「密不透風」？",
       "url": "https://www.bbc.com/zhongwen/articles/c1myd9pyrv4o/trad?at_medium=RSS&at_campaign=rss",
@@ -13,115 +45,83 @@
       "is_recent": true
     },
     {
-      "title": "中國一週內第二個颱風登陸，近200萬人疏散",
-      "url": "https://www.bbc.com/zhongwen/articles/c4gy1xleelgo/trad?at_medium=RSS&at_campaign=rss",
-      "source": "BBC中文",
-      "category": "社会",
-      "summary": "一周内第二个台风登陆",
-      "is_recent": true
-    },
-    {
-      "title": "十二男十二女走進一座佛寺，僧人能幫他們找到愛情嗎？",
-      "url": "https://www.bbc.com/zhongwen/articles/c77ypm8re6vo/trad?at_medium=RSS&at_campaign=rss",
-      "source": "BBC中文",
-      "category": "社会",
-      "summary": "佛寺相亲节目引关注",
-      "is_recent": true
-    },
-    {
-      "title": "颱風巴威登陸浙江 　台灣113傷、中國大陸疏散185萬人",
-      "url": "https://www.bbc.com/zhongwen/live/czj8zrvmy4lt/trad?at_medium=RSS&at_campaign=rss",
-      "source": "BBC中文",
-      "category": "社会",
-      "summary": "台风巴威致台湾113伤",
-      "is_recent": true
-    },
-    {
-      "title": "廣西水災：「大躍進」時期建的水庫為何擋不了極端洪水？",
-      "url": "https://www.bbc.com/zhongwen/articles/ce8kxgwjer4o/trad?at_medium=RSS&at_campaign=rss",
-      "source": "BBC中文",
-      "category": "社会",
-      "summary": "广西水库难挡极端洪水",
-      "is_recent": true
-    },
-    {
-      "title": "消息人士：德国出资为乌克兰采购5万架攻击型无人机",
-      "url": "https://www.dw.com/zh/消息人士：德国出资为乌克兰采购5万架攻击型无人机/a-77923763?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
-      "category": "国际",
-      "summary": "德国为乌采购5万架无人机",
-      "is_recent": true
-    },
-    {
-      "title": "遭美空襲 伊朗再關霍爾木茲海峽並襲擊海灣多國",
-      "url": "https://www.dw.com/zh/遭美空袭-伊朗再关霍尔木兹海峡并袭击海湾多国/a-77923510?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
-      "category": "国际",
-      "summary": "伊朗关闭霍尔木兹海峡",
-      "is_recent": true
-    },
-    {
-      "title": "汽车行业危机冲击德国年轻工程师就业前景",
-      "url": "https://www.dw.com/zh/汽车行业危机冲击德国年轻工程师就业前景/a-77923319?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
+      "title": "Pentagon invests US$25 million into rare earths start-up ReElement Technologies",
+      "url": "https://www.scmp.com/news/world/united-states-canada/article/3360430/pentagon-invests-us25-million-rare-earths-start-reelement-technologies?utm_source=rss_feed",
+      "source": "SCMP",
       "category": "财经",
-      "summary": "汽车危机冲击德国工程师",
+      "summary": "五角大楼投资2500万美元稀土初创",
       "is_recent": true
     },
     {
-      "title": "德国政经界呼吁将实现气候中和的目标推迟至2050年",
-      "url": "https://www.dw.com/zh/德国政经界呼吁将实现气候中和的目标推迟至2050年/a-77923039?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
-      "category": "国际",
-      "summary": "德国呼吁气候目标推迟",
-      "is_recent": true
-    },
-    {
-      "title": "Ukraine’s prime minister steps down as Zelensky announces government reshuffle",
-      "url": "https://www.scmp.com/news/world/russia-central-asia/article/3360297/ukraines-prime-minister-steps-down-zelensky-announces-government-reshuffle?utm_source=rss_feed",
-      "source": "SCMP",
-      "category": "国际",
-      "summary": "乌克兰总理辞职政府改组",
-      "is_recent": true
-    },
-    {
-      "title": "Israel to hold parliamentary elections on October 27 as Netanyahu seeks another term",
-      "url": "https://www.scmp.com/news/world/middle-east/article/3360296/israel-hold-parliamentary-elections-october-27-netanyahu-seeks-another-term?utm_source=rss_feed",
-      "source": "SCMP",
-      "category": "国际",
-      "summary": "以色列10月27日议会选举",
-      "is_recent": true
-    },
-    {
-      "title": "Israeli gunfire in Gaza refugee camp kills 6, including 9-year-old girl",
-      "url": "https://www.scmp.com/news/world/middle-east/article/3360294/israeli-gunfire-gaza-refugee-camp-kills-6-including-9-year-old-girl?utm_source=rss_feed",
-      "source": "SCMP",
-      "category": "国际",
-      "summary": "以军枪击加沙难民营6死",
-      "is_recent": true
-    },
-    {
-      "title": "What does China’s J-16 fighter jet in ‘beast mode’ mean for PLA Air Force patrols?",
-      "url": "https://www.scmp.com/news/china/military/article/3360170/what-does-chinas-j-16-fighter-jet-beast-mode-mean-pla-air-force-patrols?utm_source=rss_feed",
+      "title": "Why ‘reverse tech transfer’ from China remains a non-starter in the US auto industry",
+      "url": "https://www.scmp.com/news/us/article/3360429/why-reverse-tech-transfer-china-remains-non-starter-us-auto-industry?utm_source=rss_feed",
       "source": "SCMP",
       "category": "科技",
-      "summary": "中国歼16“野兽模式”解析",
+      "summary": "中国反向技术转移在美国汽车业难行",
       "is_recent": true
     },
     {
-      "title": "First session of Syria’s parliament convenes after Assad’s ousting",
-      "url": "https://www.scmp.com/news/world/middle-east/article/3360289/first-session-syrias-parliament-convenes-after-assads-ousting?utm_source=rss_feed",
+      "title": "Mexico to file legal complaints over US immigration deaths, says President Sheinbaum",
+      "url": "https://www.scmp.com/news/world/americas/article/3360428/mexico-file-legal-complaints-over-us-immigration-deaths-says-president-sheinbaum?utm_source=rss_feed",
       "source": "SCMP",
       "category": "国际",
-      "summary": "叙利亚议会首次开会",
+      "summary": "墨西哥就移民死亡向美提起诉讼",
       "is_recent": true
     },
     {
-      "title": "Badly burned British couple rescued from ravine during Spain wildfires, reports say",
-      "url": "https://www.bbc.co.uk/news/articles/cx2x7441762o?at_medium=RSS&at_campaign=rss",
+      "title": "US vows campaign to end ICC ‘intolerable threat’ to American sovereignty",
+      "url": "https://www.scmp.com/news/world/united-states-canada/article/3360427/us-vows-campaign-end-icc-intolerable-threat-american-sovereignty?utm_source=rss_feed",
+      "source": "SCMP",
+      "category": "国际",
+      "summary": "美国誓言结束ICC对美国主权的威胁",
+      "is_recent": true
+    },
+    {
+      "title": "EU countries push for trade ban with Israeli settlements",
+      "url": "https://www.scmp.com/news/world/middle-east/article/3360426/eu-countries-push-trade-ban-israeli-settlements?utm_source=rss_feed",
+      "source": "SCMP",
+      "category": "国际",
+      "summary": "欧盟国家推动与以色列定居点贸易禁令",
+      "is_recent": true
+    },
+    {
+      "title": "Ann Widdecombe suspect not known to Prevent as counter terrorism police take over investigation",
+      "url": "https://www.bbc.co.uk/news/articles/c0mydjl12mwo?at_medium=RSS&at_campaign=rss",
       "source": "BBC News",
       "category": "国际",
-      "summary": "西班牙山火中英夫妇获救",
+      "summary": "英反恐警察调查安·威德库姆案",
+      "is_recent": true
+    },
+    {
+      "title": "Twelve arrested over alleged right-wing terror threat to UK Islamic event, police say",
+      "url": "https://www.bbc.co.uk/news/articles/cvgl20x1ggpo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "国际",
+      "summary": "英国逮捕12名右翼恐袭嫌疑人",
+      "is_recent": true
+    },
+    {
+      "title": "Heatwave to intensify in second week as wildfires burn across UK",
+      "url": "https://www.bbc.co.uk/weather/articles/c0jyx16ww8jo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "社会",
+      "summary": "英国热浪加剧，野火蔓延",
+      "is_recent": true
+    },
+    {
+      "title": "Briton tells of surviving Spain wildfire in car as wife and friends died trying to walk to safety",
+      "url": "https://www.bbc.co.uk/news/articles/cp9ld3p324jo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "社会",
+      "summary": "英国男子在西班牙野火中幸存",
+      "is_recent": true
+    },
+    {
+      "title": "Volkswagen planning to cut up to 100,000 jobs globally",
+      "url": "https://www.bbc.co.uk/news/articles/cx2wzpwn51lo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "财经",
+      "summary": "大众计划全球裁员10万人",
       "is_recent": true
     }
   ]
