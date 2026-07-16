@@ -1,127 +1,127 @@
 {
-  "date": "2026-07-15",
-  "generated": "2026-07-15T17:09:17.139028+00:00",
-  "summary": "中国经济放缓至4.3%，AI新规与地缘政治引关注",
+  "date": "2026-07-16",
+  "generated": "2026-07-16T17:07:14.080143+00:00",
+  "summary": "全球对华好感超美，英国国有化中资钢铁，福克兰主权争议持续",
   "total": 15,
   "items": [
     {
-      "title": "「香港應是個更自由的地方」：大陸讀者眼中的獨立書店往事",
-      "url": "https://www.bbc.com/zhongwen/articles/cn757r6824vo/trad?at_medium=RSS&at_campaign=rss",
+      "title": "「贏了官司輸了輿論」：LV 訴茉莉奶白案，司法判決之後再被網絡審判",
+      "url": "https://www.bbc.com/zhongwen/articles/cy0jnwzx5dzo/trad?at_medium=RSS&at_campaign=rss",
       "source": "BBC中文",
       "category": "社会",
-      "summary": "大陆读者谈香港独立书店往事",
+      "summary": "LV诉茉莉奶白案引发网络审判",
       "is_recent": true
     },
     {
-      "title": "曾研究朝鮮核試驗，地震學家陳友麟遭中國拘留",
-      "url": "https://www.bbc.com/zhongwen/articles/cwykykkeql4o/trad?at_medium=RSS&at_campaign=rss",
+      "title": "皮尤研究：全球更多國家對中國好感勝過美國，逾20年以來首次",
+      "url": "https://www.bbc.com/zhongwen/articles/cpq8jd9dwr2o/trad?at_medium=RSS&at_campaign=rss",
       "source": "BBC中文",
       "category": "国际",
-      "summary": "地震学家陈友麟被中国拘留",
+      "summary": "全球对华好感度首次超美",
       "is_recent": true
     },
     {
-      "title": "小紅書前員工跨境實名舉報，傳聞中的赴港上市計劃會有變化嗎？",
-      "url": "https://www.bbc.com/zhongwen/articles/cj3g3mygk2xo/trad?at_medium=RSS&at_campaign=rss",
-      "source": "BBC中文",
-      "category": "财经",
-      "summary": "小红书前员工举报，上市或受影响",
-      "is_recent": true
-    },
-    {
-      "title": "醫療廢物還是神奇療法？為什麼有人會走私人類胎盤？",
-      "url": "https://www.bbc.com/zhongwen/articles/cgjxj0wv982o/trad?at_medium=RSS&at_campaign=rss",
+      "title": "「天才少女」蔣方舟跌下神壇：中國學術打假為何變成制度之問",
+      "url": "https://www.bbc.com/zhongwen/articles/cx2v2j1pdrxo/trad?at_medium=RSS&at_campaign=rss",
       "source": "BBC中文",
       "category": "社会",
-      "summary": "走私人胎盘的争议与原因",
+      "summary": "蒋方舟学术造假引发制度反思",
       "is_recent": true
     },
     {
-      "title": "中國經濟增長放緩至4.3%，創2022年底以來最低",
-      "url": "https://www.bbc.com/zhongwen/articles/cgrkrk4yvxpo/trad?at_medium=RSS&at_campaign=rss",
+      "title": "霍爾木茲海峽：替代路線能否維持波斯灣油氣出口？",
+      "url": "https://www.bbc.com/zhongwen/articles/cy8m491zr85o/trad?at_medium=RSS&at_campaign=rss",
       "source": "BBC中文",
+      "category": "国际",
+      "summary": "霍尔木兹海峡替代路线分析",
+      "is_recent": true
+    },
+    {
+      "title": "阿根廷揮舞福克蘭群島橫幅宣示主權後面臨FIFA處分",
+      "url": "https://www.bbc.com/zhongwen/articles/cy07rwyeg7ko/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
+      "category": "体育",
+      "summary": "阿根廷福克兰横幅遭FIFA处分",
+      "is_recent": true
+    },
+    {
+      "title": "中宣部原副部长蔡赴朝退休8年后被查",
+      "url": "https://www.dw.com/zh/中宣部原副部长蔡赴朝退休8年后被查/a-77993143?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
+      "category": "社会",
+      "summary": "中宣部原副部长蔡赴朝被查",
+      "is_recent": true
+    },
+    {
+      "title": "菲律宾海警谴责中国官媒视频“种族主义”",
+      "url": "https://www.dw.com/zh/菲律宾海警谴责中国官媒视频-种族主义/a-77992287?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
+      "category": "国际",
+      "summary": "菲海警谴责中国官媒种族主义",
+      "is_recent": true
+    },
+    {
+      "title": "德语媒体：强大的国家 分裂的经济",
+      "url": "https://www.dw.com/zh/德语媒体：强大的国家-分裂的经济/a-77992535?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
       "category": "财经",
-      "summary": "中国经济增速降至4.3%新低",
+      "summary": "德媒评中国强大国家与分裂经济",
       "is_recent": true
     },
     {
-      "title": "德语媒体：北京想让台湾变成“孤岛”",
-      "url": "https://www.dw.com/zh/德语媒体：北京想让台湾变成-孤岛/a-77971603?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
-      "category": "国际",
-      "summary": "德媒称北京欲孤立台湾",
-      "is_recent": true
-    },
-    {
-      "title": "消息人士：DeepSeek计划再融资并筹备IPO",
-      "url": "https://www.dw.com/zh/消息人士：deepseek计划再融资并筹备ipo/a-77971573?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
-      "category": "科技",
-      "summary": "DeepSeek拟再融资并筹备上市",
-      "is_recent": true
-    },
-    {
-      "title": "“再见 我的AI恋人”: 中国新规上路 虚拟爱情下线",
-      "url": "https://www.dw.com/zh/再见-我的ai恋人-中国新规上路-虚拟爱情下线/a-77971395?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
-      "category": "科技",
-      "summary": "中国新规禁止AI虚拟恋爱",
-      "is_recent": true
-    },
-    {
-      "title": "二季度增长放缓  消费疲软给中国经济蒙上阴影",
-      "url": "https://www.dw.com/zh/二季度增长放缓-消费疲软给中国经济蒙上阴影/a-77966882?maca=chi-rss-chi-all-1127-rdf",
+      "title": "英国宣布将中资所有的英国钢铁公司收归国有",
+      "url": "https://www.dw.com/zh/英国宣布将中资所有的英国钢铁公司收归国有/a-77992463?maca=chi-rss-chi-all-1127-rdf",
       "source": "DW中文",
       "category": "财经",
-      "summary": "二季度消费疲软拖累经济",
+      "summary": "英国国有化中资钢铁公司",
       "is_recent": true
     },
     {
-      "title": "美商务部官员：英伟达向中国出口极少量H200芯片",
-      "url": "https://www.dw.com/zh/美商务部官员：英伟达向中国出口极少量h200芯片/a-77965889?maca=chi-rss-chi-all-1127-rdf",
+      "title": "皮尤：许多国家对中国及习近平好感度超过美国和特朗普",
+      "url": "https://www.dw.com/zh/皮尤：许多国家对中国及习近平好感度超过美国和特朗普/a-77983759?maca=chi-rss-chi-all-1127-rdf",
       "source": "DW中文",
-      "category": "科技",
-      "summary": "英伟达对华出口H200芯片极少",
-      "is_recent": true
-    },
-    {
-      "title": "Global views of China and Xi improve as perceptions of US decline, Pew survey finds",
-      "url": "https://www.scmp.com/news/us/diplomacy/article/3360722/global-views-china-and-xi-improve-perceptions-us-decline-pew-survey-finds?utm_source=rss_feed",
-      "source": "SCMP",
       "category": "国际",
-      "summary": "皮尤调查：全球对华好感度上升",
+      "summary": "多国对中国好感度超美",
       "is_recent": true
     },
     {
-      "title": "UK police arrest man over threat to shoot Reform leader Nigel Farage",
-      "url": "https://www.scmp.com/news/world/europe/article/3360718/uk-police-arrest-man-over-threat-shoot-reform-leader-nigel-farage?utm_source=rss_feed",
-      "source": "SCMP",
-      "category": "国际",
-      "summary": "英警方逮捕威胁枪击法拉奇者",
-      "is_recent": true
-    },
-    {
-      "title": "DSE candidates overcome physical challenges to achieve hard-earned results",
-      "url": "https://www.scmp.com/news/hong-kong/education/article/3360716/dse-candidates-overcome-physical-challenges-achieve-hard-earned-results?utm_source=rss_feed",
+      "title": "Driver claims India’s eco-friendly fuel damaged his car. Court agrees",
+      "url": "https://www.scmp.com/news/asia/south-asia/article/3360842/driver-claims-indias-eco-friendly-fuel-damaged-his-car-court-agrees?utm_source=rss_feed",
       "source": "SCMP",
       "category": "社会",
-      "summary": "香港DSE考生克服身体困难获佳绩",
+      "summary": "印度环保燃料致车损获法院支持",
       "is_recent": true
     },
     {
-      "title": "Vietnam arrests 3 publishing bosses over controversial Ho Chi Minh book",
-      "url": "https://www.scmp.com/news/asia/southeast-asia/article/3360717/vietnam-arrests-3-publishing-bosses-over-controversial-ho-chi-minh-book?utm_source=rss_feed",
+      "title": "Anthropic, China and why Pax Silica architect thinks the US can keep the AI lead",
+      "url": "https://www.scmp.com/news/china/diplomacy/article/3360833/anthropic-china-and-why-pax-silica-architect-thinks-us-can-keep-ai-lead?utm_source=rss_feed",
       "source": "SCMP",
-      "category": "国际",
-      "summary": "越南逮捕三名涉胡志明争议书出版商",
+      "category": "科技",
+      "summary": "专家称美国可保持AI领先地位",
       "is_recent": true
     },
     {
-      "title": "US-Iran war: is Trump falling into a Vietnam ‘quagmire’?",
-      "url": "https://www.scmp.com/news/china/diplomacy/article/3360711/us-iran-war-trump-falling-vietnam-quagmire?utm_source=rss_feed",
+      "title": "Deceitful firms mostly to blame for deadly Tai Po blaze, government counsel says",
+      "url": "https://www.scmp.com/news/hong-kong/society/article/3360839/deceitful-firms-mostly-blame-deadly-tai-po-blaze-government-counsel-says?utm_source=rss_feed",
+      "source": "SCMP",
+      "category": "社会",
+      "summary": "港府律师指欺诈公司致大埔火灾",
+      "is_recent": true
+    },
+    {
+      "title": "Philippine military assures ‘no vacuum’ over top officer’s retirement",
+      "url": "https://www.scmp.com/week-asia/politics/article/3360838/philippine-military-assures-no-vacuum-over-top-officers-retirement?utm_source=rss_feed",
       "source": "SCMP",
       "category": "国际",
-      "summary": "美伊战争：特朗普陷越战式泥潭？",
+      "summary": "菲军方保证高层退休无真空",
+      "is_recent": true
+    },
+    {
+      "title": "Italian court sentences ex-highway chief to 12 years’ jail over Genoa bridge disaster",
+      "url": "https://www.scmp.com/news/world/europe/article/3360837/italian-court-sentences-ex-highway-chief-12-years-jail-over-genoa-bridge-disaster?utm_source=rss_feed",
+      "source": "SCMP",
+      "category": "国际",
+      "summary": "意前公路局长因大桥坍塌获刑12年",
       "is_recent": true
     }
   ]
