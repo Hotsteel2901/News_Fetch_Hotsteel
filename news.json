@@ -1,127 +1,127 @@
 {
-  "date": "2026-07-16",
-  "generated": "2026-07-16T17:07:14.080143+00:00",
-  "summary": "全球对华好感超美，英国国有化中资钢铁，福克兰主权争议持续",
+  "date": "2026-07-17",
+  "generated": "2026-07-17T17:04:44.934023+00:00",
+  "summary": "习近平出席AI大会，英国新首相将就职",
   "total": 15,
   "items": [
     {
-      "title": "「贏了官司輸了輿論」：LV 訴茉莉奶白案，司法判決之後再被網絡審判",
-      "url": "https://www.bbc.com/zhongwen/articles/cy0jnwzx5dzo/trad?at_medium=RSS&at_campaign=rss",
+      "title": "習近平首度現身世界AI大會：中國的「開源」戰略意味著什麼？",
+      "url": "https://www.bbc.com/zhongwen/articles/c2k7jkvwq1zo/trad?at_medium=RSS&at_campaign=rss",
       "source": "BBC中文",
-      "category": "社会",
-      "summary": "LV诉茉莉奶白案引发网络审判",
-      "is_recent": true
-    },
-    {
-      "title": "皮尤研究：全球更多國家對中國好感勝過美國，逾20年以來首次",
-      "url": "https://www.bbc.com/zhongwen/articles/cpq8jd9dwr2o/trad?at_medium=RSS&at_campaign=rss",
-      "source": "BBC中文",
-      "category": "国际",
-      "summary": "全球对华好感度首次超美",
-      "is_recent": true
-    },
-    {
-      "title": "「天才少女」蔣方舟跌下神壇：中國學術打假為何變成制度之問",
-      "url": "https://www.bbc.com/zhongwen/articles/cx2v2j1pdrxo/trad?at_medium=RSS&at_campaign=rss",
-      "source": "BBC中文",
-      "category": "社会",
-      "summary": "蒋方舟学术造假引发制度反思",
-      "is_recent": true
-    },
-    {
-      "title": "霍爾木茲海峽：替代路線能否維持波斯灣油氣出口？",
-      "url": "https://www.bbc.com/zhongwen/articles/cy8m491zr85o/trad?at_medium=RSS&at_campaign=rss",
-      "source": "BBC中文",
-      "category": "国际",
-      "summary": "霍尔木兹海峡替代路线分析",
-      "is_recent": true
-    },
-    {
-      "title": "阿根廷揮舞福克蘭群島橫幅宣示主權後面臨FIFA處分",
-      "url": "https://www.bbc.com/zhongwen/articles/cy07rwyeg7ko/trad?at_medium=RSS&at_campaign=rss",
-      "source": "BBC中文",
-      "category": "体育",
-      "summary": "阿根廷福克兰横幅遭FIFA处分",
-      "is_recent": true
-    },
-    {
-      "title": "中宣部原副部长蔡赴朝退休8年后被查",
-      "url": "https://www.dw.com/zh/中宣部原副部长蔡赴朝退休8年后被查/a-77993143?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
-      "category": "社会",
-      "summary": "中宣部原副部长蔡赴朝被查",
-      "is_recent": true
-    },
-    {
-      "title": "菲律宾海警谴责中国官媒视频“种族主义”",
-      "url": "https://www.dw.com/zh/菲律宾海警谴责中国官媒视频-种族主义/a-77992287?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
-      "category": "国际",
-      "summary": "菲海警谴责中国官媒种族主义",
-      "is_recent": true
-    },
-    {
-      "title": "德语媒体：强大的国家 分裂的经济",
-      "url": "https://www.dw.com/zh/德语媒体：强大的国家-分裂的经济/a-77992535?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
-      "category": "财经",
-      "summary": "德媒评中国强大国家与分裂经济",
-      "is_recent": true
-    },
-    {
-      "title": "英国宣布将中资所有的英国钢铁公司收归国有",
-      "url": "https://www.dw.com/zh/英国宣布将中资所有的英国钢铁公司收归国有/a-77992463?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
-      "category": "财经",
-      "summary": "英国国有化中资钢铁公司",
-      "is_recent": true
-    },
-    {
-      "title": "皮尤：许多国家对中国及习近平好感度超过美国和特朗普",
-      "url": "https://www.dw.com/zh/皮尤：许多国家对中国及习近平好感度超过美国和特朗普/a-77983759?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
-      "category": "国际",
-      "summary": "多国对中国好感度超美",
-      "is_recent": true
-    },
-    {
-      "title": "Driver claims India’s eco-friendly fuel damaged his car. Court agrees",
-      "url": "https://www.scmp.com/news/asia/south-asia/article/3360842/driver-claims-indias-eco-friendly-fuel-damaged-his-car-court-agrees?utm_source=rss_feed",
-      "source": "SCMP",
-      "category": "社会",
-      "summary": "印度环保燃料致车损获法院支持",
-      "is_recent": true
-    },
-    {
-      "title": "Anthropic, China and why Pax Silica architect thinks the US can keep the AI lead",
-      "url": "https://www.scmp.com/news/china/diplomacy/article/3360833/anthropic-china-and-why-pax-silica-architect-thinks-us-can-keep-ai-lead?utm_source=rss_feed",
-      "source": "SCMP",
       "category": "科技",
-      "summary": "专家称美国可保持AI领先地位",
+      "summary": "习近平现身AI大会谈开源战略",
       "is_recent": true
     },
     {
-      "title": "Deceitful firms mostly to blame for deadly Tai Po blaze, government counsel says",
-      "url": "https://www.scmp.com/news/hong-kong/society/article/3360839/deceitful-firms-mostly-blame-deadly-tai-po-blaze-government-counsel-says?utm_source=rss_feed",
+      "title": "香港「禁書時代」：國安法下那些被下架、點名與檢走的書",
+      "url": "https://www.bbc.com/zhongwen/articles/c3v0xg2zq9go/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
+      "category": "社会",
+      "summary": "国安法下香港书籍被下架",
+      "is_recent": true
+    },
+    {
+      "title": "劍指中國 特朗普稱美國選舉安全有「令人震驚的漏洞」",
+      "url": "https://www.bbc.com/zhongwen/articles/c5ywdnz6yqgo/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
+      "category": "国际",
+      "summary": "特朗普指责中国影响美选举安全",
+      "is_recent": true
+    },
+    {
+      "title": "英國鋼鐵國有化 中國「堅決反對」侵犯華資權益",
+      "url": "https://www.bbc.com/zhongwen/articles/cedj1qld27yo/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
+      "category": "财经",
+      "summary": "中国反对英国钢铁国有化",
+      "is_recent": true
+    },
+    {
+      "title": "「貝安德是誰？」：為何新任英國首相仍是一個充滿謎團的人物",
+      "url": "https://www.bbc.com/zhongwen/articles/cm2g3pyx3j1o/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
+      "category": "国际",
+      "summary": "英国新首相伯纳姆身份引关注",
+      "is_recent": true
+    },
+    {
+      "title": "中国AI公司月之暗面发布全球最大规模开源模型",
+      "url": "https://www.dw.com/zh/中国ai公司月之暗面发布全球最大规模开源模型/a-78011216?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
+      "category": "科技",
+      "summary": "月之暗面发布全球最大开源模型",
+      "is_recent": true
+    },
+    {
+      "title": "美国收紧多类签证规定 中国记者和留学生首当其冲",
+      "url": "https://www.dw.com/zh/美国收紧多类签证规定-中国记者和留学生首当其冲/a-78009008?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
+      "category": "国际",
+      "summary": "美国收紧签证影响中国记者留学生",
+      "is_recent": true
+    },
+    {
+      "title": "习近平倡议中国建立全球AI新秩序 挑战美国主导地位",
+      "url": "https://www.dw.com/zh/习近平倡议中国建立全球ai新秩序-挑战美国主导地位/a-78007555?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
+      "category": "科技",
+      "summary": "习近平倡建全球AI新秩序挑战美国",
+      "is_recent": true
+    },
+    {
+      "title": "Hong Kong welcomes US move to let national emergency declaration expire",
+      "url": "https://www.scmp.com/news/us/diplomacy/article/3361011/hong-kong-welcomes-us-move-let-national-emergency-declaration-expire?utm_source=rss_feed",
+      "source": "SCMP",
+      "category": "国际",
+      "summary": "香港欢迎美国终止紧急状态声明",
+      "is_recent": true
+    },
+    {
+      "title": "Tai Po fire: corrupt players exploited loopholes in regulations, inquiry hears",
+      "url": "https://www.scmp.com/news/hong-kong/society/article/3361010/tai-po-fire-corrupt-players-exploited-loopholes-regulations-inquiry-hears?utm_source=rss_feed",
       "source": "SCMP",
       "category": "社会",
-      "summary": "港府律师指欺诈公司致大埔火灾",
+      "summary": "大埔火灾调查发现监管漏洞",
       "is_recent": true
     },
     {
-      "title": "Philippine military assures ‘no vacuum’ over top officer’s retirement",
-      "url": "https://www.scmp.com/week-asia/politics/article/3360838/philippine-military-assures-no-vacuum-over-top-officers-retirement?utm_source=rss_feed",
+      "title": "Tai Po fire inquiry legal team calls for bamboo scaffolding to be phased out",
+      "url": "https://www.scmp.com/news/hong-kong/society/article/3361000/tai-po-fire-inquiry-panel-calls-bamboo-scaffolding-be-phased-out?utm_source=rss_feed",
       "source": "SCMP",
-      "category": "国际",
-      "summary": "菲军方保证高层退休无真空",
+      "category": "社会",
+      "summary": "大埔火灾调查建议淘汰竹棚",
       "is_recent": true
     },
     {
-      "title": "Italian court sentences ex-highway chief to 12 years’ jail over Genoa bridge disaster",
-      "url": "https://www.scmp.com/news/world/europe/article/3360837/italian-court-sentences-ex-highway-chief-12-years-jail-over-genoa-bridge-disaster?utm_source=rss_feed",
+      "title": "J.K. Rowling condemns Amnesty for branding her women’s crisis centre anti-rights",
+      "url": "https://www.scmp.com/news/world/europe/article/3361007/jk-rowling-condemns-amnesty-branding-her-womens-crisis-centre-anti-rights?utm_source=rss_feed",
+      "source": "SCMP",
+      "category": "娱乐",
+      "summary": "罗琳谴责大赦国际标签其中心",
+      "is_recent": true
+    },
+    {
+      "title": "Negeri Sembilan snap poll threatens to chip away at Malaysian state’s tech hub goals",
+      "url": "https://www.scmp.com/week-asia/politics/article/3361005/negeri-sembilan-snap-poll-threatens-chip-away-malaysian-states-tech-hub-goals?utm_source=rss_feed",
       "source": "SCMP",
       "category": "国际",
-      "summary": "意前公路局长因大桥坍塌获刑12年",
+      "summary": "森美兰提前选举影响科技中心目标",
+      "is_recent": true
+    },
+    {
+      "title": "习近平对重庆彭水县山体崩塌作出重要指示 - 求是",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1FU0hnNzBBaFlFZzluSzFudXU2RXZJek9QZFd4cjlSbnBBSE9SZ0J0V25PdVc4bUlVMjJNaW5SWVdMcHQyMnFHYXhtSGNxWmFfVUFacDJ5ZlJMcGl1NGt6M2dheG9xZUJzN1R1SWdxdlV3TDRtaFF5dXQ1OVc?oc=5",
+      "source": "求是",
+      "category": "社会",
+      "summary": "习近平对彭水山体崩塌作指示",
+      "is_recent": true
+    },
+    {
+      "title": "习近平会见柬埔寨首相洪玛奈 - 新华网",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNSUhDQXVtTUJnSmlNUjRvbFQ4bC1CZ01Udmp1Tjg0bm9VLW1LMktvRmJiRW9Yd2ZFUDkzR0RfN3ZsOC1KN1ktQ2FsMGREWXdWUFpkV1RtWldvc25jQlFJMUN0YU1rajdJYXhhQzlRMEJvTGh0VE56dGRqeDZKTTlSSGdWbUExTThWV1FqU053?oc=5",
+      "source": "新华网",
+      "category": "国际",
+      "summary": "习近平会见柬埔寨首相洪玛奈",
       "is_recent": true
     }
   ]
