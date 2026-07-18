@@ -1,15 +1,31 @@
 {
-  "date": "2026-07-17",
-  "generated": "2026-07-17T17:04:44.934023+00:00",
-  "summary": "习近平出席AI大会，英国新首相将就职",
-  "total": 15,
+  "date": "2026-07-18",
+  "generated": "2026-07-18T16:48:07.914056+00:00",
+  "summary": "习近平出席世界AI大会，多国政经动态更新",
+  "total": 13,
   "items": [
+    {
+      "title": "梅西、馬拉多納、貝利——誰才是真正的足球史上最強？",
+      "url": "https://www.bbc.com/zhongwen/articles/c9w0jqyqngdo/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
+      "category": "体育",
+      "summary": "足球史上最强球员之争",
+      "is_recent": true
+    },
+    {
+      "title": "月經週期追蹤App暗藏了什麼隱私漏洞？",
+      "url": "https://www.bbc.com/zhongwen/articles/ckgvwk50z6vo/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
+      "category": "科技",
+      "summary": "月经App隐私风险揭露",
+      "is_recent": true
+    },
     {
       "title": "習近平首度現身世界AI大會：中國的「開源」戰略意味著什麼？",
       "url": "https://www.bbc.com/zhongwen/articles/c2k7jkvwq1zo/trad?at_medium=RSS&at_campaign=rss",
       "source": "BBC中文",
       "category": "科技",
-      "summary": "习近平现身AI大会谈开源战略",
+      "summary": "习近平出席世界AI大会",
       "is_recent": true
     },
     {
@@ -17,23 +33,7 @@
       "url": "https://www.bbc.com/zhongwen/articles/c3v0xg2zq9go/trad?at_medium=RSS&at_campaign=rss",
       "source": "BBC中文",
       "category": "社会",
-      "summary": "国安法下香港书籍被下架",
-      "is_recent": true
-    },
-    {
-      "title": "劍指中國 特朗普稱美國選舉安全有「令人震驚的漏洞」",
-      "url": "https://www.bbc.com/zhongwen/articles/c5ywdnz6yqgo/trad?at_medium=RSS&at_campaign=rss",
-      "source": "BBC中文",
-      "category": "国际",
-      "summary": "特朗普指责中国影响美选举安全",
-      "is_recent": true
-    },
-    {
-      "title": "英國鋼鐵國有化 中國「堅決反對」侵犯華資權益",
-      "url": "https://www.bbc.com/zhongwen/articles/cedj1qld27yo/trad?at_medium=RSS&at_campaign=rss",
-      "source": "BBC中文",
-      "category": "财经",
-      "summary": "中国反对英国钢铁国有化",
+      "summary": "国安法下香港书籍被禁",
       "is_recent": true
     },
     {
@@ -41,87 +41,71 @@
       "url": "https://www.bbc.com/zhongwen/articles/cm2g3pyx3j1o/trad?at_medium=RSS&at_campaign=rss",
       "source": "BBC中文",
       "category": "国际",
-      "summary": "英国新首相伯纳姆身份引关注",
+      "summary": "英国新任首相身份成谜",
       "is_recent": true
     },
     {
-      "title": "中国AI公司月之暗面发布全球最大规模开源模型",
-      "url": "https://www.dw.com/zh/中国ai公司月之暗面发布全球最大规模开源模型/a-78011216?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
+      "title": "Israeli rule change clears way for using crocodiles to deter prison breaks",
+      "url": "https://www.scmp.com/news/world/middle-east/article/3361067/israeli-rule-change-clears-way-using-crocodiles-deter-prison-breaks?utm_source=rss_feed",
+      "source": "SCMP",
+      "category": "国际",
+      "summary": "以色列用鳄鱼防越狱",
+      "is_recent": true
+    },
+    {
+      "title": "Canada to evacuate Ontario community as wildfire smoke chokes US",
+      "url": "https://www.scmp.com/news/world/united-states-canada/article/3361064/canada-evacuate-ontario-community-wildfire-smoke-chokes-us?utm_source=rss_feed",
+      "source": "SCMP",
+      "category": "国际",
+      "summary": "加拿大山火致美国烟雾弥漫",
+      "is_recent": true
+    },
+    {
+      "title": "Final report of Tai Po fire inquiry panel delayed to late October: source",
+      "url": "https://www.scmp.com/news/hong-kong/politics/article/3361060/tai-po-fire-inquiry-panel-delay-submitting-final-report-late-october-source?utm_source=rss_feed",
+      "source": "SCMP",
+      "category": "社会",
+      "summary": "大埔火灾调查报告推迟",
+      "is_recent": true
+    },
+    {
+      "title": "Why data may become China’s most durable advantage in the AI race",
+      "url": "https://www.scmp.com/news/china/politics/article/3361050/why-data-may-become-chinas-most-durable-advantage-ai-race?utm_source=rss_feed",
+      "source": "SCMP",
       "category": "科技",
-      "summary": "月之暗面发布全球最大开源模型",
+      "summary": "数据成中国AI持久优势",
       "is_recent": true
     },
     {
-      "title": "美国收紧多类签证规定 中国记者和留学生首当其冲",
-      "url": "https://www.dw.com/zh/美国收紧多类签证规定-中国记者和留学生首当其冲/a-78009008?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
-      "category": "国际",
-      "summary": "美国收紧签证影响中国记者留学生",
-      "is_recent": true
-    },
-    {
-      "title": "习近平倡议中国建立全球AI新秩序 挑战美国主导地位",
-      "url": "https://www.dw.com/zh/习近平倡议中国建立全球ai新秩序-挑战美国主导地位/a-78007555?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW中文",
+      "title": "China AI summit hears Global South needs equal access to avoid digital divide",
+      "url": "https://www.scmp.com/tech/policy/article/3361057/china-ai-summit-hears-global-south-needs-equal-access-avoid-digital-divide?utm_source=rss_feed",
+      "source": "SCMP",
       "category": "科技",
-      "summary": "习近平倡建全球AI新秩序挑战美国",
+      "summary": "全球南方需平等获取AI",
       "is_recent": true
     },
     {
-      "title": "Hong Kong welcomes US move to let national emergency declaration expire",
-      "url": "https://www.scmp.com/news/us/diplomacy/article/3361011/hong-kong-welcomes-us-move-let-national-emergency-declaration-expire?utm_source=rss_feed",
-      "source": "SCMP",
+      "title": "Burnham to announce plans for new North Sea oil and gas drilling",
+      "url": "https://www.bbc.co.uk/news/articles/c935yx2z9d4o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "财经",
+      "summary": "英国计划北海新油气钻探",
+      "is_recent": true
+    },
+    {
+      "title": "Russian online retail warehouses hit by deadly Ukrainian strikes",
+      "url": "https://www.bbc.co.uk/news/articles/clyxlm877p2o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
       "category": "国际",
-      "summary": "香港欢迎美国终止紧急状态声明",
+      "summary": "乌克兰袭击俄电商仓库",
       "is_recent": true
     },
     {
-      "title": "Tai Po fire: corrupt players exploited loopholes in regulations, inquiry hears",
-      "url": "https://www.scmp.com/news/hong-kong/society/article/3361010/tai-po-fire-corrupt-players-exploited-loopholes-regulations-inquiry-hears?utm_source=rss_feed",
-      "source": "SCMP",
-      "category": "社会",
-      "summary": "大埔火灾调查发现监管漏洞",
-      "is_recent": true
-    },
-    {
-      "title": "Tai Po fire inquiry legal team calls for bamboo scaffolding to be phased out",
-      "url": "https://www.scmp.com/news/hong-kong/society/article/3361000/tai-po-fire-inquiry-panel-calls-bamboo-scaffolding-be-phased-out?utm_source=rss_feed",
-      "source": "SCMP",
-      "category": "社会",
-      "summary": "大埔火灾调查建议淘汰竹棚",
-      "is_recent": true
-    },
-    {
-      "title": "J.K. Rowling condemns Amnesty for branding her women’s crisis centre anti-rights",
-      "url": "https://www.scmp.com/news/world/europe/article/3361007/jk-rowling-condemns-amnesty-branding-her-womens-crisis-centre-anti-rights?utm_source=rss_feed",
-      "source": "SCMP",
-      "category": "娱乐",
-      "summary": "罗琳谴责大赦国际标签其中心",
-      "is_recent": true
-    },
-    {
-      "title": "Negeri Sembilan snap poll threatens to chip away at Malaysian state’s tech hub goals",
-      "url": "https://www.scmp.com/week-asia/politics/article/3361005/negeri-sembilan-snap-poll-threatens-chip-away-malaysian-states-tech-hub-goals?utm_source=rss_feed",
-      "source": "SCMP",
-      "category": "国际",
-      "summary": "森美兰提前选举影响科技中心目标",
-      "is_recent": true
-    },
-    {
-      "title": "习近平对重庆彭水县山体崩塌作出重要指示 - 求是",
-      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1FU0hnNzBBaFlFZzluSzFudXU2RXZJek9QZFd4cjlSbnBBSE9SZ0J0V25PdVc4bUlVMjJNaW5SWVdMcHQyMnFHYXhtSGNxWmFfVUFacDJ5ZlJMcGl1NGt6M2dheG9xZUJzN1R1SWdxdlV3TDRtaFF5dXQ1OVc?oc=5",
-      "source": "求是",
-      "category": "社会",
-      "summary": "习近平对彭水山体崩塌作指示",
-      "is_recent": true
-    },
-    {
-      "title": "习近平会见柬埔寨首相洪玛奈 - 新华网",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNSUhDQXVtTUJnSmlNUjRvbFQ4bC1CZ01Udmp1Tjg0bm9VLW1LMktvRmJiRW9Yd2ZFUDkzR0RfN3ZsOC1KN1ktQ2FsMGREWXdWUFpkV1RtWldvc25jQlFJMUN0YU1rajdJYXhhQzlRMEJvTGh0VE56dGRqeDZKTTlSSGdWbUExTThWV1FqU053?oc=5",
-      "source": "新华网",
-      "category": "国际",
-      "summary": "习近平会见柬埔寨首相洪玛奈",
+      "title": "Britain's Kerr breaks 27-year mile world record in London",
+      "url": "https://www.bbc.co.uk/sport/athletics/articles/cx2jl1wge2po?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "体育",
+      "summary": "英国选手打破27年英里纪录",
       "is_recent": true
     }
   ]
