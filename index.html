@@ -19,8 +19,10 @@
   --accent: #dc2626;
   --accent-bg: #fef2f2;
   --hover-bg: #fafafa;
-  --glow: rgba(220, 38, 38, 0.08);
-  --ambient: radial-gradient(circle at 20% 0%, rgba(220, 38, 38, 0.08) 0%, transparent 45%);
+  --glow: rgba(220, 38, 38, 0.1);
+  --glow-strong: rgba(220, 38, 38, 0.18);
+  --ambient: radial-gradient(circle at 20% 0%, rgba(220, 38, 38, 0.1) 0%, transparent 50%);
+  --spotlight: radial-gradient(600px circle at var(--x, 50%) var(--y, 0%), rgba(220, 38, 38, 0.06), transparent 40%);
   --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --radius: 2px;
   --transition: 0.3s ease;
@@ -33,10 +35,12 @@
     --muted: #a1a1aa;
     --border: #27272a;
     --accent: #ef4444;
-    --accent-bg: rgba(239, 68, 68, 0.12);
+    --accent-bg: rgba(239, 68, 68, 0.14);
     --hover-bg: #18181b;
     --glow: rgba(239, 68, 68, 0.14);
-    --ambient: radial-gradient(circle at 20% 0%, rgba(239, 68, 68, 0.12) 0%, transparent 45%);
+    --glow-strong: rgba(239, 68, 68, 0.28);
+    --ambient: radial-gradient(circle at 20% 0%, rgba(239, 68, 68, 0.14) 0%, transparent 50%);
+    --spotlight: radial-gradient(600px circle at var(--x, 50%) var(--y, 0%), rgba(239, 68, 68, 0.1), transparent 40%);
   }
 }
 
@@ -58,9 +62,31 @@ body::before {
   inset: 0;
   background: var(--ambient);
   pointer-events: none;
-  z-index: -1;
+  z-index: -2;
   opacity: 0;
   animation: ambientFade 1.2s ease forwards;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: var(--spotlight);
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  z-index: 100;
+  transition: width 0.1s linear;
 }
 
 .container {
@@ -68,6 +94,35 @@ body::before {
   max-width: 800px;
   margin: 0 auto;
   padding: clamp(1.5rem, 5vw, 3rem) clamp(1rem, 4vw, 2rem) 4rem;
+}
+
+/* Floating orbs */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: -2;
+  opacity: 0;
+  animation: orbFloat 8s ease-in-out infinite, fadeIn 1.5s ease forwards;
+}
+
+.orb-1 {
+  width: 320px;
+  height: 320px;
+  top: -6rem;
+  right: -4rem;
+  background: var(--glow);
+  animation-delay: 0s, 0.2s;
+}
+
+.orb-2 {
+  width: 240px;
+  height: 240px;
+  bottom: 10%;
+  left: -6rem;
+  background: var(--glow);
+  animation-delay: -4s, 0.5s;
 }
 
 /* Header */
@@ -126,13 +181,19 @@ body::before {
 
 .hero-title span {
   display: block;
+  background: linear-gradient(90deg, var(--fg) 0%, var(--fg) 40%, var(--accent) 50%, var(--fg) 60%, var(--fg) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.7s ease forwards;
+  filter: blur(8px);
+  transform: translateY(30px) scale(0.98);
+  animation: textReveal 1s cubic-bezier(0.22, 1, 0.36, 1) forwards, textShine 4s linear infinite 1.2s;
 }
 
-.hero-title span:nth-child(1) { animation-delay: 0.3s; }
-.hero-title span:nth-child(2) { animation-delay: 0.42s; }
+.hero-title span:nth-child(1) { animation-delay: 0.3s, 1.2s; }
+.hero-title span:nth-child(2) { animation-delay: 0.45s, 1.35s; }
 
 .hero-summary {
   font-size: 1.05rem;
@@ -141,16 +202,16 @@ body::before {
   line-height: 1.6;
   opacity: 0;
   transform: translateY(16px);
-  animation: fadeUp 0.6s ease 0.54s forwards;
+  animation: fadeUp 0.6s ease 0.7s forwards;
 }
 
 .hero-glow {
   position: absolute;
   top: -4rem;
   right: -2rem;
-  width: 280px;
-  height: 280px;
-  background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, var(--glow-strong) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   opacity: 0;
@@ -171,29 +232,36 @@ body::before {
   width: 0;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  animation: lineSweep 1.2s ease 0.8s forwards;
+  animation: lineSweep 1.2s ease 0.9s forwards;
 }
 
 .news-item {
   position: relative;
   border-bottom: 1px solid var(--border);
   opacity: 0;
-  transform: translateY(16px);
-  animation: fadeUp 0.55s ease forwards;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s ease forwards;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.news-item:nth-child(1) { animation-delay: 0.6s; }
-.news-item:nth-child(2) { animation-delay: 0.66s; }
-.news-item:nth-child(3) { animation-delay: 0.72s; }
-.news-item:nth-child(4) { animation-delay: 0.78s; }
-.news-item:nth-child(5) { animation-delay: 0.84s; }
-.news-item:nth-child(6) { animation-delay: 0.9s; }
-.news-item:nth-child(7) { animation-delay: 0.96s; }
-.news-item:nth-child(8) { animation-delay: 1.02s; }
-.news-item:nth-child(9) { animation-delay: 1.08s; }
-.news-item:nth-child(10) { animation-delay: 1.14s; }
-.news-item:nth-child(11) { animation-delay: 1.2s; }
-.news-item:nth-child(12) { animation-delay: 1.26s; }
+.news-item:nth-child(1) { animation-delay: 0.7s; }
+.news-item:nth-child(2) { animation-delay: 0.76s; }
+.news-item:nth-child(3) { animation-delay: 0.82s; }
+.news-item:nth-child(4) { animation-delay: 0.88s; }
+.news-item:nth-child(5) { animation-delay: 0.94s; }
+.news-item:nth-child(6) { animation-delay: 1s; }
+.news-item:nth-child(7) { animation-delay: 1.06s; }
+.news-item:nth-child(8) { animation-delay: 1.12s; }
+.news-item:nth-child(9) { animation-delay: 1.18s; }
+.news-item:nth-child(10) { animation-delay: 1.24s; }
+.news-item:nth-child(11) { animation-delay: 1.3s; }
+.news-item:nth-child(12) { animation-delay: 1.36s; }
+
+.news-item.is-open {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px -20px var(--glow-strong);
+  z-index: 1;
+}
 
 .news-item::before {
   content: '';
@@ -205,12 +273,23 @@ body::before {
   background: var(--accent);
   transform: scaleY(0);
   transform-origin: top;
-  transition: transform 0.25s ease-out;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .news-item.is-open::before,
 .news-item:hover::before {
   transform: scaleY(1);
+}
+
+.news-item.is-open::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-left: 2px solid var(--accent);
+  box-shadow: inset 0 0 30px -10px var(--glow);
+  pointer-events: none;
+  opacity: 0;
+  animation: glowPulse 2s ease-in-out infinite;
 }
 
 .news-header {
@@ -226,13 +305,14 @@ body::before {
   font: inherit;
   text-align: left;
   cursor: pointer;
-  transition: padding-left 0.25s ease-out, background 0.25s ease;
+  transition: padding-left 0.25s ease-out, background 0.25s ease, transform 0.25s ease;
 }
 
 .news-header:hover,
 .news-header:focus-visible {
   padding-left: 0.5rem;
   background: var(--hover-bg);
+  transform: translateX(4px);
   outline: none;
 }
 
@@ -251,7 +331,7 @@ body::before {
 .news-header:hover .news-number,
 .news-item.is-open .news-number {
   color: var(--accent);
-  transform: translateX(2px);
+  transform: translateX(3px) scale(1.05);
 }
 
 .news-meta {
@@ -274,8 +354,8 @@ body::before {
 }
 
 .news-header:hover .news-source {
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px var(--glow);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--glow);
 }
 
 .news-category {
@@ -294,7 +374,7 @@ body::before {
 
 .news-header:hover .news-title {
   color: var(--accent);
-  transform: translateX(4px);
+  transform: translateX(6px);
 }
 
 .news-summary {
@@ -312,7 +392,7 @@ body::before {
 .news-body {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .news-item.is-open .news-body {
@@ -332,8 +412,8 @@ body::before {
   color: var(--fg);
   white-space: pre-wrap;
   opacity: 0;
-  transform: translateY(-8px);
-  transition: opacity 0.35s ease 0.05s, transform 0.35s ease 0.05s;
+  transform: translateY(-12px);
+  transition: opacity 0.4s ease 0.08s, transform 0.4s ease 0.08s;
 }
 
 .news-item.is-open .news-content {
@@ -368,7 +448,7 @@ body::before {
 .news-close:focus-visible {
   color: var(--fg);
   background: var(--hover-bg);
-  transform: rotate(90deg);
+  transform: rotate(90deg) scale(1.1);
   outline: none;
 }
 
@@ -439,10 +519,13 @@ body::before {
 .skeleton .news-header:hover {
   padding-left: 0;
   background: transparent;
+  transform: none;
 }
 
-.skeleton .news-item::before {
+.skeleton .news-item::before,
+.skeleton .news-item.is-open::after {
   transform: scaleY(0) !important;
+  animation: none !important;
 }
 
 .skeleton .news-number,
@@ -475,12 +558,12 @@ body::before {
   color: var(--muted);
   text-align: center;
   opacity: 0;
-  animation: fadeUp 0.6s ease 1.4s forwards;
+  animation: fadeUp 0.6s ease 1.5s forwards;
 }
 
 /* Animations */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -496,12 +579,17 @@ body::before {
 
 @keyframes dotPulse {
   0%, 100% { box-shadow: 0 0 0 0 var(--glow); }
-  50% { box-shadow: 0 0 0 6px transparent; }
+  50% { box-shadow: 0 0 0 8px transparent; }
 }
 
 @keyframes glowBreathe {
-  0%, 100% { transform: scale(1); opacity: 0.6; }
-  50% { transform: scale(1.08); opacity: 1; }
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.12); opacity: 1; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
 }
 
 @keyframes ambientFade {
@@ -519,7 +607,27 @@ body::before {
   100% { background-position: -200% 0; }
 }
 
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(20px, -30px) scale(1.05); }
+  66% { transform: translate(-10px, 20px) scale(0.95); }
+}
+
+@keyframes textReveal {
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes textShine {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .orb,
   .brand,
   .hero-date,
   .hero-title span,
@@ -530,6 +638,7 @@ body::before {
     animation: none;
     opacity: 1;
     transform: none;
+    filter: none;
   }
   .brand-dot,
   .skeleton .news-number,
@@ -538,9 +647,10 @@ body::before {
   .skeleton .news-summary {
     animation: none;
   }
-  .hero-glow {
+  .hero-glow,
+  .news-item.is-open::after {
     animation: none;
-    opacity: 0.6;
+    opacity: 0.5;
   }
   body::before,
   .news-list::before {
@@ -555,18 +665,21 @@ body::before {
   .news-title,
   .news-summary,
   .news-source,
-  .news-close {
+  .news-close,
+  .news-item {
     transition: none;
   }
 }
 
 @media (max-width: 480px) {
   .hero-glow {
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
     top: -2rem;
     right: -1rem;
   }
+  .orb-1 { width: 200px; height: 200px; }
+  .orb-2 { width: 160px; height: 160px; }
   .news-header {
     grid-template-columns: 2rem 1fr;
     gap: 0.75rem;
@@ -578,6 +691,10 @@ body::before {
 </style>
 </head>
 <body>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+<div class="orb orb-1" aria-hidden="true"></div>
+<div class="orb orb-2" aria-hidden="true"></div>
+
 <div class="container">
   <div class="brand">
     <span class="brand-dot" aria-hidden="true"></span>
@@ -604,6 +721,7 @@ const EL = {
   heroDate: document.getElementById('hero-date'),
   heroSummary: document.getElementById('hero-summary'),
   list: document.getElementById('news-list'),
+  progressBar: document.getElementById('progress-bar'),
 };
 
 const WEEKDAYS = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
@@ -769,6 +887,26 @@ function showError(msg) {
   retry.href = 'javascript:location.reload()';
   setText(retry, '点击重试');
 }
+
+function updateSpotlight(e) {
+  const x = (e.clientX / window.innerWidth) * 100;
+  const y = (e.clientY / window.innerHeight) * 100;
+  document.documentElement.style.setProperty('--x', `${x}%`);
+  document.documentElement.style.setProperty('--y', `${y}%`);
+}
+
+function updateProgress() {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  if (EL.progressBar) {
+    EL.progressBar.style.width = `${progress}%`;
+  }
+}
+
+window.addEventListener('mousemove', updateSpotlight, { passive: true });
+window.addEventListener('scroll', updateProgress, { passive: true });
+window.addEventListener('resize', updateProgress, { passive: true });
 
 async function load() {
   renderSkeleton();
