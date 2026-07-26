@@ -1,111 +1,127 @@
 {
-  "date": "2026-07-18",
-  "generated": "2026-07-18T16:48:07.914056+00:00",
-  "summary": "习近平出席世界AI大会，多国政经动态更新",
-  "total": 13,
+  "date": "2026-07-26",
+  "generated": "2026-07-26T11:38:16.049726+00:00",
+  "summary": "最强台风红霞登陆广东，柏林游行遭汽车冲撞",
+  "total": 15,
   "items": [
     {
-      "title": "梅西、馬拉多納、貝利——誰才是真正的足球史上最強？",
-      "url": "https://www.bbc.com/zhongwen/articles/c9w0jqyqngdo/trad?at_medium=RSS&at_campaign=rss",
-      "source": "BBC中文",
-      "category": "体育",
-      "summary": "足球史上最强球员之争",
-      "is_recent": true
-    },
-    {
-      "title": "月經週期追蹤App暗藏了什麼隱私漏洞？",
-      "url": "https://www.bbc.com/zhongwen/articles/ckgvwk50z6vo/trad?at_medium=RSS&at_campaign=rss",
-      "source": "BBC中文",
-      "category": "科技",
-      "summary": "月经App隐私风险揭露",
-      "is_recent": true
-    },
-    {
-      "title": "習近平首度現身世界AI大會：中國的「開源」戰略意味著什麼？",
-      "url": "https://www.bbc.com/zhongwen/articles/c2k7jkvwq1zo/trad?at_medium=RSS&at_campaign=rss",
-      "source": "BBC中文",
-      "category": "科技",
-      "summary": "习近平出席世界AI大会",
-      "is_recent": true
-    },
-    {
-      "title": "香港「禁書時代」：國安法下那些被下架、點名與檢走的書",
-      "url": "https://www.bbc.com/zhongwen/articles/c3v0xg2zq9go/trad?at_medium=RSS&at_campaign=rss",
+      "title": "今年最強颱風「紅霞」登陸中國廣東  逾71萬人疏散",
+      "url": "https://www.bbc.com/zhongwen/articles/cqx748q7zrwo/trad?at_medium=RSS&at_campaign=rss",
       "source": "BBC中文",
       "category": "社会",
-      "summary": "国安法下香港书籍被禁",
+      "summary": "最强台风红霞登陆广东，71万人疏散",
       "is_recent": true
     },
     {
-      "title": "「貝安德是誰？」：為何新任英國首相仍是一個充滿謎團的人物",
-      "url": "https://www.bbc.com/zhongwen/articles/cm2g3pyx3j1o/trad?at_medium=RSS&at_campaign=rss",
+      "title": "《唯紅花綻放》馮哲芸專訪：看見「我是書店店員」被捕照落淚",
+      "url": "https://www.bbc.com/zhongwen/articles/c05qmrj6lgqo/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
+      "category": "社会",
+      "summary": "冯哲芸专访谈书店店员被捕照落泪",
+      "is_recent": true
+    },
+    {
+      "title": "柏林同志遊行遭汽車衝撞釀1死16傷  警方搜捕涉案人士",
+      "url": "https://www.bbc.com/zhongwen/articles/cly5q2r3pyyo/trad?at_medium=RSS&at_campaign=rss",
       "source": "BBC中文",
       "category": "国际",
-      "summary": "英国新任首相身份成谜",
+      "summary": "柏林同志游行遭汽车冲撞1死16伤",
       "is_recent": true
     },
     {
-      "title": "Israeli rule change clears way for using crocodiles to deter prison breaks",
-      "url": "https://www.scmp.com/news/world/middle-east/article/3361067/israeli-rule-change-clears-way-using-crocodiles-deter-prison-breaks?utm_source=rss_feed",
+      "title": "中國兩學者破解百年難題，首奪全球數學最高榮譽",
+      "url": "https://www.bbc.com/zhongwen/articles/c86npjqxpx9o/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
+      "category": "科技",
+      "summary": "中国两学者破解百年难题首夺数学最高奖",
+      "is_recent": true
+    },
+    {
+      "title": "怎樣辨識出「AI臉」？",
+      "url": "https://www.bbc.com/zhongwen/articles/cedjl1vvjdyo/trad?at_medium=RSS&at_campaign=rss",
+      "source": "BBC中文",
+      "category": "科技",
+      "summary": "如何辨识AI生成的人脸",
+      "is_recent": true
+    },
+    {
+      "title": "UK’s Burnham ‘putting Britain first’ as he rules out 2029 election",
+      "url": "https://www.scmp.com/news/world/europe/article/3361902/uks-burnham-putting-britain-first-he-rules-out-2029-election?utm_source=rss_feed",
       "source": "SCMP",
       "category": "国际",
-      "summary": "以色列用鳄鱼防越狱",
+      "summary": "英国伯纳姆排除2029年大选可能性",
       "is_recent": true
     },
     {
-      "title": "Canada to evacuate Ontario community as wildfire smoke chokes US",
-      "url": "https://www.scmp.com/news/world/united-states-canada/article/3361064/canada-evacuate-ontario-community-wildfire-smoke-chokes-us?utm_source=rss_feed",
-      "source": "SCMP",
-      "category": "国际",
-      "summary": "加拿大山火致美国烟雾弥漫",
-      "is_recent": true
-    },
-    {
-      "title": "Final report of Tai Po fire inquiry panel delayed to late October: source",
-      "url": "https://www.scmp.com/news/hong-kong/politics/article/3361060/tai-po-fire-inquiry-panel-delay-submitting-final-report-late-october-source?utm_source=rss_feed",
+      "title": "Search for survivors continues as 45 rescued after cargo ship sinks in South China Sea",
+      "url": "https://www.scmp.com/news/china/diplomacy/article/3361901/search-survivors-continues-45-rescued-after-cargo-ship-sinks-south-china-sea?utm_source=rss_feed",
       "source": "SCMP",
       "category": "社会",
-      "summary": "大埔火灾调查报告推迟",
+      "summary": "南海货船沉没45人获救，搜救持续",
       "is_recent": true
     },
     {
-      "title": "Why data may become China’s most durable advantage in the AI race",
-      "url": "https://www.scmp.com/news/china/politics/article/3361050/why-data-may-become-chinas-most-durable-advantage-ai-race?utm_source=rss_feed",
+      "title": "Chinese tech firms’ ‘snub’ to US Congress advisers highlights Beijing’s growing AI caution",
+      "url": "https://www.scmp.com/news/china/diplomacy/article/3361893/chinese-tech-firms-snub-us-congress-advisers-highlights-beijings-growing-ai-caution?utm_source=rss_feed",
       "source": "SCMP",
       "category": "科技",
-      "summary": "数据成中国AI持久优势",
+      "summary": "中国科技公司冷落美国会顾问凸显AI谨慎",
       "is_recent": true
     },
     {
-      "title": "China AI summit hears Global South needs equal access to avoid digital divide",
-      "url": "https://www.scmp.com/tech/policy/article/3361057/china-ai-summit-hears-global-south-needs-equal-access-avoid-digital-divide?utm_source=rss_feed",
+      "title": "How can Alzheimer’s patients in Hong Kong buy ‘more golden hours’ with family?",
+      "url": "https://www.scmp.com/news/hong-kong/health-environment/article/3361854/how-can-alzheimers-patients-hong-kong-buy-more-golden-hours-family?utm_source=rss_feed",
       "source": "SCMP",
-      "category": "科技",
-      "summary": "全球南方需平等获取AI",
+      "category": "社会",
+      "summary": "香港阿尔茨海默病患者如何与家人共度时光",
       "is_recent": true
     },
     {
-      "title": "Burnham to announce plans for new North Sea oil and gas drilling",
-      "url": "https://www.bbc.co.uk/news/articles/c935yx2z9d4o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
-      "category": "财经",
-      "summary": "英国计划北海新油气钻探",
+      "title": "Were the German courts too soft on Chinese members of drug rape network?",
+      "url": "https://www.scmp.com/news/china/politics/article/3361892/were-german-courts-too-soft-chinese-members-drug-rape-network?utm_source=rss_feed",
+      "source": "SCMP",
+      "category": "国际",
+      "summary": "德国法院对涉毒强奸网络中国成员是否过轻",
       "is_recent": true
     },
     {
-      "title": "Russian online retail warehouses hit by deadly Ukrainian strikes",
-      "url": "https://www.bbc.co.uk/news/articles/clyxlm877p2o?at_medium=RSS&at_campaign=rss",
+      "title": "Burnham says he is prepared to call out Trump 'if right for Britain'",
+      "url": "https://www.bbc.co.uk/news/articles/clye651yzdjo?at_medium=RSS&at_campaign=rss",
       "source": "BBC News",
       "category": "国际",
-      "summary": "乌克兰袭击俄电商仓库",
+      "summary": "伯纳姆称若对英国有利将批评特朗普",
       "is_recent": true
     },
     {
-      "title": "Britain's Kerr breaks 27-year mile world record in London",
-      "url": "https://www.bbc.co.uk/sport/athletics/articles/cx2jl1wge2po?at_medium=RSS&at_campaign=rss",
+      "title": "Andy Burnham rules out early election in exclusive BBC interview",
+      "url": "https://www.bbc.co.uk/news/videos/c935kzyq6r4o?at_medium=RSS&at_campaign=rss",
       "source": "BBC News",
-      "category": "体育",
-      "summary": "英国选手打破27年英里纪录",
+      "category": "国际",
+      "summary": "伯纳姆在BBC专访中排除提前大选",
+      "is_recent": true
+    },
+    {
+      "title": "Firefighters battle wildfire as tens of thousands evacuated near Bordeaux",
+      "url": "https://www.bbc.co.uk/news/articles/clyj8k4nn5jo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "国际",
+      "summary": "波尔多附近山火数万人疏散",
+      "is_recent": true
+    },
+    {
+      "title": "Iran's 'sabre-rattling' should not intimidate UK, Wes Streeting says",
+      "url": "https://www.bbc.co.uk/news/articles/c8dng4lvrvqo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "国际",
+      "summary": "英官员称伊朗武力炫耀不应吓倒英国",
+      "is_recent": true
+    },
+    {
+      "title": "Pizza, pasta, potatoes, protein - how Italian children became so overweight",
+      "url": "https://www.bbc.co.uk/news/articles/c33y3151vydo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "category": "社会",
+      "summary": "意大利儿童超重问题分析",
       "is_recent": true
     }
   ]
