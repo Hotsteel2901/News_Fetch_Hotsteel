@@ -1,7 +1,7 @@
 {
   "date": "2026-07-26",
-  "generated": "2026-07-26T11:38:16.049726+00:00",
-  "summary": "最强台风红霞登陆广东，柏林游行遭汽车冲撞",
+  "generated": "2026-07-26T16:51:46.035150+00:00",
+  "summary": "台风红霞登陆广东，柏林同志游行遭袭，中国学者获菲尔兹奖",
   "total": 15,
   "items": [
     {
@@ -9,7 +9,7 @@
       "url": "https://www.bbc.com/zhongwen/articles/cqx748q7zrwo/trad?at_medium=RSS&at_campaign=rss",
       "source": "BBC中文",
       "category": "社会",
-      "summary": "最强台风红霞登陆广东，71万人疏散",
+      "summary": "台风红霞登陆广东，71万人疏散",
       "is_recent": true
     },
     {
@@ -17,7 +17,7 @@
       "url": "https://www.bbc.com/zhongwen/articles/c05qmrj6lgqo/trad?at_medium=RSS&at_campaign=rss",
       "source": "BBC中文",
       "category": "社会",
-      "summary": "冯哲芸专访谈书店店员被捕照落泪",
+      "summary": "冯哲芸专访谈书店店员被捕照",
       "is_recent": true
     },
     {
@@ -33,7 +33,7 @@
       "url": "https://www.bbc.com/zhongwen/articles/c86npjqxpx9o/trad?at_medium=RSS&at_campaign=rss",
       "source": "BBC中文",
       "category": "科技",
-      "summary": "中国两学者破解百年难题首夺数学最高奖",
+      "summary": "中国两学者首获菲尔兹奖",
       "is_recent": true
     },
     {
@@ -41,87 +41,87 @@
       "url": "https://www.bbc.com/zhongwen/articles/cedjl1vvjdyo/trad?at_medium=RSS&at_campaign=rss",
       "source": "BBC中文",
       "category": "科技",
-      "summary": "如何辨识AI生成的人脸",
+      "summary": "如何识别AI生成的人脸",
       "is_recent": true
     },
     {
-      "title": "UK’s Burnham ‘putting Britain first’ as he rules out 2029 election",
-      "url": "https://www.scmp.com/news/world/europe/article/3361902/uks-burnham-putting-britain-first-he-rules-out-2029-election?utm_source=rss_feed",
+      "title": "英国第二大机场周日出现供水短缺 卫生间、餐厅均关闭",
+      "url": "https://www.dw.com/zh/英国第二大机场周日出现供水短缺-卫生间、餐厅均关闭/a-78120350?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
+      "category": "国际",
+      "summary": "英国盖特威克机场供水短缺关闭设施",
+      "is_recent": true
+    },
+    {
+      "title": "德国联邦国防军士兵涉嫌在阿富汗机场盗窃遭调查",
+      "url": "https://www.dw.com/zh/德国联邦国防军士兵涉嫌在阿富汗机场盗窃遭调查/a-78120309?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
+      "category": "国际",
+      "summary": "德军士兵涉阿富汗机场盗窃被查",
+      "is_recent": true
+    },
+    {
+      "title": "轰炸13天后美国暂停空袭伊朗 弹药库存不足？",
+      "url": "https://www.dw.com/zh/轰炸13天后美国暂停空袭伊朗-弹药库存不足？/a-78118929?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
+      "category": "国际",
+      "summary": "美国暂停空袭伊朗，疑弹药不足",
+      "is_recent": true
+    },
+    {
+      "title": "泽连斯基：俄罗斯请求朝鲜增派3万兵力协助对乌作战",
+      "url": "https://www.dw.com/zh/泽连斯基：俄罗斯请求朝鲜增派3万兵力协助对乌作战/a-78118791?maca=chi-rss-chi-all-1127-rdf",
+      "source": "DW中文",
+      "category": "国际",
+      "summary": "泽连斯基称俄请求朝鲜增兵3万",
+      "is_recent": true
+    },
+    {
+      "title": "Former Honduras president Hernandez returns home after Trump pardon",
+      "url": "https://www.scmp.com/news/world/americas/article/3361915/former-honduras-president-hernandez-returns-home-after-trump-pardon?utm_source=rss_feed",
       "source": "SCMP",
       "category": "国际",
-      "summary": "英国伯纳姆排除2029年大选可能性",
+      "summary": "洪都拉斯前总统获特朗普赦免回国",
       "is_recent": true
     },
     {
-      "title": "Search for survivors continues as 45 rescued after cargo ship sinks in South China Sea",
-      "url": "https://www.scmp.com/news/china/diplomacy/article/3361901/search-survivors-continues-45-rescued-after-cargo-ship-sinks-south-china-sea?utm_source=rss_feed",
+      "title": "Thailand monastery added to Unesco heritage list, boosting tourism hopes",
+      "url": "https://www.scmp.com/news/asia/southeast-asia/article/3361913/thailand-monastery-added-unesco-heritage-list-boosting-tourism-hopes?utm_source=rss_feed",
+      "source": "SCMP",
+      "category": "国际",
+      "summary": "泰国一寺院列入世界遗产名录",
+      "is_recent": true
+    },
+    {
+      "title": "China has put a Polish university on its European dual-use exports blacklist. Why?",
+      "url": "https://www.scmp.com/news/china/diplomacy/article/3361899/china-has-put-polish-university-its-european-dual-use-exports-blacklist-why?utm_source=rss_feed",
+      "source": "SCMP",
+      "category": "财经",
+      "summary": "中国将波兰大学列入出口黑名单",
+      "is_recent": true
+    },
+    {
+      "title": "Israeli settlers set fire to West Bank mosques, graffiti and arson reported",
+      "url": "https://www.scmp.com/news/world/middle-east/article/3361911/israeli-settlers-set-fire-west-bank-mosques-graffiti-and-arson-reported?utm_source=rss_feed",
+      "source": "SCMP",
+      "category": "国际",
+      "summary": "以色列定居者纵火焚烧西岸清真寺",
+      "is_recent": true
+    },
+    {
+      "title": "Typhoon Noul: Shenzhen girl, 6, blown away by gale, runs back to safety",
+      "url": "https://www.scmp.com/news/china/politics/article/3361908/typhoon-noul-shenzhen-girl-6-blown-away-gale-runs-back-safety?utm_source=rss_feed",
       "source": "SCMP",
       "category": "社会",
-      "summary": "南海货船沉没45人获救，搜救持续",
+      "summary": "深圳6岁女孩被台风刮走又跑回",
       "is_recent": true
     },
     {
-      "title": "Chinese tech firms’ ‘snub’ to US Congress advisers highlights Beijing’s growing AI caution",
-      "url": "https://www.scmp.com/news/china/diplomacy/article/3361893/chinese-tech-firms-snub-us-congress-advisers-highlights-beijings-growing-ai-caution?utm_source=rss_feed",
-      "source": "SCMP",
+      "title": "菲尔兹奖得主邓煜的诗火了 数学与诗意交融",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5iaS1iejR6NmRKcU9MUzlTeWxQZ0hJX2ZRa19sQnc1Yy0tbVJsZHBnbkFCaXVDNEgtaEpuazQ5a0RBNHRjZUVmYW5QLUxtbm5OTHNDejR0alJ0N2RfUW10MTJMSmNxLVRVOGl1WFNCNTI?oc=5",
+      "source": "中华网",
       "category": "科技",
-      "summary": "中国科技公司冷落美国会顾问凸显AI谨慎",
-      "is_recent": true
-    },
-    {
-      "title": "How can Alzheimer’s patients in Hong Kong buy ‘more golden hours’ with family?",
-      "url": "https://www.scmp.com/news/hong-kong/health-environment/article/3361854/how-can-alzheimers-patients-hong-kong-buy-more-golden-hours-family?utm_source=rss_feed",
-      "source": "SCMP",
-      "category": "社会",
-      "summary": "香港阿尔茨海默病患者如何与家人共度时光",
-      "is_recent": true
-    },
-    {
-      "title": "Were the German courts too soft on Chinese members of drug rape network?",
-      "url": "https://www.scmp.com/news/china/politics/article/3361892/were-german-courts-too-soft-chinese-members-drug-rape-network?utm_source=rss_feed",
-      "source": "SCMP",
-      "category": "国际",
-      "summary": "德国法院对涉毒强奸网络中国成员是否过轻",
-      "is_recent": true
-    },
-    {
-      "title": "Burnham says he is prepared to call out Trump 'if right for Britain'",
-      "url": "https://www.bbc.co.uk/news/articles/clye651yzdjo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
-      "category": "国际",
-      "summary": "伯纳姆称若对英国有利将批评特朗普",
-      "is_recent": true
-    },
-    {
-      "title": "Andy Burnham rules out early election in exclusive BBC interview",
-      "url": "https://www.bbc.co.uk/news/videos/c935kzyq6r4o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
-      "category": "国际",
-      "summary": "伯纳姆在BBC专访中排除提前大选",
-      "is_recent": true
-    },
-    {
-      "title": "Firefighters battle wildfire as tens of thousands evacuated near Bordeaux",
-      "url": "https://www.bbc.co.uk/news/articles/clyj8k4nn5jo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
-      "category": "国际",
-      "summary": "波尔多附近山火数万人疏散",
-      "is_recent": true
-    },
-    {
-      "title": "Iran's 'sabre-rattling' should not intimidate UK, Wes Streeting says",
-      "url": "https://www.bbc.co.uk/news/articles/c8dng4lvrvqo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
-      "category": "国际",
-      "summary": "英官员称伊朗武力炫耀不应吓倒英国",
-      "is_recent": true
-    },
-    {
-      "title": "Pizza, pasta, potatoes, protein - how Italian children became so overweight",
-      "url": "https://www.bbc.co.uk/news/articles/c33y3151vydo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC News",
-      "category": "社会",
-      "summary": "意大利儿童超重问题分析",
+      "summary": "菲尔兹奖得主邓煜的诗作走红",
       "is_recent": true
     }
   ]
