@@ -293,12 +293,6 @@ body::before {
   transform: scaleY(1);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .news-item:hover::before {
-    transform: scaleY(1);
-  }
-}
-
 .news-item.is-open::after {
   content: '';
   position: absolute;
@@ -425,8 +419,7 @@ body::before {
 }
 
 .news-content {
-  position: relative;
-  padding: 0 3rem 1.5rem 3.5rem;
+  padding: 0 0 1.5rem 3.5rem;
   font-size: 0.95rem;
   line-height: 1.75;
   color: var(--fg);
@@ -448,30 +441,38 @@ body::before {
 
 .news-close {
   position: absolute;
-  top: -0.25rem;
+  top: 1.25rem;
   right: 0;
-  width: 36px;
-  height: 36px;
+  width: 28px;
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--hover-bg);
+  background: transparent;
   border: 1px solid var(--border);
   color: var(--muted);
-  font-size: 1rem;
+  font-size: 0.85rem;
   line-height: 1;
   cursor: pointer;
   border-radius: 50%;
-  box-shadow: 0 2px 8px var(--glow);
-  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  pointer-events: none;
+}
+
+.news-item.is-open .news-close {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
 }
 
 .news-close:hover,
 .news-close:focus-visible {
   color: var(--fg);
-  background: var(--bg);
+  background: var(--hover-bg);
   border-color: var(--accent);
-  transform: rotate(90deg) scale(1.08);
+  transform: scale(1.1);
   outline: none;
 }
 
@@ -882,7 +883,7 @@ function createNewsItem(item, index) {
   const inner = createEl('div', 'news-body-inner', body);
   const content = createEl('div', 'news-content', inner);
 
-  const closeBtn = createEl('button', 'news-close', content);
+  const closeBtn = createEl('button', 'news-close', wrap);
   closeBtn.setAttribute('aria-label', '关闭');
   setText(closeBtn, '×');
 
