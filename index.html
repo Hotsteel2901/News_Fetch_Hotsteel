@@ -439,43 +439,6 @@ body::before {
   color: var(--muted);
 }
 
-.news-close {
-  position: absolute;
-  top: 1.25rem;
-  right: 0;
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: 1px solid var(--border);
-  color: var(--muted);
-  font-size: 0.85rem;
-  line-height: 1;
-  cursor: pointer;
-  border-radius: 50%;
-  opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-  pointer-events: none;
-}
-
-.news-item.is-open .news-close {
-  opacity: 1;
-  transform: scale(1);
-  pointer-events: auto;
-}
-
-.news-close:hover,
-.news-close:focus-visible {
-  color: var(--fg);
-  background: var(--hover-bg);
-  border-color: var(--accent);
-  transform: scale(1.1);
-  outline: none;
-}
-
 .content-fallback {
   color: var(--muted);
   font-size: 0.875rem;
@@ -690,7 +653,6 @@ body::before {
   .news-title,
   .news-summary,
   .news-source,
-  .news-close,
   .news-item {
     transition: none;
   }
@@ -810,6 +772,8 @@ function renderSkeleton() {
 function closeAll() {
   if (openItem) {
     openItem.classList.remove('is-open');
+    const header = openItem.querySelector('.news-header');
+    if (header) header.setAttribute('aria-expanded', 'false');
     openItem = null;
   }
 }
@@ -843,7 +807,22 @@ function toggleItem(item, headerEl) {
   if (wasOpen) {
     item.classList.remove('is-open');
     openItem = null;
-    if (headerEl) scrollToCenter(item);
+    if (headerEl) {
+      if (prefersReducedMotion()) {
+        scrollToCenter(item);
+      } else {
+        const body = item.querySelector('.news-body');
+        if (body) {
+          const onCollapseEnd = (e) => {
+            if (e.target === body && e.propertyName === 'grid-template-rows') {
+              body.removeEventListener('transitionend', onCollapseEnd);
+              scrollToCenter(item);
+            }
+          };
+          body.addEventListener('transitionend', onCollapseEnd);
+        }
+      }
+    }
     return;
   }
   const previouslyOpen = openItem;
@@ -883,10 +862,6 @@ function createNewsItem(item, index) {
   const inner = createEl('div', 'news-body-inner', body);
   const content = createEl('div', 'news-content', inner);
 
-  const closeBtn = createEl('button', 'news-close', wrap);
-  closeBtn.setAttribute('aria-label', '关闭');
-  setText(closeBtn, '×');
-
   const textEl = createEl('div', 'news-content-text', content);
 
   if (item.content) {
@@ -904,14 +879,6 @@ function createNewsItem(item, index) {
   header.addEventListener('click', () => {
     toggleItem(wrap, header);
     header.setAttribute('aria-expanded', String(wrap.classList.contains('is-open')));
-  });
-
-  closeBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const wasOpen = wrap.classList.contains('is-open');
-    closeAll();
-    header.setAttribute('aria-expanded', 'false');
-    if (wasOpen) scrollToCenter(wrap);
   });
 
   return wrap;
