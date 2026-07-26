@@ -289,9 +289,14 @@ body::before {
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.news-item.is-open::before,
-.news-item:hover::before {
+.news-item.is-open::before {
   transform: scaleY(1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .news-item:hover::before {
+    transform: scaleY(1);
+  }
 }
 
 .news-item.is-open::after {
@@ -421,7 +426,7 @@ body::before {
 
 .news-content {
   position: relative;
-  padding: 0 0 1.5rem 3.5rem;
+  padding: 0 3rem 1.5rem 3.5rem;
   font-size: 0.95rem;
   line-height: 1.75;
   color: var(--fg);
@@ -443,27 +448,30 @@ body::before {
 
 .news-close {
   position: absolute;
-  top: 0;
+  top: -0.25rem;
   right: 0;
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: transparent;
-  border: none;
+  background: var(--hover-bg);
+  border: 1px solid var(--border);
   color: var(--muted);
-  font-size: 1.25rem;
+  font-size: 1rem;
+  line-height: 1;
   cursor: pointer;
   border-radius: 50%;
-  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 2px 8px var(--glow);
+  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 
 .news-close:hover,
 .news-close:focus-visible {
   color: var(--fg);
-  background: var(--hover-bg);
-  transform: rotate(90deg) scale(1.1);
+  background: var(--bg);
+  border-color: var(--accent);
+  transform: rotate(90deg) scale(1.08);
   outline: none;
 }
 
@@ -805,15 +813,43 @@ function closeAll() {
   }
 }
 
-function toggleItem(item) {
-  if (item.classList.contains('is-open')) {
+function prefersReducedMotion() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+function scrollToHeader(headerEl) {
+  const offset = 80;
+  const rect = headerEl.getBoundingClientRect();
+  const target = window.scrollY + rect.top - offset;
+  window.scrollTo({
+    top: Math.max(0, target),
+    behavior: prefersReducedMotion() ? 'auto' : 'smooth'
+  });
+}
+
+function scrollToCenter(itemEl) {
+  const header = itemEl.querySelector('.news-header');
+  const rect = header ? header.getBoundingClientRect() : itemEl.getBoundingClientRect();
+  const target = window.scrollY + rect.top + rect.height / 2 - window.innerHeight / 2;
+  window.scrollTo({
+    top: Math.max(0, target),
+    behavior: prefersReducedMotion() ? 'auto' : 'smooth'
+  });
+}
+
+function toggleItem(item, headerEl) {
+  const wasOpen = item.classList.contains('is-open');
+  if (wasOpen) {
     item.classList.remove('is-open');
     openItem = null;
+    if (headerEl) scrollToCenter(item);
     return;
   }
+  const previouslyOpen = openItem;
   closeAll();
   item.classList.add('is-open');
   openItem = item;
+  if (headerEl) scrollToHeader(headerEl);
 }
 
 function createNewsItem(item, index) {
@@ -865,14 +901,16 @@ function createNewsItem(item, index) {
   }
 
   header.addEventListener('click', () => {
-    toggleItem(wrap);
+    toggleItem(wrap, header);
     header.setAttribute('aria-expanded', String(wrap.classList.contains('is-open')));
   });
 
   closeBtn.addEventListener('click', (e) => {
     e.stopPropagation();
+    const wasOpen = wrap.classList.contains('is-open');
     closeAll();
     header.setAttribute('aria-expanded', 'false');
+    if (wasOpen) scrollToCenter(wrap);
   });
 
   return wrap;
