@@ -289,8 +289,7 @@ body::before {
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.news-item.is-open::before,
-.news-item:hover::before {
+.news-item.is-open::before {
   transform: scaleY(1);
 }
 
@@ -420,7 +419,6 @@ body::before {
 }
 
 .news-content {
-  position: relative;
   padding: 0 0 1.5rem 3.5rem;
   font-size: 0.95rem;
   line-height: 1.75;
@@ -439,32 +437,6 @@ body::before {
 .news-content:empty::before {
   content: '正文加载失败或暂不可用。';
   color: var(--muted);
-}
-
-.news-close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: none;
-  color: var(--muted);
-  font-size: 1.25rem;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
-}
-
-.news-close:hover,
-.news-close:focus-visible {
-  color: var(--fg);
-  background: var(--hover-bg);
-  transform: rotate(90deg) scale(1.1);
-  outline: none;
 }
 
 .content-fallback {
@@ -681,7 +653,6 @@ body::before {
   .news-title,
   .news-summary,
   .news-source,
-  .news-close,
   .news-item {
     transition: none;
   }
@@ -801,19 +772,64 @@ function renderSkeleton() {
 function closeAll() {
   if (openItem) {
     openItem.classList.remove('is-open');
+    const header = openItem.querySelector('.news-header');
+    if (header) header.setAttribute('aria-expanded', 'false');
     openItem = null;
   }
 }
 
-function toggleItem(item) {
-  if (item.classList.contains('is-open')) {
+function prefersReducedMotion() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+function scrollToHeader(headerEl) {
+  const offset = 80;
+  const rect = headerEl.getBoundingClientRect();
+  const target = window.scrollY + rect.top - offset;
+  window.scrollTo({
+    top: Math.max(0, target),
+    behavior: prefersReducedMotion() ? 'auto' : 'smooth'
+  });
+}
+
+function scrollToCenter(itemEl) {
+  const header = itemEl.querySelector('.news-header');
+  const rect = header ? header.getBoundingClientRect() : itemEl.getBoundingClientRect();
+  const target = window.scrollY + rect.top + rect.height / 2 - window.innerHeight / 2;
+  window.scrollTo({
+    top: Math.max(0, target),
+    behavior: prefersReducedMotion() ? 'auto' : 'smooth'
+  });
+}
+
+function toggleItem(item, headerEl) {
+  const wasOpen = item.classList.contains('is-open');
+  if (wasOpen) {
     item.classList.remove('is-open');
     openItem = null;
+    if (headerEl) {
+      if (prefersReducedMotion()) {
+        scrollToCenter(item);
+      } else {
+        const body = item.querySelector('.news-body');
+        if (body) {
+          const onCollapseEnd = (e) => {
+            if (e.target === body && e.propertyName === 'grid-template-rows') {
+              body.removeEventListener('transitionend', onCollapseEnd);
+              scrollToCenter(item);
+            }
+          };
+          body.addEventListener('transitionend', onCollapseEnd);
+        }
+      }
+    }
     return;
   }
+  const previouslyOpen = openItem;
   closeAll();
   item.classList.add('is-open');
   openItem = item;
+  if (headerEl) scrollToHeader(headerEl);
 }
 
 function createNewsItem(item, index) {
@@ -846,10 +862,6 @@ function createNewsItem(item, index) {
   const inner = createEl('div', 'news-body-inner', body);
   const content = createEl('div', 'news-content', inner);
 
-  const closeBtn = createEl('button', 'news-close', content);
-  closeBtn.setAttribute('aria-label', '关闭');
-  setText(closeBtn, '×');
-
   const textEl = createEl('div', 'news-content-text', content);
 
   if (item.content) {
@@ -865,14 +877,8 @@ function createNewsItem(item, index) {
   }
 
   header.addEventListener('click', () => {
-    toggleItem(wrap);
+    toggleItem(wrap, header);
     header.setAttribute('aria-expanded', String(wrap.classList.contains('is-open')));
-  });
-
-  closeBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    closeAll();
-    header.setAttribute('aria-expanded', 'false');
   });
 
   return wrap;
