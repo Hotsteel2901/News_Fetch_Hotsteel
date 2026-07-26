@@ -15,3 +15,6 @@ docs/
 # OS
 .DS_Store
 Thumbs.db
+
+# Brainstorming session files
+.superpowers/

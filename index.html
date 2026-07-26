@@ -6,227 +6,754 @@
 <title>每日新闻速览</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --color-primary: #DC2626;
-  --color-bg: #FEF2F2;
-  --color-fg: #450A0A;
-  --color-card: #FFFFFF;
-  --color-border: #FECACA;
-  --color-muted: #991B1B;
-  --font-heading: 'Newsreader', Georgia, serif;
-  --font-body: 'Roboto', -apple-system, sans-serif;
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --fg: #09090b;
+  --muted: #71717a;
+  --border: #e4e4e7;
+  --accent: #dc2626;
+  --accent-bg: #fef2f2;
+  --hover-bg: #fafafa;
+  --glow: rgba(220, 38, 38, 0.1);
+  --glow-strong: rgba(220, 38, 38, 0.18);
+  --ambient: radial-gradient(circle at 20% 0%, rgba(220, 38, 26, 0.1) 0%, transparent 50%);
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --radius: 2px;
+  --transition: 0.3s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #09090b;
+    --fg: #fafafa;
+    --muted: #a1a1aa;
+    --border: #27272a;
+    --accent: #ef4444;
+    --accent-bg: rgba(239, 68, 68, 0.14);
+    --hover-bg: #18181b;
+    --glow: rgba(239, 68, 68, 0.14);
+    --glow-strong: rgba(239, 68, 68, 0.28);
+    --ambient: radial-gradient(circle at 20% 0%, rgba(239, 68, 68, 0.14) 0%, transparent 50%);
+  }
 }
 
 html { font-size: 16px; scroll-behavior: smooth; }
 
 body {
-  font-family: var(--font-body);
-  background: var(--color-bg);
-  color: var(--color-fg);
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--fg);
   line-height: 1.6;
   min-height: 100dvh;
   -webkit-font-smoothing: antialiased;
+  transition: background var(--transition), color var(--transition);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: var(--ambient);
+  pointer-events: none;
+  z-index: -3;
+  opacity: 0;
+  animation: ambientFade 1.2s ease forwards;
+}
+
+.spotlight {
+  position: fixed;
+  top: -300px;
+  left: -300px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -2;
+  opacity: 0.8;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  z-index: 100;
+  transform-origin: left;
+  transform: scaleX(0);
+  will-change: transform;
 }
 
 .container {
-  max-width: 720px;
+  position: relative;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 2rem 1.25rem 4rem;
+  padding: clamp(1.5rem, 5vw, 3rem) clamp(1rem, 4vw, 2rem) 4rem;
+}
+
+/* Floating orbs */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: -2;
+  opacity: 0;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
+  animation: orbFloat 8s ease-in-out infinite, fadeIn 1.5s ease forwards;
+}
+
+.orb-1 {
+  width: 320px;
+  height: 320px;
+  top: -6rem;
+  right: -4rem;
+  background: var(--glow);
+  animation-delay: 0s, 0.2s;
+}
+
+.orb-2 {
+  width: 240px;
+  height: 240px;
+  bottom: 10%;
+  left: -6rem;
+  background: var(--glow);
+  animation-delay: -4s, 0.5s;
 }
 
 /* Header */
-.header { text-align: center; padding: 3rem 0 2rem; }
-
-.header-date {
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--color-primary);
-  line-height: 1.15;
-}
-
-.header-weekday {
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: var(--color-muted);
-  opacity: 0.7;
-  margin-top: 0.25rem;
-}
-
-/* Summary */
-.summary-box {
-  text-align: center;
-  margin-bottom: 2.5rem;
-  padding: 1.25rem 1.5rem;
-  background: var(--color-card);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  font-size: 1rem;
-  color: var(--color-muted);
-  line-height: 1.7;
-}
-
-/* News List */
-.news-list { display: flex; flex-direction: column; gap: 0.75rem; }
-
-.news-card {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  background: var(--color-card);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  padding: 1.25rem 1.5rem;
-  transition: background 150ms ease, transform 150ms ease, box-shadow 150ms ease;
-  cursor: pointer;
-}
-
-.news-card:hover {
-  background: #FFF5F5;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 12px rgba(220, 38, 38, 0.08);
-}
-
-.news-card:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
-.news-card-meta {
-  display: flex;
+.brand {
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  transform: translateY(-8px);
+  animation: fadeDown 0.5s ease 0.1s forwards;
 }
 
-.news-card-source {
+.brand-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius);
+  background: var(--accent);
+  box-shadow: 0 0 0 0 var(--glow);
+  animation: dotPulse 2.5s ease-in-out infinite;
+}
+
+.brand-text {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.hero-date {
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-primary);
-  background: var(--color-bg);
-  padding: 0.15rem 0.5rem;
-  border-radius: 4px;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 0.6s ease 0.2s forwards;
 }
 
-.news-card-category {
-  font-size: 0.75rem;
-  color: var(--color-muted);
-  opacity: 0.6;
+.hero-title {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin-bottom: 1rem;
 }
 
-.news-card-title {
-  font-family: var(--font-body);
+.hero-title span {
+  display: block;
+  background: linear-gradient(90deg, var(--fg) 0%, var(--fg) 40%, var(--accent) 50%, var(--fg) 60%, var(--fg) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(30px) scale(0.98);
+  will-change: transform, filter, opacity;
+  animation: textReveal 1s cubic-bezier(0.22, 1, 0.36, 1) forwards, textShine 4s linear infinite 1.2s;
+}
+
+.hero-title span:nth-child(1) { animation-delay: 0.3s, 1.2s; }
+.hero-title span:nth-child(2) { animation-delay: 0.45s, 1.35s; }
+
+.hero-summary {
   font-size: 1.05rem;
-  font-weight: 500;
-  line-height: 1.45;
+  color: var(--muted);
+  max-width: 480px;
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 0.6s ease 0.7s forwards;
+}
+
+.hero-glow {
+  position: absolute;
+  top: -4rem;
+  right: -2rem;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, var(--glow-strong) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  animation: glowBreathe 4s ease-in-out infinite, fadeIn 1s ease 0.4s forwards;
+}
+
+/* News list */
+.news-list {
+  position: relative;
+  border-top: 1px solid var(--border);
+}
+
+.news-list::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  animation: lineSweep 1.2s ease 0.9s forwards;
+}
+
+.news-item {
+  position: relative;
+  border-bottom: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(20px);
+  will-change: transform, opacity;
+  contain: layout style paint;
+  animation: fadeUp 0.6s ease forwards;
+  transition: transform 0.25s ease;
+}
+
+.news-item:nth-child(1) { animation-delay: 0.7s; }
+.news-item:nth-child(2) { animation-delay: 0.76s; }
+.news-item:nth-child(3) { animation-delay: 0.82s; }
+.news-item:nth-child(4) { animation-delay: 0.88s; }
+.news-item:nth-child(5) { animation-delay: 0.94s; }
+.news-item:nth-child(6) { animation-delay: 1s; }
+.news-item:nth-child(7) { animation-delay: 1.06s; }
+.news-item:nth-child(8) { animation-delay: 1.12s; }
+.news-item:nth-child(9) { animation-delay: 1.18s; }
+.news-item:nth-child(10) { animation-delay: 1.24s; }
+.news-item:nth-child(11) { animation-delay: 1.3s; }
+.news-item:nth-child(12) { animation-delay: 1.36s; }
+
+.news-item.is-open {
+  transform: translateY(-2px);
+  z-index: 1;
+}
+
+.news-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.news-item.is-open::before,
+.news-item:hover::before {
+  transform: scaleY(1);
+}
+
+.news-item.is-open::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--glow) 0%, transparent 60%);
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(0, 0, 0);
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+.news-header {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 1rem;
+  align-items: start;
+  width: 100%;
+  padding: 1.25rem 0;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: padding-left 0.25s ease-out, background 0.25s ease, transform 0.25s ease;
+}
+
+.news-header:hover,
+.news-header:focus-visible {
+  padding-left: 0.5rem;
+  background: var(--hover-bg);
+  transform: translateX(4px);
+  outline: none;
+}
+
+.news-header:focus-visible .news-title {
+  color: var(--accent);
+}
+
+.news-number {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--muted);
+  padding-top: 0.1rem;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.news-header:hover .news-number,
+.news-item.is-open .news-number {
+  color: var(--accent);
+  transform: translateX(3px) scale(1.05);
+}
+
+.news-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   margin-bottom: 0.35rem;
 }
 
-.news-card-summary {
+.news-source {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  background: var(--accent-bg);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.news-header:hover .news-source {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--glow);
+}
+
+.news-category {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.news-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.3rem;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.news-header:hover .news-title {
+  color: var(--accent);
+  transform: translateX(6px);
+}
+
+.news-summary {
   font-size: 0.875rem;
-  color: var(--color-muted);
-  opacity: 0.75;
+  color: var(--muted);
   line-height: 1.5;
+  transition: color 0.25s ease;
+}
+
+.news-header:hover .news-summary {
+  color: var(--fg);
+}
+
+/* Expandable content */
+.news-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.news-item.is-open .news-body {
+  grid-template-rows: 1fr;
+}
+
+.news-body-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.news-content {
+  position: relative;
+  padding: 0 0 1.5rem 3.5rem;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--fg);
+  white-space: pre-wrap;
+  opacity: 0;
+  transform: translateY(-12px);
+  transition: opacity 0.4s ease 0.08s, transform 0.4s ease 0.08s;
+}
+
+.news-item.is-open .news-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.news-content:empty::before {
+  content: '正文加载失败或暂不可用。';
+  color: var(--muted);
+}
+
+.news-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 1.25rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.news-close:hover,
+.news-close:focus-visible {
+  color: var(--fg);
+  background: var(--hover-bg);
+  transform: rotate(90deg) scale(1.1);
+  outline: none;
+}
+
+.content-fallback {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.content-fallback a {
+  position: relative;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.content-fallback a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.content-fallback a:hover::after,
+.content-fallback a:focus-visible::after {
+  width: 100%;
 }
 
 /* States */
-.skeleton { animation: pulse 1.5s ease-in-out infinite; }
-.skeleton .news-card { pointer-events: none; }
-.skeleton .news-card-title,
-.skeleton .news-card-summary,
-.skeleton .news-card-source { background: #FEE2E2; border-radius: 4px; color: transparent; }
-.skeleton .news-card-title { height: 1.1rem; width: 80%; }
-.skeleton .news-card-summary { height: 0.85rem; width: 95%; margin-top: 0.4rem; }
-.skeleton .news-card-source { height: 0.7rem; width: 60px; }
-
-@keyframes pulse {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
-}
-
 .state-message {
   text-align: center;
-  padding: 3rem 1rem;
-  color: var(--color-muted);
-  opacity: 0.7;
+  padding: 4rem 1rem;
+  color: var(--muted);
   font-size: 1rem;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
 }
 
 .state-message a {
-  color: var(--color-primary);
-  text-decoration: underline;
+  position: relative;
+  color: var(--accent);
+  text-decoration: none;
 }
+
+.state-message a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.state-message a:hover::after {
+  width: 100%;
+}
+
+/* Skeleton */
+.skeleton .news-header {
+  pointer-events: none;
+  cursor: default;
+}
+
+.skeleton .news-header:hover {
+  padding-left: 0;
+  background: transparent;
+  transform: none;
+}
+
+.skeleton .news-item::before,
+.skeleton .news-item.is-open::after {
+  transform: scaleY(0) !important;
+  animation: none !important;
+}
+
+.skeleton .news-number,
+.skeleton .news-source,
+.skeleton .news-title,
+.skeleton .news-summary {
+  background: linear-gradient(
+    90deg,
+    var(--border) 0%,
+    var(--hover-bg) 50%,
+    var(--border) 100%
+  );
+  background-size: 200% 100%;
+  border-radius: 4px;
+  color: transparent;
+  animation: shimmer 1.6s infinite;
+}
+
+.skeleton .news-number { width: 1.5rem; height: 1rem; }
+.skeleton .news-source { width: 60px; height: 0.7rem; }
+.skeleton .news-title { width: 80%; height: 1.1rem; margin-bottom: 0.5rem; }
+.skeleton .news-summary { width: 95%; height: 0.85rem; }
 
 /* Footer */
 .footer {
-  text-align: center;
   margin-top: 3rem;
   padding-top: 2rem;
-  border-top: 1px solid var(--color-border);
-  font-size: 0.8rem;
-  color: var(--color-muted);
-  opacity: 0.5;
+  border-top: 1px solid var(--border);
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-align: center;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 1.5s forwards;
 }
 
-/* Fade in */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.news-card { animation: fadeIn 0.4s ease both; }
-.news-card:nth-child(1) { animation-delay: 0.05s; }
-.news-card:nth-child(2) { animation-delay: 0.1s; }
-.news-card:nth-child(3) { animation-delay: 0.15s; }
-.news-card:nth-child(4) { animation-delay: 0.2s; }
-.news-card:nth-child(5) { animation-delay: 0.25s; }
-.news-card:nth-child(6) { animation-delay: 0.3s; }
-.news-card:nth-child(7) { animation-delay: 0.35s; }
-.news-card:nth-child(8) { animation-delay: 0.4s; }
-.news-card:nth-child(9) { animation-delay: 0.45s; }
-.news-card:nth-child(10) { animation-delay: 0.5s; }
-.news-card:nth-child(11) { animation-delay: 0.55s; }
-.news-card:nth-child(12) { animation-delay: 0.6s; }
-.news-card:nth-child(13) { animation-delay: 0.65s; }
-.news-card:nth-child(14) { animation-delay: 0.7s; }
-.news-card:nth-child(15) { animation-delay: 0.75s; }
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes dotPulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--glow); }
+  50% { box-shadow: 0 0 0 8px transparent; }
+}
+
+@keyframes glowBreathe {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.12); opacity: 1; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes ambientFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes lineSweep {
+  from { width: 0; left: 0; }
+  to { width: 100%; left: 0; }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  33% { transform: translate3d(20px, -30px, 0) scale(1.05); }
+  66% { transform: translate3d(-10px, 20px, 0) scale(0.95); }
+}
+
+@keyframes textReveal {
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes textShine {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
 
 @media (prefers-reduced-motion: reduce) {
-  .news-card { animation: none; }
-  .skeleton .news-card { animation: none; opacity: 0.8; }
+  .spotlight,
+  .orb,
+  .brand,
+  .hero-date,
+  .hero-title span,
+  .hero-summary,
+  .news-item,
+  .state-message,
+  .footer {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+  .brand-dot,
+  .skeleton .news-number,
+  .skeleton .news-source,
+  .skeleton .news-title,
+  .skeleton .news-summary {
+    animation: none;
+  }
+  .hero-glow,
+  .news-item.is-open::after {
+    animation: none;
+    opacity: 0.5;
+  }
+  body::before,
+  .news-list::before {
+    animation: none;
+    opacity: 1;
+    width: 100%;
+  }
+  .news-body,
+  .news-content,
+  .news-header,
+  .news-number,
+  .news-title,
+  .news-summary,
+  .news-source,
+  .news-close,
+  .news-item {
+    transition: none;
+  }
+  .progress-bar,
+  .spotlight,
+  .orb {
+    will-change: auto;
+  }
 }
 
 @media (max-width: 480px) {
-  .container { padding: 1rem 0.75rem 3rem; }
-  .header { padding: 2rem 0 1.25rem; }
-  .news-card { padding: 1rem 1.15rem; }
+  .hero-glow {
+    width: 200px;
+    height: 200px;
+    top: -2rem;
+    right: -1rem;
+  }
+  .orb-1 { width: 200px; height: 200px; }
+  .orb-2 { width: 160px; height: 160px; }
+  .news-header {
+    grid-template-columns: 2rem 1fr;
+    gap: 0.75rem;
+  }
+  .news-content {
+    padding-left: 2.75rem;
+  }
 }
 </style>
 </head>
 <body>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+<div class="spotlight" id="spotlight" aria-hidden="true"></div>
+<div class="orb orb-1" aria-hidden="true"></div>
+<div class="orb orb-2" aria-hidden="true"></div>
+
 <div class="container">
-  <header class="header" id="header"></header>
-  <div class="summary-box" id="summary"></div>
+  <div class="brand">
+    <span class="brand-dot" aria-hidden="true"></span>
+    <span class="brand-text">Daily Brief</span>
+  </div>
+
+  <header class="hero" id="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-date" id="hero-date"></div>
+    <h1 class="hero-title">
+      <span>每日新闻</span>
+      <span>速览</span>
+    </h1>
+    <p class="hero-summary" id="hero-summary"></p>
+  </header>
+
   <div class="news-list" id="news-list"></div>
-  <footer class="footer">自动生成 &middot; 每日 UTC+8 零点更新 &middot; Powered by DeepSeek</footer>
+
+  <footer class="footer">自动生成 · 每日 UTC+8 零点更新 · Powered by DeepSeek</footer>
 </div>
 
 <script>
 const EL = {
-  header: document.getElementById('header'),
-  summary: document.getElementById('summary'),
+  heroDate: document.getElementById('hero-date'),
+  heroSummary: document.getElementById('hero-summary'),
   list: document.getElementById('news-list'),
+  progressBar: document.getElementById('progress-bar'),
+  spotlight: document.getElementById('spotlight'),
 };
 
 const WEEKDAYS = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+
+let openItem = null;
+let mouseTicking = false;
+let scrollTicking = false;
+let lastMouseX = 0;
+let lastMouseY = 0;
 
 function fmtDate(dateStr) {
   const d = new Date(dateStr + 'T00:00:00');
@@ -235,60 +762,196 @@ function fmtDate(dateStr) {
   const m = d.getMonth() + 1;
   const day = d.getDate();
   const wd = WEEKDAYS[d.getDay()];
-  return `${y}年${m}月${day}日 ${wd}`;
+  return `${y}年${m}月${day}日 · ${wd}`;
+}
+
+function setText(el, text) {
+  el.textContent = text;
+}
+
+function clearEl(el) {
+  while (el.firstChild) {
+    el.removeChild(el.firstChild);
+  }
+}
+
+function createEl(tag, className, parent) {
+  const el = document.createElement(tag);
+  if (className) el.className = className;
+  if (parent) parent.appendChild(el);
+  return el;
 }
 
 function renderSkeleton() {
-  EL.summary.innerHTML = '<div class="state-message" style="height:2rem;background:#FEE2E2;border-radius:8px;opacity:0.3"></div>';
-  let html = '';
-  for (let i = 0; i < 6; i++) {
-    html += `<div class="news-card"><div class="news-card-source" style="background:#FEE2E2;color:transparent;width:60px">&nbsp;</div><div class="news-card-title" style="background:#FEE2E2;color:transparent;width:80%">&nbsp;</div><div class="news-card-summary" style="background:#FEE2E2;color:transparent;width:95%;margin-top:0.4rem">&nbsp;</div></div>`;
-  }
-  EL.list.innerHTML = html;
+  EL.heroDate.textContent = '';
+  EL.heroSummary.textContent = '';
   EL.list.classList.add('skeleton');
+
+  for (let i = 0; i < 6; i++) {
+    const item = createEl('div', 'news-item', EL.list);
+    const header = createEl('button', 'news-header', item);
+    createEl('div', 'news-number', header);
+    const body = createEl('div', 'news-body-col', header);
+    createEl('div', 'news-source', body);
+    createEl('div', 'news-title', body);
+    createEl('div', 'news-summary', body);
+  }
+}
+
+function closeAll() {
+  if (openItem) {
+    openItem.classList.remove('is-open');
+    openItem = null;
+  }
+}
+
+function toggleItem(item) {
+  if (item.classList.contains('is-open')) {
+    item.classList.remove('is-open');
+    openItem = null;
+    return;
+  }
+  closeAll();
+  item.classList.add('is-open');
+  openItem = item;
+}
+
+function createNewsItem(item, index) {
+  const wrap = createEl('article', 'news-item');
+  wrap.dataset.url = item.url || '';
+
+  const header = createEl('button', 'news-header', wrap);
+  header.setAttribute('aria-expanded', 'false');
+
+  const number = createEl('div', 'news-number', header);
+  setText(number, String(index + 1).padStart(2, '0'));
+
+  const col = createEl('div', 'news-body-col', header);
+
+  const meta = createEl('div', 'news-meta', col);
+  const source = createEl('span', 'news-source', meta);
+  setText(source, item.source || '未知来源');
+  if (item.category) {
+    const category = createEl('span', 'news-category', meta);
+    setText(category, item.category);
+  }
+
+  const title = createEl('h2', 'news-title', col);
+  setText(title, item.title || '无标题');
+
+  const summary = createEl('p', 'news-summary', col);
+  setText(summary, item.summary || '');
+
+  const body = createEl('div', 'news-body', wrap);
+  const inner = createEl('div', 'news-body-inner', body);
+  const content = createEl('div', 'news-content', inner);
+
+  const closeBtn = createEl('button', 'news-close', content);
+  closeBtn.setAttribute('aria-label', '关闭');
+  setText(closeBtn, '×');
+
+  const textEl = createEl('div', 'news-content-text', content);
+
+  if (item.content) {
+    setText(textEl, item.content);
+  } else {
+    const fallback = createEl('p', 'content-fallback', textEl);
+    setText(fallback, '正文暂无法在此展示，可查看原始链接：');
+    const link = createEl('a', '', fallback);
+    link.href = item.url || '#';
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    setText(link, item.url || '');
+  }
+
+  header.addEventListener('click', () => {
+    toggleItem(wrap);
+    header.setAttribute('aria-expanded', String(wrap.classList.contains('is-open')));
+  });
+
+  closeBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeAll();
+    header.setAttribute('aria-expanded', 'false');
+  });
+
+  return wrap;
 }
 
 function render(data) {
   EL.list.classList.remove('skeleton');
+  clearEl(EL.list);
 
   const date = data.date || '';
-  EL.header.innerHTML = `<div class="header-date">${fmtDate(date)}</div>`;
+  setText(EL.heroDate, fmtDate(date));
 
   let summary = data.summary || '';
-  if (data.total > 0) {
-    summary = summary || `今日精选 ${data.total} 条要闻`;
+  if (!summary && (data.total || 0) > 0) {
+    summary = `今日精选 ${data.total} 条要闻`;
   }
-  EL.summary.innerHTML = `<p>${escapeHtml(summary)}</p>`;
+  setText(EL.heroSummary, summary);
 
   const items = data.items || [];
   if (items.length === 0) {
-    EL.list.innerHTML = '<div class="state-message">今日暂无新闻更新，请稍后再来</div>';
+    const msg = createEl('div', 'state-message', EL.list);
+    setText(msg, '今日暂无新闻更新，请稍后再来');
     return;
   }
 
-  EL.list.innerHTML = items.map(item => `
-    <a class="news-card" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">
-      <div class="news-card-meta">
-        <span class="news-card-source">${escapeHtml(item.source)}</span>
-        <span class="news-card-category">${escapeHtml(item.category || '')}</span>
-      </div>
-      <div class="news-card-title">${escapeHtml(item.title)}</div>
-      <div class="news-card-summary">${escapeHtml(item.summary || '')}</div>
-    </a>
-  `).join('');
-}
-
-function escapeHtml(str) {
-  const div = document.createElement('div');
-  div.textContent = str;
-  return div.innerHTML;
+  items.forEach((item, index) => {
+    EL.list.appendChild(createNewsItem(item, index));
+  });
 }
 
 function showError(msg) {
   EL.list.classList.remove('skeleton');
-  EL.summary.innerHTML = '';
-  EL.list.innerHTML = `<div class="state-message">${escapeHtml(msg)}<br><br><a href="javascript:location.reload()">点击重试</a></div>`;
+  clearEl(EL.list);
+  const wrap = createEl('div', 'state-message', EL.list);
+  setText(wrap, msg);
+  const br = createEl('br', '', wrap);
+  const br2 = createEl('br', '', wrap);
+  const retry = createEl('a', '', wrap);
+  retry.href = 'javascript:location.reload()';
+  setText(retry, '点击重试');
 }
+
+function updateSpotlight() {
+  if (!EL.spotlight) return;
+  EL.spotlight.style.transform = `translate3d(${lastMouseX}px, ${lastMouseY}px, 0)`;
+}
+
+function onMouseMove(e) {
+  lastMouseX = e.clientX;
+  lastMouseY = e.clientY;
+  if (mouseTicking) return;
+  mouseTicking = true;
+  requestAnimationFrame(() => {
+    updateSpotlight();
+    mouseTicking = false;
+  });
+}
+
+function updateProgress() {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = docHeight > 0 ? scrollTop / docHeight : 0;
+  if (EL.progressBar) {
+    EL.progressBar.style.transform = `scaleX(${progress})`;
+  }
+}
+
+function onScroll() {
+  if (scrollTicking) return;
+  scrollTicking = true;
+  requestAnimationFrame(() => {
+    updateProgress();
+    scrollTicking = false;
+  });
+}
+
+window.addEventListener('mousemove', onMouseMove, { passive: true });
+window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('resize', onScroll, { passive: true });
 
 async function load() {
   renderSkeleton();
@@ -297,6 +960,7 @@ async function load() {
     if (!resp.ok) throw new Error(`加载失败 (${resp.status})`);
     const data = await resp.json();
     render(data);
+    updateProgress();
   } catch (e) {
     showError('新闻加载失败，请检查网络后重试');
     console.error(e);
