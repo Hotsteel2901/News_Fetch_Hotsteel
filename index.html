@@ -21,8 +21,7 @@
   --hover-bg: #fafafa;
   --glow: rgba(220, 38, 38, 0.1);
   --glow-strong: rgba(220, 38, 38, 0.18);
-  --ambient: radial-gradient(circle at 20% 0%, rgba(220, 38, 38, 0.1) 0%, transparent 50%);
-  --spotlight: radial-gradient(600px circle at var(--x, 50%) var(--y, 0%), rgba(220, 38, 38, 0.06), transparent 40%);
+  --ambient: radial-gradient(circle at 20% 0%, rgba(220, 38, 26, 0.1) 0%, transparent 50%);
   --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --radius: 2px;
   --transition: 0.3s ease;
@@ -40,7 +39,6 @@
     --glow: rgba(239, 68, 68, 0.14);
     --glow-strong: rgba(239, 68, 68, 0.28);
     --ambient: radial-gradient(circle at 20% 0%, rgba(239, 68, 68, 0.14) 0%, transparent 50%);
-    --spotlight: radial-gradient(600px circle at var(--x, 50%) var(--y, 0%), rgba(239, 68, 68, 0.1), transparent 40%);
   }
 }
 
@@ -62,20 +60,25 @@ body::before {
   inset: 0;
   background: var(--ambient);
   pointer-events: none;
-  z-index: -2;
+  z-index: -3;
   opacity: 0;
   animation: ambientFade 1.2s ease forwards;
 }
 
-body::after {
-  content: '';
+.spotlight {
   position: fixed;
-  inset: 0;
-  background: var(--spotlight);
+  top: -300px;
+  left: -300px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
   pointer-events: none;
-  z-index: -1;
+  z-index: -2;
   opacity: 0.8;
-  transition: opacity 0.3s ease;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .progress-bar {
@@ -83,10 +86,12 @@ body::after {
   top: 0;
   left: 0;
   height: 2px;
-  width: 0%;
+  width: 100%;
   background: linear-gradient(90deg, var(--accent), transparent);
   z-index: 100;
-  transition: width 0.1s linear;
+  transform-origin: left;
+  transform: scaleX(0);
+  will-change: transform;
 }
 
 .container {
@@ -104,6 +109,9 @@ body::after {
   pointer-events: none;
   z-index: -2;
   opacity: 0;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
   animation: orbFloat 8s ease-in-out infinite, fadeIn 1.5s ease forwards;
 }
 
@@ -189,6 +197,7 @@ body::after {
   opacity: 0;
   filter: blur(8px);
   transform: translateY(30px) scale(0.98);
+  will-change: transform, filter, opacity;
   animation: textReveal 1s cubic-bezier(0.22, 1, 0.36, 1) forwards, textShine 4s linear infinite 1.2s;
 }
 
@@ -215,6 +224,9 @@ body::after {
   border-radius: 50%;
   pointer-events: none;
   opacity: 0;
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
   animation: glowBreathe 4s ease-in-out infinite, fadeIn 1s ease 0.4s forwards;
 }
 
@@ -240,8 +252,10 @@ body::after {
   border-bottom: 1px solid var(--border);
   opacity: 0;
   transform: translateY(20px);
+  will-change: transform, opacity;
+  contain: layout style paint;
   animation: fadeUp 0.6s ease forwards;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease;
 }
 
 .news-item:nth-child(1) { animation-delay: 0.7s; }
@@ -259,7 +273,6 @@ body::after {
 
 .news-item.is-open {
   transform: translateY(-2px);
-  box-shadow: 0 12px 40px -20px var(--glow-strong);
   z-index: 1;
 }
 
@@ -285,14 +298,16 @@ body::after {
   content: '';
   position: absolute;
   inset: 0;
-  border-left: 2px solid var(--accent);
-  box-shadow: inset 0 0 30px -10px var(--glow);
+  background: linear-gradient(90deg, var(--glow) 0%, transparent 60%);
   pointer-events: none;
   opacity: 0;
+  transform: translate3d(0, 0, 0);
   animation: glowPulse 2s ease-in-out infinite;
 }
 
 .news-header {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 2.5rem 1fr;
   gap: 1rem;
@@ -588,8 +603,8 @@ body::after {
 }
 
 @keyframes glowPulse {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.7; }
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.5; }
 }
 
 @keyframes ambientFade {
@@ -608,9 +623,9 @@ body::after {
 }
 
 @keyframes orbFloat {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(20px, -30px) scale(1.05); }
-  66% { transform: translate(-10px, 20px) scale(0.95); }
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  33% { transform: translate3d(20px, -30px, 0) scale(1.05); }
+  66% { transform: translate3d(-10px, 20px, 0) scale(0.95); }
 }
 
 @keyframes textReveal {
@@ -627,6 +642,7 @@ body::after {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .spotlight,
   .orb,
   .brand,
   .hero-date,
@@ -669,6 +685,11 @@ body::after {
   .news-item {
     transition: none;
   }
+  .progress-bar,
+  .spotlight,
+  .orb {
+    will-change: auto;
+  }
 }
 
 @media (max-width: 480px) {
@@ -692,6 +713,7 @@ body::after {
 </head>
 <body>
 <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+<div class="spotlight" id="spotlight" aria-hidden="true"></div>
 <div class="orb orb-1" aria-hidden="true"></div>
 <div class="orb orb-2" aria-hidden="true"></div>
 
@@ -722,11 +744,16 @@ const EL = {
   heroSummary: document.getElementById('hero-summary'),
   list: document.getElementById('news-list'),
   progressBar: document.getElementById('progress-bar'),
+  spotlight: document.getElementById('spotlight'),
 };
 
 const WEEKDAYS = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
 
 let openItem = null;
+let mouseTicking = false;
+let scrollTicking = false;
+let lastMouseX = 0;
+let lastMouseY = 0;
 
 function fmtDate(dateStr) {
   const d = new Date(dateStr + 'T00:00:00');
@@ -888,25 +915,43 @@ function showError(msg) {
   setText(retry, '点击重试');
 }
 
-function updateSpotlight(e) {
-  const x = (e.clientX / window.innerWidth) * 100;
-  const y = (e.clientY / window.innerHeight) * 100;
-  document.documentElement.style.setProperty('--x', `${x}%`);
-  document.documentElement.style.setProperty('--y', `${y}%`);
+function updateSpotlight() {
+  if (!EL.spotlight) return;
+  EL.spotlight.style.transform = `translate3d(${lastMouseX}px, ${lastMouseY}px, 0)`;
+}
+
+function onMouseMove(e) {
+  lastMouseX = e.clientX;
+  lastMouseY = e.clientY;
+  if (mouseTicking) return;
+  mouseTicking = true;
+  requestAnimationFrame(() => {
+    updateSpotlight();
+    mouseTicking = false;
+  });
 }
 
 function updateProgress() {
   const scrollTop = window.scrollY;
   const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  const progress = docHeight > 0 ? scrollTop / docHeight : 0;
   if (EL.progressBar) {
-    EL.progressBar.style.width = `${progress}%`;
+    EL.progressBar.style.transform = `scaleX(${progress})`;
   }
 }
 
-window.addEventListener('mousemove', updateSpotlight, { passive: true });
-window.addEventListener('scroll', updateProgress, { passive: true });
-window.addEventListener('resize', updateProgress, { passive: true });
+function onScroll() {
+  if (scrollTicking) return;
+  scrollTicking = true;
+  requestAnimationFrame(() => {
+    updateProgress();
+    scrollTicking = false;
+  });
+}
+
+window.addEventListener('mousemove', onMouseMove, { passive: true });
+window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('resize', onScroll, { passive: true });
 
 async function load() {
   renderSkeleton();
@@ -915,6 +960,7 @@ async function load() {
     if (!resp.ok) throw new Error(`加载失败 (${resp.status})`);
     const data = await resp.json();
     render(data);
+    updateProgress();
   } catch (e) {
     showError('新闻加载失败，请检查网络后重试');
     console.error(e);
