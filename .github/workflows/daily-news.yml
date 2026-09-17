@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  fetch-and-filter:
+  fetch-news:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,12 +22,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Fetch news
-        run: python scripts/fetch_news.py > fetched.json
-
-      - name: Filter with DeepSeek
-        env:
-          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-        run: python scripts/deepseek_filter.py < fetched.json
+        run: python scripts/fetch_news.py
 
       - name: Commit and push news.json
         run: |

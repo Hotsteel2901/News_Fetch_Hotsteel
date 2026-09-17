@@ -3,590 +3,595 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="每日新闻速览：自动抓取中英文 RSS 新闻源，聚合阅读，每日更新。">
 <title>每日新闻速览</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('daily-news-theme');
+    if (saved !== 'light' && saved !== 'dark') {
+      saved = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.dataset.theme = saved;
+  } catch (e) {
+    document.documentElement.dataset.theme = 'light';
+  }
+})();
+</script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  color-scheme: light dark;
-  --bg: #ffffff;
-  --fg: #09090b;
-  --muted: #71717a;
-  --border: #e4e4e7;
-  --accent: #dc2626;
-  --accent-bg: #fef2f2;
-  --hover-bg: #fafafa;
-  --glow: rgba(220, 38, 38, 0.1);
-  --glow-strong: rgba(220, 38, 38, 0.18);
-  --ambient: radial-gradient(circle at 20% 0%, rgba(220, 38, 26, 0.1) 0%, transparent 50%);
-  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --radius: 2px;
-  --transition: 0.3s ease;
+  color-scheme: light;
+  --paper: #f4f2ed;
+  --surface: #fffdf8;
+  --ink: #17140f;
+  --ink-2: #47413a;
+  --muted: #7d766b;
+  --line: #ddd7ca;
+  --line-2: #c8c1b1;
+  --accent: #b3261e;
+  --accent-soft: rgba(179, 38, 30, .07);
+  --ring: rgba(179, 38, 30, .3);
+  --topbar: rgba(244, 242, 237, .87);
+  --sk-a: #e5e0d4;
+  --sk-b: #f2eee5;
+  --serif: "Songti SC", "Noto Serif SC", "Source Han Serif SC", "STSong", "SimSun", Georgia, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  --ease: cubic-bezier(.22, 1, .36, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #09090b;
-    --fg: #fafafa;
-    --muted: #a1a1aa;
-    --border: #27272a;
-    --accent: #ef4444;
-    --accent-bg: rgba(239, 68, 68, 0.14);
-    --hover-bg: #18181b;
-    --glow: rgba(239, 68, 68, 0.14);
-    --glow-strong: rgba(239, 68, 68, 0.28);
-    --ambient: radial-gradient(circle at 20% 0%, rgba(239, 68, 68, 0.14) 0%, transparent 50%);
-  }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #0f0e0c;
+  --surface: #171512;
+  --ink: #f1eee6;
+  --ink-2: #cbc5b9;
+  --muted: #918a7d;
+  --line: #2a2823;
+  --line-2: #3c3932;
+  --accent: #e5544b;
+  --accent-soft: rgba(229, 84, 75, .1);
+  --ring: rgba(229, 84, 75, .38);
+  --topbar: rgba(15, 14, 12, .87);
+  --sk-a: #201e1a;
+  --sk-b: #2c2924;
 }
 
-html { font-size: 16px; scroll-behavior: smooth; }
+html { scroll-behavior: smooth; }
 
 body {
-  font-family: var(--font);
-  background: var(--bg);
-  color: var(--fg);
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
   line-height: 1.6;
   min-height: 100dvh;
   -webkit-font-smoothing: antialiased;
-  transition: background var(--transition), color var(--transition);
+  text-rendering: optimizeLegibility;
 }
 
 body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background: var(--ambient);
+  background: radial-gradient(1100px 460px at 50% -260px, var(--accent-soft), transparent 70%);
   pointer-events: none;
-  z-index: -3;
-  opacity: 0;
-  animation: ambientFade 1.2s ease forwards;
+  z-index: -1;
 }
 
-.spotlight {
-  position: fixed;
-  top: -300px;
-  left: -300px;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: -2;
-  opacity: 0.8;
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
-  backface-visibility: hidden;
-}
+::selection { background: var(--accent); color: #fff; }
 
-.progress-bar {
+a { color: inherit; }
+
+button { font-family: inherit; }
+
+:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+
+.progress {
   position: fixed;
   top: 0;
   left: 0;
-  height: 2px;
   width: 100%;
-  background: linear-gradient(90deg, var(--accent), transparent);
-  z-index: 100;
-  transform-origin: left;
+  height: 2px;
+  background: var(--accent);
   transform: scaleX(0);
+  transform-origin: left;
+  z-index: 100;
   will-change: transform;
 }
 
-.container {
-  position: relative;
-  max-width: 800px;
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--topbar);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.topbar-inner {
+  max-width: 900px;
   margin: 0 auto;
-  padding: clamp(1.5rem, 5vw, 3rem) clamp(1rem, 4vw, 2rem) 4rem;
+  padding: .7rem clamp(1rem, 4vw, 2.2rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
-/* Floating orbs */
-.orb {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(80px);
-  pointer-events: none;
-  z-index: -2;
-  opacity: 0;
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
-  backface-visibility: hidden;
-  animation: orbFloat 8s ease-in-out infinite, fadeIn 1.5s ease forwards;
-}
-
-.orb-1 {
-  width: 320px;
-  height: 320px;
-  top: -6rem;
-  right: -4rem;
-  background: var(--glow);
-  animation-delay: 0s, 0.2s;
-}
-
-.orb-2 {
-  width: 240px;
-  height: 240px;
-  bottom: 10%;
-  left: -6rem;
-  background: var(--glow);
-  animation-delay: -4s, 0.5s;
-}
-
-/* Header */
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 2.5rem;
-  opacity: 0;
-  transform: translateY(-8px);
-  animation: fadeDown 0.5s ease 0.1s forwards;
+  gap: .55rem;
+  text-decoration: none;
 }
 
-.brand-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: var(--radius);
-  background: var(--accent);
-  box-shadow: 0 0 0 0 var(--glow);
-  animation: dotPulse 2.5s ease-in-out infinite;
-}
-
-.brand-text {
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--muted);
-}
-
-/* Hero */
-.hero {
-  position: relative;
-  margin-bottom: 3rem;
-}
-
-.hero-date {
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--muted);
-  margin-bottom: 0.75rem;
-  opacity: 0;
-  transform: translateY(16px);
-  animation: fadeUp 0.6s ease 0.2s forwards;
-}
-
-.hero-title {
-  font-size: clamp(2.5rem, 8vw, 4rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1.05;
-  margin-bottom: 1rem;
-}
-
-.hero-title span {
-  display: block;
-  background: linear-gradient(90deg, var(--fg) 0%, var(--fg) 40%, var(--accent) 50%, var(--fg) 60%, var(--fg) 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  opacity: 0;
-  filter: blur(8px);
-  transform: translateY(30px) scale(0.98);
-  will-change: transform, filter, opacity;
-  animation: textReveal 1s cubic-bezier(0.22, 1, 0.36, 1) forwards, textShine 4s linear infinite 1.2s;
-}
-
-.hero-title span:nth-child(1) { animation-delay: 0.3s, 1.2s; }
-.hero-title span:nth-child(2) { animation-delay: 0.45s, 1.35s; }
-
-.hero-summary {
-  font-size: 1.05rem;
-  color: var(--muted);
-  max-width: 480px;
-  line-height: 1.6;
-  opacity: 0;
-  transform: translateY(16px);
-  animation: fadeUp 0.6s ease 0.7s forwards;
-}
-
-.hero-glow {
-  position: absolute;
-  top: -4rem;
-  right: -2rem;
-  width: 320px;
-  height: 320px;
-  background: radial-gradient(circle, var(--glow-strong) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  opacity: 0;
-  transform: translate3d(0, 0, 0);
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-  animation: glowBreathe 4s ease-in-out infinite, fadeIn 1s ease 0.4s forwards;
-}
-
-/* News list */
-.news-list {
-  position: relative;
-  border-top: 1px solid var(--border);
-}
-
-.news-list::before {
-  content: '';
-  position: absolute;
-  top: -1px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  animation: lineSweep 1.2s ease 0.9s forwards;
-}
-
-.news-item {
-  position: relative;
-  border-bottom: 1px solid var(--border);
-  opacity: 0;
-  transform: translateY(20px);
-  will-change: transform, opacity;
-  contain: layout style paint;
-  animation: fadeUp 0.6s ease forwards;
-  transition: transform 0.25s ease;
-}
-
-.news-item:nth-child(1) { animation-delay: 0.7s; }
-.news-item:nth-child(2) { animation-delay: 0.76s; }
-.news-item:nth-child(3) { animation-delay: 0.82s; }
-.news-item:nth-child(4) { animation-delay: 0.88s; }
-.news-item:nth-child(5) { animation-delay: 0.94s; }
-.news-item:nth-child(6) { animation-delay: 1s; }
-.news-item:nth-child(7) { animation-delay: 1.06s; }
-.news-item:nth-child(8) { animation-delay: 1.12s; }
-.news-item:nth-child(9) { animation-delay: 1.18s; }
-.news-item:nth-child(10) { animation-delay: 1.24s; }
-.news-item:nth-child(11) { animation-delay: 1.3s; }
-.news-item:nth-child(12) { animation-delay: 1.36s; }
-
-.news-item.is-open {
-  transform: translateY(-2px);
-  z-index: 1;
-}
-
-.news-item::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: var(--accent);
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.news-item.is-open::before {
-  transform: scaleY(1);
-}
-
-.news-item.is-open::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, var(--glow) 0%, transparent 60%);
-  pointer-events: none;
-  opacity: 0;
-  transform: translate3d(0, 0, 0);
-  animation: glowPulse 2s ease-in-out infinite;
-}
-
-.news-header {
-  position: relative;
-  z-index: 1;
+.brand-mark {
   display: grid;
-  grid-template-columns: 2.5rem 1fr;
+  place-items: center;
+  width: 1.65rem;
+  height: 1.65rem;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--serif);
+  font-size: .95rem;
+  font-weight: 700;
+  border-radius: 2px;
+}
+
+.brand-name {
+  font-family: var(--serif);
+  font-size: .95rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+}
+
+.topbar-update {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .04em;
+  color: var(--muted);
+}
+
+.theme-btn {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--line-2);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color .2s ease, border-color .2s ease, transform .25s var(--ease);
+}
+
+.theme-btn:hover { color: var(--accent); border-color: var(--accent); transform: rotate(15deg); }
+
+.theme-btn svg { width: 1rem; height: 1rem; }
+
+:root[data-theme="dark"] .icon-sun { display: none; }
+:root:not([data-theme="dark"]) .icon-moon { display: none; }
+
+.wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 2.2rem);
+}
+
+.masthead {
+  text-align: center;
+  padding: clamp(2rem, 6vw, 3.6rem) 0 1.2rem;
+}
+
+.masthead-kicker {
+  font-family: var(--mono);
+  font-size: .66rem;
+  letter-spacing: .44em;
+  text-indent: .44em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.masthead-title {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 8vw, 4.1rem);
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-indent: .14em;
+  line-height: 1.15;
+  margin: .9rem 0 1rem;
+}
+
+.masthead-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .35rem .85rem;
+  color: var(--muted);
+  font-size: .8rem;
+}
+
+.masthead-meta .sep { color: var(--line-2); }
+
+.rule-double {
+  position: relative;
+  margin-top: 1.8rem;
+  border-top: 2px solid var(--ink);
+}
+
+.rule-double::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 4px;
+  border-top: 1px solid var(--line-2);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .9rem 1.2rem;
+  padding: 1rem 0 .9rem;
+}
+
+.tabs { display: flex; align-items: center; gap: .15rem; }
+
+.tab {
+  appearance: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--muted);
+  font-size: .84rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+  padding: .3rem .5rem;
+  cursor: pointer;
+  transition: color .2s ease, border-color .2s ease;
+}
+
+.tab:hover { color: var(--ink); }
+
+.tab.is-active { color: var(--ink); border-bottom-color: var(--accent); }
+
+.tab em {
+  font-style: normal;
+  font-family: var(--mono);
+  font-size: .66rem;
+  color: var(--muted);
+  margin-left: .28rem;
+}
+
+.controls-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  border-bottom: 1px solid var(--line-2);
+  padding: .25rem 0;
+  transition: border-color .2s ease;
+}
+
+.search:focus-within { border-color: var(--accent); }
+
+.search svg { width: .85rem; height: .85rem; color: var(--muted); flex: none; }
+
+.search input {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--ink);
+  font-size: .84rem;
+  width: 11rem;
+  padding: 0;
+}
+
+.search input::placeholder { color: var(--muted); }
+
+.source-wrap { position: relative; }
+
+.source-wrap select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  color: var(--ink-2);
+  font-size: .78rem;
+  padding: .4rem 1.7rem .4rem .75rem;
+  cursor: pointer;
+  transition: border-color .2s ease, color .2s ease;
+}
+
+.source-wrap select:hover,
+.source-wrap select:focus { border-color: var(--accent); color: var(--ink); outline: none; }
+
+.source-wrap::after {
+  content: '';
+  position: absolute;
+  right: .72rem;
+  top: 50%;
+  width: .4rem;
+  height: .4rem;
+  border-right: 1.5px solid var(--muted);
+  border-bottom: 1.5px solid var(--muted);
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+
+.feed-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .1rem 0 .6rem;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .06em;
+  color: var(--muted);
+}
+
+.feed { border-bottom: 1px solid var(--line); }
+
+.story {
+  border-bottom: 1px solid var(--line);
+  animation: rise .55s var(--ease) both;
+  animation-delay: calc(var(--i, 0) * 30ms);
+}
+
+.story:last-child { border-bottom: 0; }
+
+.story-heading { font-size: inherit; font-weight: inherit; }
+
+.story-head {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.1rem 1fr 1.4rem;
   gap: 1rem;
   align-items: start;
   width: 100%;
-  padding: 1.25rem 0;
-  background: transparent;
-  border: none;
+  padding: 1.55rem .25rem;
+  border: 0;
+  background: none;
   color: inherit;
-  font: inherit;
   text-align: left;
   cursor: pointer;
-  transition: padding-left 0.25s ease-out, background 0.25s ease, transform 0.25s ease;
+  transition: background-color .25s ease;
 }
 
-.news-header:hover,
-.news-header:focus-visible {
-  padding-left: 0.5rem;
-  background: var(--hover-bg);
-  transform: translateX(4px);
-  outline: none;
-}
+.story-head:hover { background: var(--surface); }
 
-.news-header:focus-visible .news-title {
-  color: var(--accent);
-}
+.story-head:focus-visible { outline: 2px solid var(--ring); outline-offset: -2px; }
 
-.news-number {
-  font-size: 0.85rem;
-  font-weight: 700;
+.story.is-open .story-head { background: var(--accent-soft); }
+
+.story-index {
+  display: block;
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .08em;
   color: var(--muted);
-  padding-top: 0.1rem;
-  transition: color 0.25s ease, transform 0.25s ease;
+  padding-top: .32rem;
+  transition: color .25s ease;
 }
 
-.news-header:hover .news-number,
-.news-item.is-open .news-number {
-  color: var(--accent);
-  transform: translateX(3px) scale(1.05);
-}
+.story-main { display: block; min-width: 0; }
 
-.news-meta {
+.story-meta {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.35rem;
+  gap: .5rem;
+  margin-bottom: .4rem;
 }
 
-.news-source {
-  font-size: 0.65rem;
+.story-source {
+  font-size: .72rem;
   font-weight: 700;
+  letter-spacing: .08em;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
   color: var(--accent);
-  background: var(--accent-bg);
-  padding: 0.15rem 0.4rem;
-  border-radius: 4px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.news-header:hover .news-source {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--glow);
+.story-time { font-size: .72rem; color: var(--muted); }
+
+.story-time:not(:empty)::before { content: '·'; margin-right: .5rem; color: var(--line-2); }
+
+.story-title {
+  display: block;
+  font-family: var(--serif);
+  font-size: clamp(1.12rem, 2.2vw, 1.4rem);
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: .01em;
+  margin-bottom: .45rem;
+  transition: color .25s ease;
 }
 
-.news-category {
-  font-size: 0.75rem;
-  color: var(--muted);
+.story-head:hover .story-title,
+.story.is-open .story-title { color: var(--accent); }
+
+.story-lead {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: var(--ink-2);
+  font-size: .9rem;
+  line-height: 1.7;
 }
 
-.news-title {
-  font-size: 1.05rem;
-  font-weight: 600;
-  line-height: 1.4;
-  letter-spacing: -0.01em;
-  margin-bottom: 0.3rem;
-  transition: color 0.25s ease, transform 0.25s ease;
+.story.is-open .story-lead { display: none; }
+
+.story-toggle {
+  position: relative;
+  display: block;
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-top: .15rem;
+  border: 1px solid var(--line-2);
+  border-radius: 50%;
+  transition: transform .4s var(--ease), border-color .25s ease, background-color .25s ease;
 }
 
-.news-header:hover .news-title {
-  color: var(--accent);
-  transform: translateX(6px);
+.story-toggle::before,
+.story-toggle::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: var(--muted);
+  transition: background-color .25s ease;
 }
 
-.news-summary {
-  font-size: 0.875rem;
-  color: var(--muted);
-  line-height: 1.5;
-  transition: color 0.25s ease;
+.story-toggle::before { width: 8px; height: 1.5px; transform: translate(-50%, -50%); }
+
+.story-toggle::after { width: 1.5px; height: 8px; transform: translate(-50%, -50%); }
+
+.story.is-open .story-toggle {
+  transform: rotate(135deg);
+  border-color: var(--accent);
+  background: var(--accent-soft);
 }
 
-.news-header:hover .news-summary {
-  color: var(--fg);
-}
+.story.is-open .story-toggle::before,
+.story.is-open .story-toggle::after { background: var(--accent); }
 
-/* Expandable content */
-.news-body {
+.story-body {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: grid-template-rows .5s var(--ease);
 }
 
-.news-item.is-open .news-body {
-  grid-template-rows: 1fr;
-}
+.story.is-open .story-body { grid-template-rows: 1fr; }
 
-.news-body-inner {
-  min-height: 0;
-  overflow: hidden;
-}
+.story-body-inner { min-height: 0; overflow: hidden; }
 
-.news-content {
-  padding: 0 0 1.5rem 3.5rem;
-  font-size: 0.95rem;
-  line-height: 1.75;
-  color: var(--fg);
+.story-content {
+  max-width: 70ch;
+  padding: .15rem 1.4rem 1.1rem 3.35rem;
+  color: var(--ink-2);
+  font-size: .95rem;
+  line-height: 1.95;
   white-space: pre-wrap;
+  overflow-wrap: anywhere;
   opacity: 0;
-  transform: translateY(-12px);
-  transition: opacity 0.4s ease 0.08s, transform 0.4s ease 0.08s;
+  transform: translateY(-6px);
+  transition: opacity .4s ease .08s, transform .4s ease .08s;
 }
 
-.news-item.is-open .news-content {
-  opacity: 1;
-  transform: translateY(0);
-}
+.story.is-open .story-content { opacity: 1; transform: none; }
 
-.news-content:empty::before {
-  content: '正文加载失败或暂不可用。';
-  color: var(--muted);
-}
+.story-content.is-missing { color: var(--muted); font-size: .88rem; font-style: italic; }
 
-.content-fallback {
-  color: var(--muted);
-  font-size: 0.875rem;
-}
+.story-actions { padding: 0 1.4rem 1.6rem 3.35rem; }
 
-.content-fallback a {
-  position: relative;
+.source-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
   color: var(--accent);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .05em;
   text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s ease;
 }
 
-.content-fallback a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0;
-  height: 1px;
-  background: var(--accent);
-  transition: width 0.3s ease;
-}
+.source-link:hover,
+.source-link:focus-visible { border-bottom-color: var(--accent); }
 
-.content-fallback a:hover::after,
-.content-fallback a:focus-visible::after {
-  width: 100%;
-}
+.source-link svg { width: .7rem; height: .7rem; }
 
-/* States */
-.state-message {
-  text-align: center;
-  padding: 4rem 1rem;
-  color: var(--muted);
-  font-size: 1rem;
-  opacity: 0;
-  animation: fadeIn 0.5s ease forwards;
-}
+.sk { pointer-events: none; animation: none; }
 
-.state-message a {
-  position: relative;
-  color: var(--accent);
-  text-decoration: none;
-}
+.sk .story-head:hover { background: none; }
 
-.state-message a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0;
-  height: 1px;
-  background: var(--accent);
-  transition: width 0.3s ease;
-}
-
-.state-message a:hover::after {
-  width: 100%;
-}
-
-/* Skeleton */
-.skeleton .news-header {
-  pointer-events: none;
-  cursor: default;
-}
-
-.skeleton .news-header:hover {
-  padding-left: 0;
-  background: transparent;
-  transform: none;
-}
-
-.skeleton .news-item::before,
-.skeleton .news-item.is-open::after {
-  transform: scaleY(0) !important;
-  animation: none !important;
-}
-
-.skeleton .news-number,
-.skeleton .news-source,
-.skeleton .news-title,
-.skeleton .news-summary {
-  background: linear-gradient(
-    90deg,
-    var(--border) 0%,
-    var(--hover-bg) 50%,
-    var(--border) 100%
-  );
+.sk-line {
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--sk-a) 25%, var(--sk-b) 50%, var(--sk-a) 75%);
   background-size: 200% 100%;
-  border-radius: 4px;
-  color: transparent;
-  animation: shimmer 1.6s infinite;
+  animation: shimmer 1.6s linear infinite;
 }
 
-.skeleton .news-number { width: 1.5rem; height: 1rem; }
-.skeleton .news-source { width: 60px; height: 0.7rem; }
-.skeleton .news-title { width: 80%; height: 1.1rem; margin-bottom: 0.5rem; }
-.skeleton .news-summary { width: 95%; height: 0.85rem; }
+.sk-index { width: 1.2rem; height: .7rem; margin-top: .35rem; }
+.sk-meta { width: 5rem; height: .62rem; margin-bottom: .75rem; }
+.sk-title { width: 82%; height: 1.05rem; margin-bottom: .7rem; }
+.sk-lead { width: 95%; height: .8rem; }
 
-/* Footer */
-.footer {
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border);
-  font-size: 0.75rem;
-  color: var(--muted);
+.empty {
   text-align: center;
-  opacity: 0;
-  animation: fadeUp 0.6s ease 1.5s forwards;
+  padding: clamp(3rem, 10vw, 5.5rem) 1rem;
 }
 
-/* Animations */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+.empty-mark {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  color: var(--accent);
+  margin-bottom: .5rem;
 }
 
-@keyframes fadeDown {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 1; transform: translateY(0); }
+.empty-title {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: .4rem;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.empty-text { color: var(--muted); font-size: .86rem; }
+
+.reset-btn {
+  appearance: none;
+  margin-top: 1.4rem;
+  padding: .5rem 1.15rem;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font-size: .8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color .2s ease, color .2s ease;
 }
 
-@keyframes dotPulse {
-  0%, 100% { box-shadow: 0 0 0 0 var(--glow); }
-  50% { box-shadow: 0 0 0 8px transparent; }
+.reset-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+.footer {
+  padding: 2.4rem 0 4.5rem;
+  text-align: center;
 }
 
-@keyframes glowBreathe {
-  0%, 100% { transform: scale(1); opacity: 0.5; }
-  50% { transform: scale(1.12); opacity: 1; }
-}
+.footer-rule { width: 3rem; height: 2px; background: var(--accent); margin: 0 auto 1.4rem; }
 
-@keyframes glowPulse {
-  0%, 100% { opacity: 0.2; }
-  50% { opacity: 0.5; }
-}
+.footer p { color: var(--muted); font-size: .78rem; line-height: 1.9; }
 
-@keyframes ambientFade {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+.footer-dim { opacity: .72; font-size: .72rem; margin-top: .15rem; }
 
-@keyframes lineSweep {
-  from { width: 0; left: 0; }
-  to { width: 100%; left: 0; }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
 }
 
 @keyframes shimmer {
@@ -594,386 +599,511 @@ body::before {
   100% { background-position: -200% 0; }
 }
 
-@keyframes orbFloat {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  33% { transform: translate3d(20px, -30px, 0) scale(1.05); }
-  66% { transform: translate3d(-10px, 20px, 0) scale(0.95); }
-}
-
-@keyframes textReveal {
-  to {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes textShine {
-  0% { background-position: 200% center; }
-  100% { background-position: -200% center; }
+@media (max-width: 640px) {
+  .controls { flex-direction: column; align-items: stretch; }
+  .controls-right { justify-content: space-between; }
+  .search { flex: 1; }
+  .search input { width: 100%; }
+  .topbar-update { display: none; }
+  .masthead-title { letter-spacing: .1em; text-indent: .1em; }
+  .story-head { grid-template-columns: 1.7rem 1fr 1.2rem; gap: .7rem; padding: 1.3rem 0; }
+  .story-lead { -webkit-line-clamp: 3; }
+  .story-content { padding: .1rem .4rem 1rem 2.4rem; font-size: .92rem; line-height: 1.9; }
+  .story-actions { padding: 0 .4rem 1.4rem 2.4rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .spotlight,
-  .orb,
-  .brand,
-  .hero-date,
-  .hero-title span,
-  .hero-summary,
-  .news-item,
-  .state-message,
-  .footer {
-    animation: none;
-    opacity: 1;
-    transform: none;
-    filter: none;
-  }
-  .brand-dot,
-  .skeleton .news-number,
-  .skeleton .news-source,
-  .skeleton .news-title,
-  .skeleton .news-summary {
-    animation: none;
-  }
-  .hero-glow,
-  .news-item.is-open::after {
-    animation: none;
-    opacity: 0.5;
-  }
-  body::before,
-  .news-list::before {
-    animation: none;
-    opacity: 1;
-    width: 100%;
-  }
-  .news-body,
-  .news-content,
-  .news-header,
-  .news-number,
-  .news-title,
-  .news-summary,
-  .news-source,
-  .news-item {
-    transition: none;
-  }
-  .progress-bar,
-  .spotlight,
-  .orb {
-    will-change: auto;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-glow {
-    width: 200px;
-    height: 200px;
-    top: -2rem;
-    right: -1rem;
-  }
-  .orb-1 { width: 200px; height: 200px; }
-  .orb-2 { width: 160px; height: 160px; }
-  .news-header {
-    grid-template-columns: 2rem 1fr;
-    gap: 0.75rem;
-  }
-  .news-content {
-    padding-left: 2.75rem;
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
   }
 }
 </style>
 </head>
 <body>
-<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
-<div class="spotlight" id="spotlight" aria-hidden="true"></div>
-<div class="orb orb-1" aria-hidden="true"></div>
-<div class="orb orb-2" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
 
-<div class="container">
-  <div class="brand">
-    <span class="brand-dot" aria-hidden="true"></span>
-    <span class="brand-text">Daily Brief</span>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="./">
+      <span class="brand-mark" aria-hidden="true">聞</span>
+      <span class="brand-name">每日速览</span>
+    </a>
+    <div class="topbar-right">
+      <span class="topbar-update" id="topbar-update"></span>
+      <button class="theme-btn" id="theme-btn" type="button" aria-label="切换深色主题" aria-pressed="false">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2"></circle>
+          <path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6"></path>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20.8 13.2A8.6 8.6 0 1 1 10.8 3.2a6.8 6.8 0 0 0 10 10z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="masthead">
+    <p class="masthead-kicker">Daily News Digest</p>
+    <h1 class="masthead-title">每日新闻速览</h1>
+    <div class="masthead-meta">
+      <span id="masthead-date"></span>
+      <span class="sep" aria-hidden="true">/</span>
+      <span id="masthead-stats"></span>
+    </div>
+    <div class="rule-double" aria-hidden="true"></div>
+  </section>
+
+  <section class="controls" aria-label="筛选新闻">
+    <div class="tabs" id="lang-tabs" role="group" aria-label="按语言筛选">
+      <button type="button" class="tab is-active" data-lang="all" aria-pressed="true">全部<em></em></button>
+      <button type="button" class="tab" data-lang="zh" aria-pressed="false">中文<em></em></button>
+      <button type="button" class="tab" data-lang="en" aria-pressed="false">English<em></em></button>
+    </div>
+    <div class="controls-right">
+      <label class="search" for="search">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <circle cx="9" cy="9" r="6"></circle>
+          <path d="M13.4 13.4L18 18" stroke-linecap="round"></path>
+        </svg>
+        <input id="search" type="search" placeholder="搜索标题、摘要或正文" autocomplete="off" spellcheck="false">
+      </label>
+      <span class="source-wrap">
+        <select id="source-select" aria-label="按来源筛选"></select>
+      </span>
+    </div>
+  </section>
+
+  <div class="feed-meta">
+    <span id="result-count" aria-live="polite"></span>
+    <span id="feed-hint">点击条目展开正文</span>
   </div>
 
-  <header class="hero" id="hero">
-    <div class="hero-glow" aria-hidden="true"></div>
-    <div class="hero-date" id="hero-date"></div>
-    <h1 class="hero-title">
-      <span>每日新闻</span>
-      <span>速览</span>
-    </h1>
-    <p class="hero-summary" id="hero-summary"></p>
-  </header>
+  <section class="feed" id="feed" aria-label="新闻列表"></section>
 
-  <div class="news-list" id="news-list"></div>
+  <footer class="footer">
+    <div class="footer-rule" aria-hidden="true"></div>
+    <p>由公开 RSS 新闻源自动抓取 · 每日 UTC+8 00:00 更新</p>
+    <p class="footer-dim">内容版权归原媒体所有，详细报道请前往来源网站阅读</p>
+  </footer>
+</main>
 
-  <footer class="footer">自动生成 · 每日 UTC+8 零点更新 · Powered by DeepSeek</footer>
-</div>
+<noscript>
+  <div class="wrap">
+    <div class="empty">
+      <p class="empty-text">本页面需要启用 JavaScript 才能加载新闻内容。</p>
+    </div>
+  </div>
+</noscript>
 
 <script>
-const EL = {
-  heroDate: document.getElementById('hero-date'),
-  heroSummary: document.getElementById('hero-summary'),
-  list: document.getElementById('news-list'),
-  progressBar: document.getElementById('progress-bar'),
-  spotlight: document.getElementById('spotlight'),
-};
+(function () {
+  'use strict';
 
-const WEEKDAYS = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+  var els = {
+    progress: document.getElementById('progress'),
+    topbarUpdate: document.getElementById('topbar-update'),
+    themeBtn: document.getElementById('theme-btn'),
+    mastheadDate: document.getElementById('masthead-date'),
+    mastheadStats: document.getElementById('masthead-stats'),
+    tabs: document.getElementById('lang-tabs'),
+    search: document.getElementById('search'),
+    source: document.getElementById('source-select'),
+    count: document.getElementById('result-count'),
+    hint: document.getElementById('feed-hint'),
+    feed: document.getElementById('feed')
+  };
 
-let openItem = null;
-let mouseTicking = false;
-let scrollTicking = false;
-let lastMouseX = 0;
-let lastMouseY = 0;
+  var WEEKDAYS = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+  var THEME_KEY = 'daily-news-theme';
+  var state = { items: [], lang: 'all', query: '', source: 'all' };
+  var openEl = null;
+  var searchTimer = null;
 
-function fmtDate(dateStr) {
-  const d = new Date(dateStr + 'T00:00:00');
-  if (isNaN(d.getTime())) return dateStr;
-  const y = d.getFullYear();
-  const m = d.getMonth() + 1;
-  const day = d.getDate();
-  const wd = WEEKDAYS[d.getDay()];
-  return `${y}年${m}月${day}日 · ${wd}`;
-}
-
-function setText(el, text) {
-  el.textContent = text;
-}
-
-function clearEl(el) {
-  while (el.firstChild) {
-    el.removeChild(el.firstChild);
+  function createEl(tag, className, parent) {
+    var el = document.createElement(tag);
+    if (className) el.className = className;
+    if (parent) parent.appendChild(el);
+    return el;
   }
-}
 
-function createEl(tag, className, parent) {
-  const el = document.createElement(tag);
-  if (className) el.className = className;
-  if (parent) parent.appendChild(el);
-  return el;
-}
-
-function renderSkeleton() {
-  EL.heroDate.textContent = '';
-  EL.heroSummary.textContent = '';
-  EL.list.classList.add('skeleton');
-
-  for (let i = 0; i < 6; i++) {
-    const item = createEl('div', 'news-item', EL.list);
-    const header = createEl('button', 'news-header', item);
-    createEl('div', 'news-number', header);
-    const body = createEl('div', 'news-body-col', header);
-    createEl('div', 'news-source', body);
-    createEl('div', 'news-title', body);
-    createEl('div', 'news-summary', body);
+  function clearEl(el) {
+    while (el.firstChild) el.removeChild(el.firstChild);
   }
-}
 
-function closeAll() {
-  if (openItem) {
-    openItem.classList.remove('is-open');
-    const header = openItem.querySelector('.news-header');
-    if (header) header.setAttribute('aria-expanded', 'false');
-    openItem = null;
+  function fmtDate(dateStr) {
+    var parts = String(dateStr || '').split('-').map(Number);
+    if (parts.length !== 3 || parts.some(isNaN)) return dateStr || '';
+    var d = new Date(parts[0], parts[1] - 1, parts[2]);
+    return parts[0] + '年' + parts[1] + '月' + parts[2] + '日 · ' + WEEKDAYS[d.getDay()];
   }
-}
 
-function prefersReducedMotion() {
-  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-}
+  function fmtRelative(iso) {
+    if (!iso) return '';
+    var d = new Date(iso);
+    if (isNaN(d.getTime())) return '';
+    var diff = Date.now() - d.getTime();
+    if (diff < 0) diff = 0;
+    var minutes = Math.floor(diff / 60000);
+    if (minutes < 1) return '刚刚';
+    if (minutes < 60) return minutes + ' 分钟前';
+    var hours = Math.floor(minutes / 60);
+    if (hours < 24) return hours + ' 小时前';
+    var days = Math.floor(hours / 24);
+    if (days === 1) return '昨天';
+    if (days < 7) return days + ' 天前';
+    var now = new Date();
+    var prefix = d.getFullYear() === now.getFullYear() ? '' : d.getFullYear() + '年';
+    return prefix + (d.getMonth() + 1) + '月' + d.getDate() + '日';
+  }
 
-function scrollToHeader(headerEl) {
-  const offset = 80;
-  const rect = headerEl.getBoundingClientRect();
-  const target = window.scrollY + rect.top - offset;
-  window.scrollTo({
-    top: Math.max(0, target),
-    behavior: prefersReducedMotion() ? 'auto' : 'smooth'
-  });
-}
+  function normalize(item) {
+    return {
+      title: item.title || '无标题',
+      url: item.url || '',
+      source: item.source || '未知来源',
+      lang: item.lang === 'en' ? 'en' : 'zh',
+      published: item.published || item.date_raw || '',
+      description: item.description || item.summary || '',
+      content: item.content || ''
+    };
+  }
 
-function scrollToCenter(itemEl) {
-  const header = itemEl.querySelector('.news-header');
-  const rect = header ? header.getBoundingClientRect() : itemEl.getBoundingClientRect();
-  const target = window.scrollY + rect.top + rect.height / 2 - window.innerHeight / 2;
-  window.scrollTo({
-    top: Math.max(0, target),
-    behavior: prefersReducedMotion() ? 'auto' : 'smooth'
-  });
-}
+  function getTheme() {
+    return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+  }
 
-function toggleItem(item, headerEl) {
-  const wasOpen = item.classList.contains('is-open');
-  if (wasOpen) {
-    item.classList.remove('is-open');
-    openItem = null;
-    if (headerEl) {
-      if (prefersReducedMotion()) {
-        scrollToCenter(item);
-      } else {
-        const body = item.querySelector('.news-body');
-        if (body) {
-          const onCollapseEnd = (e) => {
-            if (e.target === body && e.propertyName === 'grid-template-rows') {
-              body.removeEventListener('transitionend', onCollapseEnd);
-              scrollToCenter(item);
-            }
-          };
-          body.addEventListener('transitionend', onCollapseEnd);
-        }
-      }
+  function applyTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    els.themeBtn.setAttribute('aria-pressed', String(theme === 'dark'));
+    els.themeBtn.setAttribute('aria-label', theme === 'dark' ? '切换浅色主题' : '切换深色主题');
+    try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+  }
+
+  function filteredItems() {
+    var q = state.query.trim().toLowerCase();
+    return state.items.filter(function (item) {
+      if (state.lang !== 'all' && item.lang !== state.lang) return false;
+      if (state.source !== 'all' && item.source !== state.source) return false;
+      if (!q) return true;
+      var haystack = [item.title, item.source, item.description, item.content].join(' ').toLowerCase();
+      return haystack.indexOf(q) !== -1;
+    });
+  }
+
+  function setOpen(story, open) {
+    story.classList.toggle('is-open', open);
+    var head = story.querySelector('.story-head');
+    if (head) head.setAttribute('aria-expanded', String(open));
+  }
+
+  function createStory(item, index) {
+    var story = createEl('article', 'story');
+    story.style.setProperty('--i', String(Math.min(index, 14)));
+    story.dataset.key = item.url || item.title;
+
+    var heading = createEl('h2', 'story-heading', story);
+    var head = createEl('button', 'story-head', heading);
+    head.type = 'button';
+    head.setAttribute('aria-expanded', 'false');
+    var bodyId = 'story-body-' + index;
+    head.setAttribute('aria-controls', bodyId);
+
+    var idx = createEl('span', 'story-index', head);
+    idx.textContent = String(index + 1).padStart(2, '0');
+
+    var main = createEl('span', 'story-main', head);
+
+    var meta = createEl('span', 'story-meta', main);
+    var source = createEl('span', 'story-source', meta);
+    source.textContent = item.source;
+    var timeText = fmtRelative(item.published);
+    if (timeText) {
+      var time = createEl('time', 'story-time', meta);
+      time.textContent = timeText;
+      if (item.published) time.setAttribute('datetime', item.published);
     }
-    return;
+
+    var title = createEl('span', 'story-title', main);
+    title.textContent = item.title;
+
+    if (item.description) {
+      var lead = createEl('span', 'story-lead', main);
+      lead.textContent = item.description;
+    }
+
+    createEl('span', 'story-toggle', head).setAttribute('aria-hidden', 'true');
+
+    var body = createEl('div', 'story-body', story);
+    body.id = bodyId;
+    var inner = createEl('div', 'story-body-inner', body);
+
+    var content = createEl('div', 'story-content', inner);
+    var fullText = item.content || item.description;
+    if (fullText) {
+      content.textContent = fullText;
+    } else {
+      content.classList.add('is-missing');
+      content.textContent = '暂未抓取到正文，请前往来源网站阅读。';
+    }
+
+    if (item.url) {
+      var actions = createEl('div', 'story-actions', inner);
+      var link = createEl('a', 'source-link', actions);
+      link.href = item.url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = '阅读原文';
+      var arrow = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      arrow.setAttribute('viewBox', '0 0 12 12');
+      arrow.setAttribute('fill', 'none');
+      arrow.setAttribute('stroke', 'currentColor');
+      arrow.setAttribute('stroke-width', '1.6');
+      arrow.setAttribute('stroke-linecap', 'round');
+      arrow.setAttribute('aria-hidden', 'true');
+      var arrowPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      arrowPath.setAttribute('d', 'M2.5 9.5L9.5 2.5M4 2.5h5.5V8');
+      arrow.appendChild(arrowPath);
+      link.appendChild(arrow);
+    }
+
+    head.addEventListener('click', function () {
+      if (story.classList.contains('is-open')) {
+        setOpen(story, false);
+        openEl = null;
+      } else {
+        if (openEl) setOpen(openEl, false);
+        setOpen(story, true);
+        openEl = story;
+      }
+    });
+
+    return story;
   }
-  const previouslyOpen = openItem;
-  closeAll();
-  item.classList.add('is-open');
-  openItem = item;
-  if (headerEl) scrollToHeader(headerEl);
-}
 
-function createNewsItem(item, index) {
-  const wrap = createEl('article', 'news-item');
-  wrap.dataset.url = item.url || '';
-
-  const header = createEl('button', 'news-header', wrap);
-  header.setAttribute('aria-expanded', 'false');
-
-  const number = createEl('div', 'news-number', header);
-  setText(number, String(index + 1).padStart(2, '0'));
-
-  const col = createEl('div', 'news-body-col', header);
-
-  const meta = createEl('div', 'news-meta', col);
-  const source = createEl('span', 'news-source', meta);
-  setText(source, item.source || '未知来源');
-  if (item.category) {
-    const category = createEl('span', 'news-category', meta);
-    setText(category, item.category);
+  function updateCount(shown) {
+    var total = state.items.length;
+    if (!total) {
+      els.count.textContent = '';
+      return;
+    }
+    els.count.textContent = shown === total ? '共 ' + total + ' 条要闻' : '匹配 ' + shown + ' / ' + total + ' 条';
   }
 
-  const title = createEl('h2', 'news-title', col);
-  setText(title, item.title || '无标题');
-
-  const summary = createEl('p', 'news-summary', col);
-  setText(summary, item.summary || '');
-
-  const body = createEl('div', 'news-body', wrap);
-  const inner = createEl('div', 'news-body-inner', body);
-  const content = createEl('div', 'news-content', inner);
-
-  const textEl = createEl('div', 'news-content-text', content);
-
-  if (item.content) {
-    setText(textEl, item.content);
-  } else {
-    const fallback = createEl('p', 'content-fallback', textEl);
-    setText(fallback, '正文暂无法在此展示，可查看原始链接：');
-    const link = createEl('a', '', fallback);
-    link.href = item.url || '#';
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
-    setText(link, item.url || '');
+  function renderEmpty() {
+    var box = createEl('div', 'empty', els.feed);
+    var mark = createEl('div', 'empty-mark', box);
+    mark.textContent = '—';
+    var title = createEl('div', 'empty-title', box);
+    title.textContent = '没有找到匹配的新闻';
+    var text = createEl('div', 'empty-text', box);
+    text.textContent = '试试更换关键词、语言或来源。';
+    var btn = createEl('button', 'reset-btn', box);
+    btn.type = 'button';
+    btn.textContent = '重置筛选';
+    btn.addEventListener('click', resetFilters);
   }
 
-  header.addEventListener('click', () => {
-    toggleItem(wrap, header);
-    header.setAttribute('aria-expanded', String(wrap.classList.contains('is-open')));
+  function renderError() {
+    clearEl(els.feed);
+    updateCount(0);
+    els.count.textContent = '加载失败';
+    var box = createEl('div', 'empty', els.feed);
+    var mark = createEl('div', 'empty-mark', box);
+    mark.textContent = '!';
+    var title = createEl('div', 'empty-title', box);
+    title.textContent = '新闻加载失败';
+    var text = createEl('div', 'empty-text', box);
+    text.textContent = '请检查网络连接后重试。';
+    var btn = createEl('button', 'reset-btn', box);
+    btn.type = 'button';
+    btn.textContent = '重新加载';
+    btn.addEventListener('click', load);
+  }
+
+  function render() {
+    var items = filteredItems();
+    openEl = null;
+    clearEl(els.feed);
+    updateCount(items.length);
+    if (!items.length) {
+      renderEmpty();
+      return;
+    }
+    var frag = document.createDocumentFragment();
+    items.forEach(function (item, index) {
+      frag.appendChild(createStory(item, index));
+    });
+    els.feed.appendChild(frag);
+  }
+
+  function renderSkeleton() {
+    clearEl(els.feed);
+    els.count.textContent = '正在加载…';
+    els.mastheadDate.textContent = '';
+    els.mastheadStats.textContent = '';
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < 6; i++) {
+      var story = createEl('div', 'story sk', frag);
+      var head = createEl('div', 'story-head', story);
+      createEl('div', 'sk-line sk-index', head);
+      var main = createEl('div', 'story-main', head);
+      createEl('div', 'sk-line sk-meta', main);
+      createEl('div', 'sk-line sk-title', main);
+      createEl('div', 'sk-line sk-lead', main);
+    }
+    els.feed.appendChild(frag);
+  }
+
+  function syncTabs() {
+    var tabs = els.tabs.querySelectorAll('.tab');
+    Array.prototype.forEach.call(tabs, function (tab) {
+      var active = tab.dataset.lang === state.lang;
+      tab.classList.toggle('is-active', active);
+      tab.setAttribute('aria-pressed', String(active));
+    });
+  }
+
+  function updateTabCounts() {
+    var counts = { all: state.items.length, zh: 0, en: 0 };
+    state.items.forEach(function (item) { counts[item.lang] += 1; });
+    var tabs = els.tabs.querySelectorAll('.tab');
+    Array.prototype.forEach.call(tabs, function (tab) {
+      var em = tab.querySelector('em');
+      if (em) em.textContent = String(counts[tab.dataset.lang] || 0);
+    });
+  }
+
+  function updateSources() {
+    var counts = {};
+    state.items.forEach(function (item) {
+      counts[item.source] = (counts[item.source] || 0) + 1;
+    });
+    var names = Object.keys(counts).sort(function (a, b) {
+      return counts[b] - counts[a] || a.localeCompare(b);
+    });
+    clearEl(els.source);
+    var all = createEl('option', '', els.source);
+    all.value = 'all';
+    all.textContent = '全部来源';
+    names.forEach(function (name) {
+      var opt = createEl('option', '', els.source);
+      opt.value = name;
+      opt.textContent = name + ' (' + counts[name] + ')';
+    });
+    els.source.value = 'all';
+  }
+
+  function resetFilters() {
+    state.lang = 'all';
+    state.query = '';
+    state.source = 'all';
+    els.search.value = '';
+    els.source.value = 'all';
+    syncTabs();
+    render();
+  }
+
+  function isTyping(target) {
+    if (!target) return false;
+    var tag = target.tagName;
+    return tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || target.isContentEditable;
+  }
+
+  function onScroll() {
+    var scrollTop = window.scrollY;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var progress = max > 0 ? scrollTop / max : 0;
+    els.progress.style.transform = 'scaleX(' + progress + ')';
+  }
+
+  function init(data) {
+    state.items = (data.items || []).map(normalize);
+    state.lang = 'all';
+    state.query = '';
+    state.source = 'all';
+
+    els.mastheadDate.textContent = fmtDate(data.date);
+    var zh = state.items.filter(function (i) { return i.lang === 'zh'; }).length;
+    els.mastheadStats.textContent = '共 ' + state.items.length + ' 条 · 中文 ' + zh + ' · English ' + (state.items.length - zh);
+
+    var generated = data.generated ? new Date(data.generated) : null;
+    if (generated && !isNaN(generated.getTime())) {
+      var hh = String(generated.getHours()).padStart(2, '0');
+      var mm = String(generated.getMinutes()).padStart(2, '0');
+      els.topbarUpdate.textContent = '更新于 ' + hh + ':' + mm;
+    } else {
+      els.topbarUpdate.textContent = '';
+    }
+
+    updateTabCounts();
+    updateSources();
+    syncTabs();
+    render();
+    onScroll();
+  }
+
+  async function load() {
+    renderSkeleton();
+    els.hint.textContent = '点击条目展开正文';
+    try {
+      var resp = await fetch('news.json', { cache: 'no-store' });
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      var data = await resp.json();
+      init(data);
+    } catch (err) {
+      renderError();
+      console.error(err);
+    }
+  }
+
+  els.themeBtn.addEventListener('click', function () {
+    applyTheme(getTheme() === 'dark' ? 'light' : 'dark');
   });
 
-  return wrap;
-}
-
-function render(data) {
-  EL.list.classList.remove('skeleton');
-  clearEl(EL.list);
-
-  const date = data.date || '';
-  setText(EL.heroDate, fmtDate(date));
-
-  let summary = data.summary || '';
-  if (!summary && (data.total || 0) > 0) {
-    summary = `今日精选 ${data.total} 条要闻`;
-  }
-  setText(EL.heroSummary, summary);
-
-  const items = data.items || [];
-  if (items.length === 0) {
-    const msg = createEl('div', 'state-message', EL.list);
-    setText(msg, '今日暂无新闻更新，请稍后再来');
-    return;
-  }
-
-  items.forEach((item, index) => {
-    EL.list.appendChild(createNewsItem(item, index));
+  els.tabs.addEventListener('click', function (e) {
+    var tab = e.target.closest('.tab');
+    if (!tab) return;
+    state.lang = tab.dataset.lang;
+    syncTabs();
+    render();
   });
-}
 
-function showError(msg) {
-  EL.list.classList.remove('skeleton');
-  clearEl(EL.list);
-  const wrap = createEl('div', 'state-message', EL.list);
-  setText(wrap, msg);
-  const br = createEl('br', '', wrap);
-  const br2 = createEl('br', '', wrap);
-  const retry = createEl('a', '', wrap);
-  retry.href = 'javascript:location.reload()';
-  setText(retry, '点击重试');
-}
-
-function updateSpotlight() {
-  if (!EL.spotlight) return;
-  EL.spotlight.style.transform = `translate3d(${lastMouseX}px, ${lastMouseY}px, 0)`;
-}
-
-function onMouseMove(e) {
-  lastMouseX = e.clientX;
-  lastMouseY = e.clientY;
-  if (mouseTicking) return;
-  mouseTicking = true;
-  requestAnimationFrame(() => {
-    updateSpotlight();
-    mouseTicking = false;
+  els.search.addEventListener('input', function () {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(function () {
+      state.query = els.search.value;
+      render();
+    }, 120);
   });
-}
 
-function updateProgress() {
-  const scrollTop = window.scrollY;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = docHeight > 0 ? scrollTop / docHeight : 0;
-  if (EL.progressBar) {
-    EL.progressBar.style.transform = `scaleX(${progress})`;
-  }
-}
-
-function onScroll() {
-  if (scrollTicking) return;
-  scrollTicking = true;
-  requestAnimationFrame(() => {
-    updateProgress();
-    scrollTicking = false;
+  els.source.addEventListener('change', function () {
+    state.source = els.source.value;
+    render();
   });
-}
 
-window.addEventListener('mousemove', onMouseMove, { passive: true });
-window.addEventListener('scroll', onScroll, { passive: true });
-window.addEventListener('resize', onScroll, { passive: true });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && openEl) {
+      setOpen(openEl, false);
+      openEl = null;
+      return;
+    }
+    if (e.key === '/' && !isTyping(e.target)) {
+      e.preventDefault();
+      els.search.focus();
+    }
+  });
 
-async function load() {
-  renderSkeleton();
-  try {
-    const resp = await fetch('news.json');
-    if (!resp.ok) throw new Error(`加载失败 (${resp.status})`);
-    const data = await resp.json();
-    render(data);
-    updateProgress();
-  } catch (e) {
-    showError('新闻加载失败，请检查网络后重试');
-    console.error(e);
-  }
-}
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
 
-load();
+  applyTheme(getTheme());
+  load();
+})();
 </script>
 </body>
 </html>
